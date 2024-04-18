@@ -47,7 +47,7 @@
 
 ## Extra Document
 
-* [SOOP 플랫폼의 소켓 코드표](extra-document/code\_table/README.md)
+* [SOOP의 소켓 코드표](extra-document/code\_table/README.md)
   * [USERLEVEL 코드표](extra-document/code\_table/userlevel.md)
   * [ChatServiceType 코드표](extra-document/code\_table/chatservicetype.md)
   * [ChatQuitStatus 코드표](extra-document/code\_table/chatquitstatus.md)
