@@ -27,7 +27,6 @@
 * Step 2. 로그인
   * 발행 된 API키를 이용해 소켓에 로그인 합니다.
 * 로그인 절차가 완료되면 원하시는 데이터를 `Event Listener`를 통해 수신할 수 있습니다
-  * `Event Listener`의 사용 방법에 대해서는 [이 글](broken-reference)을 참고하세요
 
 
 
