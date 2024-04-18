@@ -63,7 +63,7 @@ https://socket.ssapi.kr
 
 <body>
   <script>
-  const socket = io("http://3.37.41.238:27010", {
+  const socket = io("https://socket.ssapi.kr", {
     transports: ["websocket"],
     timeout: 5000,
   });
@@ -94,7 +94,7 @@ https://socket.ssapi.kr
 ```javascript
 const io = require("socket.io-client");
 
-const socket = io("http://3.37.41.238:27010", {
+const socket = io("https://socket.ssapi.kr", {
   transports: ["websocket"],
   timeout: 5000,
 });
@@ -132,7 +132,7 @@ public class SocketExample {
             options.transports = new String[]{"websocket"};
             options.timeout = 5000; // 5 seconds
 
-            Socket socket = IO.socket("http://3.37.41.238:27010", options);
+            Socket socket = IO.socket("https://socket.ssapi.kr", options);
 
             // Handle socket connection
             socket.on(Socket.EVENT_CONNECT, args1 -> {
@@ -185,7 +185,7 @@ def disconnect():
 def chat(data):
   print("Received message", data)
 
-sio.connect("http://3.37.41.238:27010", transports=["websocket"], timeout=5)
+sio.connect("https://socket.ssapi.kr", transports=["websocket"], timeout=5)
 ```
 {% endtab %}
 {% endtabs %}
