@@ -1,7 +1,6 @@
 # Table of contents
 
 * [🚫 이 API는 Private Beta입니다](README.md)
-* [⛔ 치지직 지원은 준비중입니다](undefined.md)
 * [🧡 API의 원리와 구성](api.md)
 
 ## 💛 REST API
