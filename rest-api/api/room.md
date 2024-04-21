@@ -76,10 +76,10 @@ model<[room(REST API)](../../extended-model/room-rest-api.md)>
 아이디 입력을 실수하는  것을 방지하고자 애청자 50 미만의 계정은 등록할 수 없습니다.
 {% endhint %}
 
-| Name       | Type   | Description                                    |
-| ---------- | ------ | ---------------------------------------------- |
-| `platform` | string | <p>방송 플랫폼</p><p>지원되는 값 : <code>soop</code></p> |
-| `user`     | string | 등록할 스트리머 아이디                                   |
+| Name       | Type   | Description                                                                                 |
+| ---------- | ------ | ------------------------------------------------------------------------------------------- |
+| `platform` | string | <p>방송 플랫폼</p><p>지원되는 값 : <code>soop</code>, <code>chzzk</code></p>                          |
+| `user`     | string | <p>등록할 스트리머 아이디<br>- 치지직의 경우 채널 ID (<a href="../../extra-document/channel_id.md">?</a>)</p> |
 
 
 
@@ -133,10 +133,10 @@ model<[room(REST API)](../../extended-model/room-rest-api.md)>
 
 **Body**
 
-| Name       | Type   | Description                                    |
-| ---------- | ------ | ---------------------------------------------- |
-| `platform` | string | <p>방송 플랫폼</p><p>지원되는 값 : <code>soop</code></p> |
-| `user`     | string | 등록할 스트리머 아이디                                   |
+| Name       | Type   | Description                                                                                    |
+| ---------- | ------ | ---------------------------------------------------------------------------------------------- |
+| `platform` | string | <p>방송 플랫폼</p><p>지원되는 값 : <code>soop</code></p>                                                 |
+| `user`     | string | <p>등록할 스트리머 아이디</p><p>- 치지직의 경우 채널 ID (<a href="../../extra-document/channel_id.md">?</a>)</p> |
 
 **Response**
 

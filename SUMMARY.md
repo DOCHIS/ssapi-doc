@@ -52,3 +52,4 @@
   * [ChatServiceType 코드표](extra-document/code\_table/chatservicetype.md)
   * [ChatQuitStatus 코드표](extra-document/code\_table/chatquitstatus.md)
   * [ChatIceType 코드표](extra-document/code\_table/chaticetype.md)
+* [치치직에서 채널아이디란?](extra-document/channel\_id.md)
