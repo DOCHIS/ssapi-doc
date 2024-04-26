@@ -9,6 +9,7 @@
 * [API 목록](rest-api/api/README.md)
   * [room](rest-api/api/room.md)
   * [pollng](rest-api/api/pollng.md)
+* [⭐ 이 API의 성과](rest-api/api-1.md)
 
 ## 💚 socket
 
@@ -29,7 +30,6 @@
 
 * [소켓룸 최대 정원](more/policy\_limit.md)
 * [데이터 보관 주기](more/policy\_data.md)
-* [Beta 진행 상황](more/history.md)
 
 ## Models
 
