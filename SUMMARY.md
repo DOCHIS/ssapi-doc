@@ -1,7 +1,7 @@
 # Table of contents
 
 * [🚫 이 API는 Private Beta입니다](README.md)
-* [🧡 API의 원리와 구성](api.md)
+* [🧡 API의 원리와 사용이유](api.md)
 
 ## 💛 REST API
 
