@@ -2,7 +2,7 @@
 
 ## 이 API와 함께 한 프로젝트
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><img src="../.gitbook/assets/SealCircle (1).png" alt=""></td><td><a href="https://bj.afreecatv.com/ziyom2"><strong>[마크] 랜드마꾸 서버</strong></a></td><td>2024년 04월 20일 ~<br>진행 중<br><br>API 지원을 협력하였습니다</td></tr><tr><td><img src="../.gitbook/assets/SealCircle.png" alt=""></td><td><a href="https://bj.afreecatv.com/ziyom2"><strong>[마크] 포켓꾸 서버</strong></a></td><td>2024년 3월 8일 ~ 4월 5일<br>약 260명의 BJ참가<br><br>API 지원을 협력하였습니다</td></tr><tr><td><img src="../.gitbook/assets/image (6).png" alt="" data-size="original"></td><td><a href="https://bj.afreecatv.com/versetime"><strong>뻐스시간</strong>(VERSETIME)</a></td><td><br>API 시스템을 통한 각종 컨텐츠 제작을 협업하있습니다</td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><img src=".gitbook/assets/SealCircle (1).png" alt=""></td><td><a href="https://bj.afreecatv.com/ziyom2"><strong>[마크] 랜드마꾸 서버</strong></a></td><td>2024년 04월 20일 ~<br>진행 중<br><br>API 플러그인 개발을 지원하였습니다.</td></tr><tr><td><img src=".gitbook/assets/SealCircle.png" alt=""></td><td><a href="https://bj.afreecatv.com/ziyom2"><strong>[마크] 포켓꾸 서버</strong></a></td><td>2024년 3월 8일 ~ 4월 5일<br>약 260명의 BJ참가<br><br>API 플러그인 개발을 지원하였습니다.</td></tr><tr><td><img src=".gitbook/assets/image (6).png" alt="" data-size="original"></td><td><a href="https://bj.afreecatv.com/versetime"><strong>뻐스시간</strong>(VERSETIME)</a></td><td><br>API 시스템을 통한 각종 컨텐츠 제작을 협업하있습니다</td></tr></tbody></table>
 
 
 
