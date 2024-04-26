@@ -2,6 +2,7 @@
 
 * [🚫 이 API는 Private Beta입니다](README.md)
 * [🧡 API의 원리와 사용이유](api.md)
+* [⭐ 이 API의 성과](result.md)
 
 ## 💛 REST API
 
@@ -9,7 +10,6 @@
 * [API 목록](rest-api/api/README.md)
   * [room](rest-api/api/room.md)
   * [pollng](rest-api/api/pollng.md)
-* [⭐ 이 API의 성과](rest-api/api-1.md)
 
 ## 💚 socket
 
