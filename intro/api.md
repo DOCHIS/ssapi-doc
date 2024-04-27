@@ -6,7 +6,7 @@
 
 이 API는 중계 서버를 통해 아프리카의 채팅을 파싱하여 API 형태로 제공합니다.
 
-<figure><img src=".gitbook/assets/슬라이드1.PNG" alt=""><figcaption><p>서비스 구성</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/슬라이드1.PNG" alt=""><figcaption><p>서비스 구성</p></figcaption></figure>
 
 각 서버스의 채팅/후원 내역을 효율적으로 파싱하기 위해 각 플랫폼 별 별도의 VM을 운영하여 수집하고 있습니다.
 
