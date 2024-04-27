@@ -22,14 +22,11 @@
   * [↓ etc](socket/api/donation-1.md)
 * [퍼포먼스 벤치마크](socket/benchmark.md)
 
-## 🩵 지원 <a href="#support" id="support"></a>
-
-* [디스코드 커뮤니티](https://discord.gg/cNVpzCkEvM)
-
-## 💙 더 알아보기 <a href="#more" id="more"></a>
+## 🩵 더 알아보기 <a href="#more" id="more"></a>
 
 * [소켓룸 최대 정원](more/policy\_limit.md)
 * [데이터 보관 주기](more/policy\_data.md)
+* [디스코드 커뮤니티](https://discord.gg/cNVpzCkEvM)
 
 ## Models
 
