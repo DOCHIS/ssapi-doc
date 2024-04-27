@@ -4,8 +4,8 @@
 
 ## 🐶 개요 <a href="#intro" id="intro"></a>
 
-* [🧡 API의 원리와 사용이유](intro/api.md)
-* [⭐ 이 API의 성과](intro/result.md)
+* [API의 원리와 사용이유](api.md)
+* [이 API의 성과](result.md)
 
 ## 💛 REST API
 
