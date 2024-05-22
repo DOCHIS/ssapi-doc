@@ -21,7 +21,7 @@
 
 ## 채팅 내역 파싱
 
-<mark style="color:green;">`GET`</mark> `/polling/chat`
+<mark style="color:green;">`GET`</mark> `/chats/polling`
 
 채팅 내역을 파싱합니다.
 
@@ -104,7 +104,7 @@ model<[polling(REST API)](../../extended-model/polling-rest-api.md)>
 
 ## 후원내역 파싱
 
-<mark style="color:green;">`GET`</mark> `/polling/donation`
+<mark style="color:green;">`GET`</mark> `/donations/polling`
 
 후원내역을 파싱합니다.
 

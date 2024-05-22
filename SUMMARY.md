@@ -13,6 +13,8 @@
 * [API 목록](rest-api/api/README.md)
   * [room](rest-api/api/room.md)
   * [pollng](rest-api/api/pollng.md)
+* [제휴 전용 API](rest-api/alliance/README.md)
+  * [chats](rest-api/alliance/chats.md)
 
 ## 💚 socket
 
