@@ -6,6 +6,7 @@
 
 * [API의 원리와 사용이유](api.md)
 * [이 API의 성과](result.md)
+* [가격/이용 정책](intro/policy.md)
 
 ## 💛 REST API
 
