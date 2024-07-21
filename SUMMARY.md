@@ -1,6 +1,7 @@
 # Table of contents
 
-* [🚫 이 API는 Private Beta입니다](README.md)
+* [🌟 환영합니다](README.md)
+* [🚄 빠른 시작 가이드](quick\_start\_guide.md)
 
 ## 🐶 개요 <a href="#intro" id="intro"></a>
 
@@ -8,6 +9,7 @@
 * [SSAPI를 사용해야 하는 이유](intro/why-use.md)
 * [SSAPI와 함께하는 프로젝트](intro/projects.md)
 * [가격 정책과 이용 정책](intro/policy.md)
+* [API키 발급방법](intro/how-to-issue-api-key.md)
 
 ## 💛 REST API
 
@@ -34,6 +36,7 @@
 * [소켓룸 최대 정원](more/policy\_limit.md)
 * [데이터 보관 주기](more/policy\_data.md)
 * [디스코드 커뮤니티](https://discord.gg/cNVpzCkEvM)
+* [API 키 사용 신청서 양식](more/application.md)
 
 ## Models
 
