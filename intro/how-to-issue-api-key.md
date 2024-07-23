@@ -11,7 +11,7 @@ SSAPI는 현재 Private 상태로, API 키 발급과 관리에 정책이 있습�
 
 ## API 키 발급 신청
 
-API 키의 발급 신청은 발급 [신청 양식](../more/application.md)을 [디스코드 채널](https://discord.gg/cNVpzCkEvM)로 보내주시면 심사를 통해 발급유무를 결정하고 있습니다
+API 키의 발급 신청은 발급 [신청 양식](../extra-document/application.md)을 [디스코드 채널](https://discord.gg/cNVpzCkEvM)로 보내주시면 심사를 통해 발급유무를 결정하고 있습니다
 
 
 

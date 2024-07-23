@@ -33,10 +33,7 @@
 
 ## 🩵 더 알아보기 <a href="#more" id="more"></a>
 
-* [소켓룸 최대 정원](more/policy\_limit.md)
-* [데이터 보관 주기](more/policy\_data.md)
 * [디스코드 커뮤니티](https://discord.gg/cNVpzCkEvM)
-* [API 키 사용 신청서 양식](more/application.md)
 
 ## Models
 
@@ -53,9 +50,12 @@
 
 ## Extra Document
 
+* [API 키 사용 신청서 양식](extra-document/application.md)
+* [치치직에서 채널아이디란?](extra-document/channel\_id.md)
+* [소켓룸 최대 정원](extra-document/policy\_limit.md)
+* [데이터 보관 주기](extra-document/policy\_data.md)
 * [SOOP의 소켓 코드표](extra-document/code\_table/README.md)
   * [USERLEVEL 코드표](extra-document/code\_table/userlevel.md)
   * [ChatServiceType 코드표](extra-document/code\_table/chatservicetype.md)
   * [ChatQuitStatus 코드표](extra-document/code\_table/chatquitstatus.md)
   * [ChatIceType 코드표](extra-document/code\_table/chaticetype.md)
-* [치치직에서 채널아이디란?](extra-document/channel\_id.md)

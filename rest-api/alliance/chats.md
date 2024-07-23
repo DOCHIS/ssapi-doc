@@ -27,7 +27,7 @@
 
 **Body**
 
-<table><thead><tr><th>Name</th><th width="153">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>reference_time</code></td><td>string<br>( ISO 8601 형식)</td><td><p>데이터를 불러올 기준 시간입니다.</p><p></p><p><code>예시) 2024-06-01T12:00:00Z</code></p><p></p><p>주의) <a href="../../more/policy_data.md">데이터보관주기</a>가 경과된 데이터는 삭제하므로 제공되지 않습니다.</p></td></tr><tr><td><code>duration</code></td><td>number</td><td>데이터를 불러올 기간입니다.<br>(단위 : 초)<br><code>최소 : 30초</code><br><code>최대 : 3600초 (1시간)</code></td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th width="153">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>reference_time</code></td><td>string<br>( ISO 8601 형식)</td><td><p>데이터를 불러올 기준 시간입니다.</p><p></p><p><code>예시) 2024-06-01T12:00:00Z</code></p><p></p><p>주의) <a href="../../extra-document/policy_data.md">데이터보관주기</a>가 경과된 데이터는 삭제하므로 제공되지 않습니다.</p></td></tr><tr><td><code>duration</code></td><td>number</td><td>데이터를 불러올 기간입니다.<br>(단위 : 초)<br><code>최소 : 30초</code><br><code>최대 : 3600초 (1시간)</code></td></tr></tbody></table>
 
 
 
