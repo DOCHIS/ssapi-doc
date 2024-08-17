@@ -11,7 +11,7 @@
         2024년 05월 23일 ~<br>
         진행 중<br><br>
         더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공합니다.<br><br>
-        <a href="https://viewership.softc.one/">바로가기</a>
+        <a target="_blank" href="https://viewership.softc.one/">바로가기</a>
       </td>
       <td></td>
     </tr>
@@ -23,7 +23,7 @@
           2024년 3월 10일 ~<br>
           버튜버 예능 그룹<br><br>
           각종 컨텐츠 제작을 협업하고있습니다<br><br>
-          <a href="https://bj.afreecatv.com/versetime">바로가기</a>
+          <a target="_blank" href="https://bj.afreecatv.com/versetime">바로가기</a>
         </p>
       </td>
       <td></td>
@@ -42,7 +42,7 @@
         2024년 08월 16일 ~<br>
         약 50명의 BJ 참가<br><br>
         플러그인 개발, API 지원<br><br>
-        <a href="https://bj.afreecatv.com/kjkj4424">바로가기</a>
+        <a target="_blank" href="https://bj.afreecatv.com/kjkj4424">바로가기</a>
       </td>
       <td></td>
     </tr>
@@ -53,7 +53,7 @@
         2024년 08월 10일 ~<br>
         약 50명의 BJ 참가<br><br>
         API 지원<br><br>
-        <a href="https://bj.afreecatv.com/wbs5596">바로가기</a>
+        <a target="_blank" href="https://bj.afreecatv.com/wbs5596">바로가기</a>
       </td>
       <td></td>
     </tr>
@@ -64,7 +64,7 @@
         2024년 08월 01일 ~<br>
         약 140명의 BJ 참가<br><br>
         플러그인 개발, API 지원<br><br>
-        <a href="https://bj.afreecatv.com/vf3366">바로가기</a>
+        <a target="_blank" href="https://bj.afreecatv.com/vf3366">바로가기</a>
       </td>
       <td></td>
     </tr>
@@ -75,7 +75,7 @@
         2024년 07월 05일 ~<br>
         약 130명의 BJ 참가<br><br>
         API 지원<br><br>
-        <a href="https://bj.afreecatv.com/tmlarhf155">바로가기</a>
+        <a target="_blank" href="https://bj.afreecatv.com/tmlarhf155">바로가기</a>
       </td>
       <td></td>
     </tr>
@@ -86,7 +86,7 @@
         2024년 07월 03일 ~  <br>
         약  70명의  BJ 참가<br><br>
         API 지원<br><br>
-        <a href="https://bj.afreecatv.com/gjm0211">바로가기</a>
+        <a target="_blank" href="https://bj.afreecatv.com/gjm0211">바로가기</a>
       </td>
       <td></td>
     </tr>
@@ -97,7 +97,7 @@
         2024년 4월 20일 ~ 8월 16일<br>
         약  400명의  BJ 참가<br><br>
         플러그인 개발, API 지원<br><br>
-        <a href="https://bj.afreecatv.com/ziyom2">바로가기</a>
+        <a target="_blank" href="https://bj.afreecatv.com/ziyom2">바로가기</a>
       </td>
       <td></td>
     </tr>
@@ -108,7 +108,7 @@
         2024년 3월 8일 ~ 4월 5일<br>
         약 260명의 BJ참가<br><br>
         플러그인 개발, API 지원<br><br>
-        <a href="https://bj.afreecatv.com/ziyom2">바로가기</a>
+        <a target="_blank" href="https://bj.afreecatv.com/ziyom2">바로가기</a>
       </td>
       <td></td>
     </tr>
