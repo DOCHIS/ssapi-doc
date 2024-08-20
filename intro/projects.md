@@ -36,6 +36,17 @@
 <table data-view="cards">
   <tbody>
     <tr>
+      <td><img src="../.gitbook/assets/마병대.png" alt="" data-size="original"></td>
+      <td><h4>마병대</h4></td>
+      <td>
+        2024년 08월 21일 ~<br>
+        약 50명의 BJ 참가<br><br>
+        플러그인 개발, API 지원<br><br>
+        <a target="_blank" href="https://bj.afreecatv.com/devil0108">바로가기</a>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
       <td><img src="../.gitbook/assets/해초마을.gif" alt="" data-size="original"></td>
       <td><h4>해초마을</h4></td>
       <td>
