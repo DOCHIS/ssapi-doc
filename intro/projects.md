@@ -166,8 +166,8 @@
   </thead>
   <tbody>
     <tr>
-      <td>24/08/10</td>
-      <td><mark style="color:purple;"><strong><code>KPI</code></strong></mark> API를 통해 제공 된 누적 후원액이 100억을 돌파했습니다!</td>
+      <td>24/08/22</td>
+      <td><mark style="color:purple;"><strong><code>KPI</code></strong></mark> API를 통해 제공 된 누적 후원액이 150억을 돌파했습니다!</td>
     </tr>
     <tr>
       <td>24/06/13</td>
