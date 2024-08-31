@@ -5,7 +5,7 @@
 
 ## 🐶 개요 <a href="#intro" id="intro"></a>
 
-* [SSAPI의 원리와 구성](api.md)
+* [SSAPI의 원리와 구성](intro/api.md)
 * [SSAPI를 사용해야 하는 이유](intro/why-use.md)
 * [SSAPI와 함께하는 프로젝트](intro/projects.md)
 * [가격 정책과 이용 정책](intro/policy.md)
