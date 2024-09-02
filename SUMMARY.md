@@ -31,9 +31,9 @@
   * [↓ etc](socket/api/donation-1.md)
 * [퍼포먼스 벤치마크](socket/benchmark.md)
 
-## 🩵 더 알아보기 <a href="#more" id="more"></a>
+## 🩵 문의하기 <a href="#contact" id="contact"></a>
 
-* [디스코드 커뮤니티](https://discord.gg/cNVpzCkEvM)
+* [문의하기](contact/index.md)
 
 ## Models
 
