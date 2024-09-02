@@ -34,6 +34,7 @@
 ## 🩵 문의하기 <a href="#contact" id="contact"></a>
 
 * [문의하기](contact/index.md)
+* [API 키 사용 신청서 양식](contact/application.md)
 
 ## Models
 
@@ -50,7 +51,6 @@
 
 ## Extra Document
 
-* [API 키 사용 신청서 양식](extra-document/application.md)
 * [치치직에서 채널아이디란?](extra-document/channel\_id.md)
 * [소켓룸 최대 정원](extra-document/policy\_limit.md)
 * [데이터 보관 주기](extra-document/policy\_data.md)
