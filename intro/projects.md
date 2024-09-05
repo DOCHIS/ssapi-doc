@@ -81,7 +81,7 @@
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/gjm0211 (1).png" alt=""></td>
-      <td><h4>힐링월드</h4></td>
+      <td><h4>힐링월드 시즌1~2</h4></td>
       <td>
         2024년 07월 05일 ~<br>
         약 130명의 BJ 참가<br><br>
@@ -94,7 +94,7 @@
       <td><img src="../.gitbook/assets/gjm0211.png" alt=""></td>
       <td><h4><strong>자명랜드 시즌3</strong></h4></td>
       <td>
-        2024년 07월 03일 ~  <br>
+        2024년 07월 03일 ~  8월 30일<br>
         약  70명의  BJ 참가<br><br>
         API 지원<br><br>
         <a target="_blank" href="https://bj.afreecatv.com/gjm0211">바로가기</a>
