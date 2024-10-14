@@ -33,95 +33,94 @@
 
 ## 마인크래프트 서버
 
-<table data-view="cards">
+<table>
+  <thead>
+    <tr>
+      <th width="122">이미지</th>
+      <th width="126">서버 이름</th>
+      <th>내용</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td><img src="../.gitbook/assets/마병대.png" alt="" data-size="original"></td>
-      <td><h4>마병대</h4></td>
+      <td><strong>마병대</strong></td>
       <td>
-        24년 08월 21일 ~ 8월 24일<br>
-        약 60명의 BJ 참가<br><br>
-        플러그인 개발, API 지원<br><br>
-        <a target="_blank" href="https://bj.afreecatv.com/devil0108">바로가기</a>
+        <strong>기간:</strong> 24년 08월 21일 ~ 8월 24일<br>
+        <strong>참여 인원:</strong> 약 60명<br>
+        <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
+        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/devil0108" target="_blank">바로가기</a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/해초마을.gif" alt="" data-size="original"></td>
-      <td><h4>해초마을</h4></td>
+      <td><strong>해초마을</strong></td>
       <td>
-        24년 08월 16일 ~<br>
-        약 50명의 BJ 참가<br><br>
-        플러그인 개발, API 지원<br><br>
-        <a target="_blank" href="https://bj.afreecatv.com/kjkj4424">바로가기</a>
+        <strong>기간:</strong> 24년 08월 16일 ~ 10월 7일<br>
+        <strong>참여 인원:</strong> 약 50명<br>
+        <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
+        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/kjkj4424" target="_blank">바로가기</a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/빵식랜드.gif" alt="" data-size="original"></td>
-      <td><h4>빵식랜드 서버</h4></td>
+      <td><strong>빵식랜드</strong></td>
       <td>
-        24년 08월 10일 ~<br>
-        약 50명의 BJ 참가<br><br>
-        API 지원<br><br>
-        <a target="_blank" href="https://bj.afreecatv.com/wbs5596">바로가기</a>
+        <strong>기간:</strong> 24년 08월 10일 ~<br>
+        <strong>참여 인원:</strong> 약 50명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/wbs5596" target="_blank">바로가기</a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/클로배.gif" alt="" data-size="original"></td>
-      <td><h4>클로배 서버</h4></td>
+      <td><strong>클로배</strong></td>
       <td>
-        24년 08월 01일 ~ 8월 26일<br>
-        약 250명의 BJ 참가<br><br>
-        플러그인 개발, API 지원<br><br>
-        <a target="_blank" href="https://bj.afreecatv.com/vf3366">바로가기</a>
+        <strong>기간:</strong> 24년 08월 01일 ~ 8월 26일<br>
+        <strong>참여 인원:</strong> 약 250명<br>
+        <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
+        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/vf3366" target="_blank">바로가기</a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/gjm0211 (1).png" alt=""></td>
-      <td><h4>힐링월드 시즌1~2</h4></td>
+      <td><strong>힐링월드<Br>시즌1/2</strong></td>
       <td>
-        24년 07월 05일 ~<br>
-        약 130명의 BJ 참가<br><br>
-        API 지원<br><br>
-        <a target="_blank" href="https://bj.afreecatv.com/tmlarhf155">바로가기</a>
+        <strong>기간:</strong> 24년 07월 05일 ~<br>
+        <strong>참여 인원:</strong> 약 130명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/tmlarhf155" target="_blank">바로가기</a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/gjm0211.png" alt=""></td>
-      <td><h4><strong>자명랜드 시즌3</strong></h4></td>
+      <td><strong>자명랜드<br>시즌3</strong></td>
       <td>
-        24년 07월 03일 ~  8월 30일<br>
-        약  70명의  BJ 참가<br><br>
-        API 지원<br><br>
-        <a target="_blank" href="https://bj.afreecatv.com/gjm0211">바로가기</a>
+        <strong>기간:</strong> 24년 07월 03일 ~ 8월 30일<br>
+        <strong>참여 인원:</strong> 약 70명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/gjm0211" target="_blank">바로가기</a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/랜드마꾸 로고" alt=""></td>
-      <td><h4><strong>랜드마꾸 서버</strong></h4></td>
+      <td><strong>랜드마꾸</strong></td>
       <td>
-        24년 4월 20일 ~ 8월 16일<br>
-        약  400명의  BJ 참가<br><br>
-        플러그인 개발, API 지원<br><br>
-        <a target="_blank" href="https://bj.afreecatv.com/ziyom2">바로가기</a>
+        <strong>기간:</strong> 24년 4월 20일 ~ 8월 16일<br>
+        <strong>참여 인원:</strong> 약 400명<br>
+        <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
+        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/ziyom2" target="_blank">바로가기</a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/포켓꾸 로고" alt=""></td>
-      <td><h4><strong>포켓꾸 서버</strong></h4></td>
+      <td><strong>포켓꾸</strong></td>
       <td>
-        24년 3월 8일 ~ 4월 5일<br>
-        약 260명의 BJ참가<br><br>
-        플러그인 개발, API 지원<br><br>
-        <a target="_blank" href="https://bj.afreecatv.com/ziyom2">바로가기</a>
+        <strong>기간:</strong> 24년 3월 8일 ~ 4월 5일<br>
+        <strong>참여 인원:</strong> 약 260명<br>
+        <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
+        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/ziyom2" target="_blank">바로가기</a>
       </td>
-      <td></td>
     </tr>
   </tbody>
 </table>
@@ -131,24 +130,24 @@
 <table>
   <thead>
     <tr>
-      <th width="190">날짜</th>
+      <th width="122">날짜</th>
       <th width="126">최종 사용자</th>
       <th>내용</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>24년 06월 30일</td>
+      <td>24/06/30</td>
       <td>버스시간 팀</td>
       <td>소속 BJ분 생일 콘텐츠에서 사용할 내부 프로그램 개발 협업</td>
     </tr>
     <tr>
-      <td>24년 05월 01일</td>
+      <td>24/05/01</td>
       <td>익명</td>
       <td>채팅 API를 기반으로 한 미니게임 콘텐츠개발 지원</td>
     </tr>
     <tr>
-      <td>24년 04월 13일</td>
+      <td>24/04/13</td>
       <td>버스시간 팀</td>
       <td>소속 BJ분 데뷔 콘서트에서 사용할 내부 프로그램 개발 협업</td>
     </tr>
