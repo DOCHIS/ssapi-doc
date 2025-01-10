@@ -269,6 +269,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>24/12/01</td>
+      <td>많은 마인크래프트 서버에서 연락을 주셔서 감사합니다!</td>
+    </tr>
+    <tr>
+      <td>24/10/27</td>
+      <td>이제 마인크래프트 뿐 아니라 좀보이드 서버에서도 SSAPI를 사용하네요!</td>
+    </tr>
+    <tr>
       <td>24/08/22</td>
       <td><mark style="color:purple;"><strong><code>KPI</code></strong></mark> API를 통해 제공 된 누적 후원액이 150억을 돌파했습니다!</td>
     </tr>
