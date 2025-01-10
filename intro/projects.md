@@ -43,6 +43,16 @@
   </thead>
   <tbody>
     <tr>
+      <td><img src="../.gitbook/assets/수미랜드.png" alt="" data-size="original"></td>
+      <td><strong>다이아?서버<br>(수미랜드 후열)</strong></td>
+      <td>
+        <strong>기간:</strong> 25년 01월 4일 ~<br>
+        <strong>참여 인원:</strong> 약 150명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/rmlrl771" target="_blank">바로가기</a>
+      </td>
+    </tr>
+    <tr>
       <td><img src="../.gitbook/assets/아봉서버.png" alt="" data-size="original"></td>
       <td><strong>아봉서버</strong></td>
       <td>
@@ -60,6 +70,16 @@
         <strong>참여 인원:</strong> 약 50명<br>
         <strong>개발 및 지원:</strong> API 지원<br>
         <strong>바로가기:</strong> <a href="https://www.notion.so/1525766dce1c80619941eeb463871d2c" target="_blank">바로가기</a>
+      </td>
+    </tr>
+    <tr>
+      <td><img src="../.gitbook/assets/수미랜드.png" alt="" data-size="original"></td>
+      <td><strong>수미랜드</strong></td>
+      <td>
+        <strong>기간:</strong> 24년 12월 1일 ~ 12월 31일<br>
+        <strong>참여 인원:</strong> 약 200명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/tnal8675" target="_blank">바로가기</a>
       </td>
     </tr>
     <tr>
