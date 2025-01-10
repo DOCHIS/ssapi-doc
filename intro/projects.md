@@ -23,7 +23,7 @@
           24년 3월 10일 ~<br>
           버튜버 예능 그룹<br><br>
           각종 컨텐츠 제작을 협업하고있습니다<br><br>
-          <a target="_blank" href="https://bj.afreecatv.com/versetime">바로가기</a>
+          <a target="_blank" href="https://ch.sooplive.co.kr/versetime">바로가기</a>
         </p>
       </td>
       <td></td>
@@ -43,13 +43,63 @@
   </thead>
   <tbody>
     <tr>
+      <td><img src="../.gitbook/assets/아봉서버.png" alt="" data-size="original"></td>
+      <td><strong>아봉서버</strong></td>
+      <td>
+        <strong>기간:</strong> 25년 01월 1일 ~ 1월 11일<br>
+        <strong>참여 인원:</strong> 약 30명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/rmlrl771" target="_blank">바로가기</a> | <a href="https://mcbmc.imweb.me/" target="_blank">바로가기(개발팀)</a>
+      </td>
+    </tr>
+    <tr>
+      <td><img src="../.gitbook/assets/픽셀몬 스터디 서버.png" alt="" data-size="original"></td>
+      <td><strong>픽셀몬 스터디 서버</strong></td>
+      <td>
+        <strong>기간:</strong> 24년 12월 5일 ~ 12월 22일<br>
+        <strong>참여 인원:</strong> 약 50명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://www.notion.so/1525766dce1c80619941eeb463871d2c" target="_blank">바로가기</a>
+      </td>
+    </tr>
+    <tr>
+      <td><img src="../.gitbook/assets/청새치숲4.png" alt="" data-size="original"></td>
+      <td><strong>청새치숲4</strong></td>
+      <td>
+        <strong>기간:</strong> 24년 12월 1일 ~<br>
+        <strong>참여 인원:</strong> 약 270명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/nopek98" target="_blank">바로가기</a>
+      </td>
+    </tr>
+    <tr>
+      <td><img src="../.gitbook/assets/박하마을.png" alt="" data-size="original"></td>
+      <td><strong>박하마을</strong></td>
+      <td>
+        <strong>기간:</strong> 24년 11월 30일 ~ 1월 5일<br>
+        <strong>참여 인원:</strong> 약 40명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://organization-sqq.gitbook.io/minttown" target="_blank">바로가기</a>
+      </td>
+    </tr>
+    <tr>
+      <td><img src="../.gitbook/assets/아이랜드.png" alt="" data-size="original"></td>
+      <td><strong>아이랜드</strong></td>
+      <td>
+        <strong>기간:</strong> 24년 10월 05일 ~ 10월 20일<br>
+        <strong>참여 인원:</strong> 약 5명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/qlxkals1528" target="_blank">바로가기</a>
+      </td>
+    </tr>
+    <tr>
       <td><img src="../.gitbook/assets/마병대.png" alt="" data-size="original"></td>
       <td><strong>마병대</strong></td>
       <td>
         <strong>기간:</strong> 24년 08월 21일 ~ 8월 24일<br>
         <strong>참여 인원:</strong> 약 60명<br>
         <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
-        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/devil0108" target="_blank">바로가기</a>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/devil0108" target="_blank">바로가기</a>
       </td>
     </tr>
     <tr>
@@ -59,7 +109,7 @@
         <strong>기간:</strong> 24년 08월 16일 ~ 10월 7일<br>
         <strong>참여 인원:</strong> 약 50명<br>
         <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
-        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/kjkj4424" target="_blank">바로가기</a>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/kjkj4424" target="_blank">바로가기</a>
       </td>
     </tr>
     <tr>
@@ -69,7 +119,7 @@
         <strong>기간:</strong> 24년 08월 10일 ~<br>
         <strong>참여 인원:</strong> 약 50명<br>
         <strong>개발 및 지원:</strong> API 지원<br>
-        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/wbs5596" target="_blank">바로가기</a>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/wbs5596" target="_blank">바로가기</a>
       </td>
     </tr>
     <tr>
@@ -79,27 +129,27 @@
         <strong>기간:</strong> 24년 08월 01일 ~ 8월 26일<br>
         <strong>참여 인원:</strong> 약 250명<br>
         <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
-        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/vf3366" target="_blank">바로가기</a>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/vf3366" target="_blank">바로가기</a>
       </td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/gjm0211 (1).png" alt=""></td>
-      <td><strong>힐링월드<Br>시즌1/2</strong></td>
+      <td><strong>힐링월드</strong></td>
       <td>
         <strong>기간:</strong> 24년 07월 05일 ~<br>
         <strong>참여 인원:</strong> 약 130명<br>
         <strong>개발 및 지원:</strong> API 지원<br>
-        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/tmlarhf155" target="_blank">바로가기</a>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/tmlarhf155" target="_blank">바로가기</a>
       </td>
     </tr>
     <tr>
       <td><img src="../.gitbook/assets/gjm0211.png" alt=""></td>
-      <td><strong>자명랜드<br>시즌3</strong></td>
+      <td><strong>자명랜드</strong></td>
       <td>
-        <strong>기간:</strong> 24년 07월 03일 ~ 8월 30일<br>
+        <strong>기간:</strong> 24년 07월 03일 ~ <br>
         <strong>참여 인원:</strong> 약 70명<br>
         <strong>개발 및 지원:</strong> API 지원<br>
-        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/gjm0211" target="_blank">바로가기</a>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/gjm0211" target="_blank">바로가기</a>
       </td>
     </tr>
     <tr>
@@ -109,7 +159,7 @@
         <strong>기간:</strong> 24년 4월 20일 ~ 8월 16일<br>
         <strong>참여 인원:</strong> 약 400명<br>
         <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
-        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/ziyom2" target="_blank">바로가기</a>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/ziyom2" target="_blank">바로가기</a>
       </td>
     </tr>
     <tr>
@@ -119,7 +169,41 @@
         <strong>기간:</strong> 24년 3월 8일 ~ 4월 5일<br>
         <strong>참여 인원:</strong> 약 260명<br>
         <strong>개발 및 지원:</strong> 플러그인 개발, API 지원<br>
-        <strong>바로가기:</strong> <a href="https://bj.afreecatv.com/ziyom2" target="_blank">바로가기</a>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/ziyom2" target="_blank">바로가기</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## 좀보이드 서버
+
+<table>
+  <thead>
+    <tr>
+      <th width="122">이미지</th>
+      <th width="126">서버 이름</th>
+      <th>내용</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../.gitbook/assets/뀨포칼립스.png" alt="" data-size="original"></td>
+      <td><strong>뀨포칼립스</strong></td>
+      <td>
+        <strong>기간:</strong> 24년 11월 17일 ~ 12월 26일<br>
+        <strong>참여 인원:</strong> 약 90명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://chzzk.naver.com/19008cc648cb3fc8ebbdc0df3d5a05de" target="_blank">바로가기</a>
+      </td>
+    </tr>
+    <tr>
+      <td><img src="../.gitbook/assets/나포칼립스.png" alt="" data-size="original"></td>
+      <td><strong>나포칼립스</strong></td>
+      <td>
+        <strong>기간:</strong> 24년 10월 27일 ~ 11월 7일<br>
+        <strong>참여 인원:</strong> 약 60명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/sh0w422" target="_blank">바로가기</a>
       </td>
     </tr>
   </tbody>
