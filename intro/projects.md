@@ -9,9 +9,22 @@
       <td><h4><strong>[제휴] 소프트콘 뷰어십</strong></h4></td>
       <td>
         24년 05월 23일 ~<br>
-        진행 중<br><br>
+        SOFTC.ONE VIEWERSHIP<br><br>
         더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공합니다.<br><br>
         <a target="_blank" href="https://viewership.softc.one/">바로가기</a>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="../.gitbook/assets/팬심_로고.png" alt="" data-size="original"></td>
+      <td><h4><strong>[제휴] (주)일리오</strong></h4></td>
+      <td>
+        <p>
+          25년 1월 14일 ~<br>
+          셀럽 후원 플랫폼 "팬심"<br><br>
+          더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공을 준비중입니다.<br><br>
+          <a target="_blank" href="https://fancim.me/">바로가기</a>
+        </p>
       </td>
       <td></td>
     </tr>
