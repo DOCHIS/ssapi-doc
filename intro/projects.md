@@ -116,6 +116,16 @@
       </td>
     </tr>
     <tr>
+      <td><img src="../.gitbook/assets/요뚜기월드.png" alt="" data-size="original"></td>
+      <td><strong>요뚜기월드 시즌2</strong></td>
+      <td>
+        <strong>기간:</strong> 24년 10월 16일 ~ <br>
+        <strong>참여 인원:</strong> 약 140명<br>
+        <strong>개발 및 지원:</strong> API 지원<br>
+        <strong>바로가기:</strong> <a href="https://ch.sooplive.co.kr/z4230x" target="_blank">바로가기</a>
+      </td>
+    </tr>
+    <tr>
       <td><img src="../.gitbook/assets/아이랜드.png" alt="" data-size="original"></td>
       <td><strong>아이랜드</strong></td>
       <td>
