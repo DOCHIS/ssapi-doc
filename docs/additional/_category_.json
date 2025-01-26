@@ -1,0 +1,8 @@
+{
+  "label": "추가 문서",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "SSAPI의 추가적인 정책, 플랫폼별 안내, 소켓 코드표 등의 문서들을 확인할 수 있습니다."
+  }
+}

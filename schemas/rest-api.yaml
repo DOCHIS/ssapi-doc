@@ -1,0 +1,427 @@
+openapi: 3.0.0
+info:
+  title: SSAPI
+  version: 1.0.0
+  description: |
+    SSAPI는 REST API 아키텍처를 기반으로 설계되었습니다. API를 통해 스트리머 정보 조회, 데이터 관리, 이벤트 조회 등 다양한 기능을 사용할 수 있습니다.
+
+servers:
+  - url: https://api.ssapi.kr
+    description: SSAPI 서버
+    
+components:
+  responses:
+    Success:
+      description: |
+        ### 성공 응답
+        - `200 OK`: 요청이 성공적으로 처리됨
+        - `201 Created`: 새로운 리소스가 성공적으로 생성됨
+        - `204 No Content`: 요청이 성공했으나 응답 본문이 없음
+    
+    ClientError:
+      description: |
+        ### 클라이언트 오류
+        - `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청
+        - `401 Unauthorized`: 인증되지 않은 요청
+        - `403 Forbidden`: 권한이 없는 요청
+        - `404 Not Found`: 요청한 리소스를 찾을 수 없음
+        - `429 Too Many Requests`: 요청 횟수 제한 초과
+    
+    ServerError:
+      description: |
+        ### 서버 오류
+        - `500 Internal Server Error`: 서버 내부 오류
+        - `503 Service Unavailable`: 서비스 일시적 사용 불가
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      
+  schemas:
+    User:
+      type: object
+      properties:
+        platform:
+          type: string
+          description: 방송 플랫폼
+        streamer_id:
+          type: string
+          description: 방송인 아이디
+        createdAt:
+          type: string
+          format: date-time
+          description: 정보 생성일
+
+    Chat:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: 채팅 ID
+        type:
+          type: string
+          enum: [chat]
+          description: chat으로 고정
+        platform:
+          type: string
+          description: 방송 플랫폼
+        streamer_id:
+          type: string
+          description: 방송인 아이디
+        message:
+          type: string
+          description: 채팅 메시지
+        user_id:
+          type: string
+          description: 시청자 아이디
+        nickname:
+          type: string
+          description: 시청자 닉네임
+        extras:
+          type: object
+          description: 추가 데이터
+        createdAt:
+          type: string
+          format: date-time
+          description: 데이터 생성일시
+        ttl:
+          type: string
+          format: date-time
+          description: 데이터 삭제예정일시
+        __v:
+          type: integer
+          description: 데이터 버전
+
+    Donation:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: 채팅 ID
+        type:
+          type: string
+          enum: [donation]
+          description: donation으로 고정
+        platform:
+          type: string
+          description: 방송 플랫폼
+        streamer_id:
+          type: string
+          description: 방송인 아이디
+        message:
+          type: string
+          description: 채팅 메시지 (숲의 경우 이 필드는 대부분의 경우 공백)
+        user_id:
+          type: string
+          description: 시청자(후원자) 아이디
+        nickname:
+          type: string
+          description: 시청자(후원자) 닉네임
+        cnt:
+          type: integer
+          description: 후원 수량
+        amount:
+          type: integer
+          description: 후원 KRW 가치 (별풍선은 하나당 백원, 치즈는 하나당 1원)
+        extras:
+          type: object
+          description: 추가 데이터
+        createdAt:
+          type: string
+          format: date-time
+          description: 데이터 생성일시
+        ttl:
+          type: string
+          format: date-time
+          description: 데이터 삭제예정일시
+        __v:
+          type: integer
+          description: 데이터 버전
+
+    Room:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 소켓소켓룸 식별을 위해 관리자가 부여한 아이디
+        users:
+          type: array
+          description: 소켓소켓룸에 가입 된 스트리머 목록
+          items:
+            $ref: '#/components/schemas/User'
+        users_limit:
+          type: integer
+          description: 소켓소켓룸 가입 수 제한
+        createdAt:
+          type: string
+          format: date-time
+          description: 소켓소켓룸 정보 생성일
+        updatedAt:
+          type: string
+          format: date-time
+          description: 소켓소켓룸 정보 업데이트
+    Error:
+      type: object
+      properties:
+        error:
+          type: integer
+        message:
+          type: string
+        data:
+          type: object
+
+paths:
+  /room:
+    get:
+      summary: 소켓룸 정보 조회
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '400':
+          description: 실패
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+                
+  /room/user:
+    put:
+      summary: 소켓룸에 스트리머 등록
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                platform:
+                  type: string
+                  enum: [soop, chzzk]
+                user:
+                  type: string
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '400':
+          description: 실패
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+                
+    delete:
+      summary: 소켓룸에서 스트리머 삭제
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                platform:
+                  type: string
+                  enum: [soop, chzzk]
+                user:
+                  type: string
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '400':
+          description: 실패
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /chats/polling:
+    get:
+      summary: 채팅 내역 파싱
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: cursor
+          schema:
+            type: string
+          description: 마지막 데이터의 커서 (미입력 시 최근 데이터 반환)
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 50
+            maximum: 100
+          description: 한번에 가져올 값
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: integer
+                    example: 0
+                  currentCursor:
+                    type: string
+                  nextCursor:
+                    type: string
+                    nullable: true
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Chat'
+                  length:
+                    type: integer
+        '400':
+          $ref: '#/components/responses/ClientError'
+
+  /donations/polling:
+    get:
+      summary: 후원 내역 파싱
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: cursor
+          schema:
+            type: string
+          description: 마지막 데이터의 커서 (미입력 시 최근 데이터 반환)
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 50
+            maximum: 100
+          description: 한번에 가져올 값
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: integer
+                    example: 0
+                  currentCursor:
+                    type: string
+                  nextCursor:
+                    type: string
+                    nullable: true
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Donation'
+                  length:
+                    type: integer
+        '400':
+          $ref: '#/components/responses/ClientError'
+
+  /chats/summaries/streamers:
+    get:
+      tags:
+        - Alliance API
+      summary: 채팅 수 통계 데이터
+      description: |
+        ⚠️ 제휴 전용 API
+        이 API는 별도 제휴를 통해서만 제공되는 제휴 전용 API입니다.
+        일반 API에 비해 심사 요건이 매우 까다롭습니다.
+        제휴를 하지 않은 경우 API 키가 있더라도 사용할 수 없습니다.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: reference_time
+          required: true
+          schema:
+            type: string
+            format: date-time
+          description: |
+            데이터를 불러올 기준 시간 (ISO 8601 형식)
+            예시) 2024-06-01T12:00:00Z
+            주의) 데이터보관주기가 경과된 데이터는 삭제하므로 제공되지 않습니다.
+        - in: query
+          name: duration
+          required: true
+          schema:
+            type: integer
+            minimum: 30
+            maximum: 3600
+          description: |
+            데이터를 불러올 기간 (단위: 초)
+            최소: 30초
+            최대: 3600초 (1시간)
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: integer
+                    example: 0
+                  summaries:
+                    type: object
+                    properties:
+                      soop:
+                        type: object
+                        additionalProperties:
+                          type: integer
+                      chzzk:
+                        type: object
+                        additionalProperties:
+                          type: integer
+                  reference:
+                    type: object
+                    properties:
+                      IOS8601:
+                        type: object
+                        properties:
+                          start:
+                            type: string
+                            format: date-time
+                          end:
+                            type: string
+                            format: date-time
+                      KST:
+                        type: object
+                        properties:
+                          start:
+                            type: string
+                          end:
+                            type: string
+                  duration:
+                    type: integer
+                  total:
+                    type: object
+                    properties:
+                      streamer:
+                        type: integer
+                      chat:
+                        type: integer
+        '400':
+          $ref: '#/components/responses/ClientError'

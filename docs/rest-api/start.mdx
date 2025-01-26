@@ -1,0 +1,62 @@
+---
+sidebar_position: 0
+---
+
+# 시작하기
+
+## API 개요
+
+SSAPI는 REST API 아키텍처를 기반으로 설계되었습니다. API를 통해 스트리머 정보 조회, 데이터 관리, 이벤트 조회 등 다양한 기능을 사용할 수 있습니다.
+
+## REST API 구조
+
+### HTTP 메소드
+
+SSAPI는 표준 HTTP 메소드를 사용합니다:
+
+- `GET`: 리소스 조회
+- `POST`: 새로운 리소스 생성
+- `PUT`: 리소스 전체 수정
+- `PATCH`: 리소스 일부 수정
+- `DELETE`: 리소스 삭제
+
+### 요청 형식
+
+요청 데이터는 HTTP 메소드에 따라 다음과 같이 전송됩니다:
+
+- `GET` 요청: Query String 사용
+
+  ```
+  /api/resource?param1=value1&param2=value2
+  ```
+
+- 그 외 메소드: JSON 형식의 Raw Data
+  ```json
+  {
+    "key1": "value1",
+    "key2": "value2"
+  }
+  ```
+
+### HTTP 상태 코드
+
+API는 표준 HTTP 상태 코드를 사용하여 요청의 결과를 전달합니다:
+
+#### 성공 응답
+
+- `200 OK`: 요청이 성공적으로 처리됨
+- `201 Created`: 새로운 리소스가 성공적으로 생성됨
+- `204 No Content`: 요청이 성공했으나 응답 본문이 없음
+
+#### 클라이언트 오류
+
+- `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청
+- `401 Unauthorized`: 인증되지 않은 요청
+- `403 Forbidden`: 권한이 없는 요청
+- `404 Not Found`: 요청한 리소스를 찾을 수 없음
+- `429 Too Many Requests`: 요청 횟수 제한 초과
+
+#### 서버 오류
+
+- `500 Internal Server Error`: 서버 내부 오류
+- `503 Service Unavailable`: 서비스 일시적 사용 불가

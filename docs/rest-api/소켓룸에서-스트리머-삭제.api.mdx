@@ -1,0 +1,71 @@
+---
+id: 소켓룸에서-스트리머-삭제
+title: "소켓룸에서 스트리머 삭제"
+description: "소켓룸에서 스트리머 삭제"
+sidebar_label: "소켓룸에서 스트리머 삭제"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu20YQ/RVizhvLLXrizW1VoEUPReygB0EI1uTE2pjkMrvLNApBwGiZoHBc1EAtuAfJcNAgSFoXcGq10MFfZK7+oZgllUqy0ASoq8OKXM7OzHsz8zYHjUGmhOmD38lhG7lCtZGZHvidbtFloPBBhtp8LMM++Ll7FQpD8I3KkEEgE4OJoU88TSMRcCNk0rqvZUJ7OuhhzOnJ9FMEH+T2fQwMMEiVTFEZgZq+phE396SK5yy1USLZAQaYZDH4HdBSpsAg6D1+vAvdgkGmUV0/ULgfJa5Tmeja/4fr6/QXog6USClF8MGWb64u/oQbAyHCVekvxXx6YC9/qtfql4lnn42qi9KOSs8Oy+lg7F2N96qXZ/bk8Op8z6v+2rPHZ9PB0LOD0o7G1dERNMD1XCyuFO+/K5Q9PvSuzvfsyROvOhx6dv/FdH9SvTyrXk286tfX1fMRMBAGY/3fyrWYRHX+2j597k2PDqqT36Y/XlL62ijkMaq770NY7cCOJosUBAq5wXDDrPJAqXEDPoTc4C0jYrxOzumguhh79ruRLd/Y0SVQyxhhInJ0hxqrmBF9NxKxmI8jEoM7qN5Z24Zt+/3Pnj0dTgfDG0l8uYGuAWGQpeH/EuP4SfXDuR2Np/uTBb5uSxlDPXUfrRy0Zy+mB69ubtBQKalWFKRgEKPWfAdXyAIjwCuczwNpO8eNgKzipJ4jWy7Nj/32d3s6BApvejIkcjFCQ8ymnLQUWkrKuOUUi4FG9dBNcCeHTEXgQ8+YVPutFk/Fmta07l7vr83Nja8+92w5rP4ogbR5Jt2bxFtNzbyAv0VK3imsMwO/MQLWPHw264gvvt5ydFA9bv+j++1HPE4jXBz8mRzXIjzHskjuSRe74dRlDQwIcY3jg7X1tXUyTaU2MXelT7jL7P1YXqDlLUqDj0wrjbhI3AwQr3lDfweI/lm2XQY9qQ1t5/k213hHRUVB2w8yVHQRdhk85ErwbULQobumhzwkoJ0cdrEPPnxSt/KtLQpO5lHmpHi5rQs2O7ERBJiaf7XtznXQp+0v21ttKlJz9cYypFOKfwPMrT4AA+locLV3ezlEPNnJ3AxA7ZVKyhc7YqkDHK7ZZZL053LM89piS+5iUhTAGjCG3qHoFkXxN84+RhM=
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/ssapi
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"소켓룸에서 스트리머 삭제"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/room/user"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+소켓룸에서 스트리머 삭제
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"platform":{"type":"string","enum":["soop","chzzk"]},"user":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"성공","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","description":"소켓소켓룸 식별을 위해 관리자가 부여한 아이디"},"users":{"type":"array","description":"소켓소켓룸에 가입 된 스트리머 목록","items":{"type":"object","properties":{"platform":{"type":"string","description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"방송인 아이디"},"createdAt":{"type":"string","format":"date-time","description":"정보 생성일"}},"title":"User"}},"users_limit":{"type":"integer","description":"소켓소켓룸 가입 수 제한"},"createdAt":{"type":"string","format":"date-time","description":"소켓소켓룸 정보 생성일"},"updatedAt":{"type":"string","format":"date-time","description":"소켓소켓룸 정보 업데이트"}},"title":"Room"}}}},"400":{"description":"실패","content":{"application/json":{"schema":{"type":"object","properties":{"error":{"type":"integer"},"message":{"type":"string"},"data":{"type":"object"}},"title":"Error"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

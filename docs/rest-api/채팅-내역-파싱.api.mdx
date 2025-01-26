@@ -1,0 +1,71 @@
+---
+id: 채팅-내역-파싱
+title: "채팅 내역 파싱"
+description: "채팅 내역 파싱"
+sidebar_label: "채팅 내역 파싱"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVltvG0UU/iujyQtI28Qt5YF9C4WgIoEQScVDajWT3Um8zd46M1slWCuFsq3SxIgI2cREu8GV0oZCIpzULZZq8YM8Z/8Dml3buXhDI4EfbM/MOd/5zplzmSrm1AiYJdawPl/Fi5QwyqYDUcH6fDksa9gnjDhUUMYzAcvFOn4QULaGNewSh2IdGwHjHsMa5kaFOgTrVSzWfHXCBbPcZRxq2KTcYJYvLE8ByIMNOFiXB0+R/KENSSeN2pA0EbzdhyhG78k/u7D3WLaeI9iKEbyO+3/1TiWRbDfTX5rv41Ar5mNbjiWK6FiuoMtUMTXpEglsgfUPSxp2yKrlBA7Wr5dKY1TTRixPNmBnG/Xb69DqQvMQ9ds/YRUbRrnvuZxyZeNGqaR+zmtDdNx/9Rpr2PBcQV2hJIjv25ZBlMTUfa7EquNUvcX71FBO+MzzKRNWboQy5rFCj+gqcXybYl25YASMUVfcyi+m6D5cunrpsYbdwLbJokITLKBh5mkWrpEoYYyokFuCOvzdvO9ZZpGdC8E6jtLaY3T7E0UwFx1Xoa66qXlsVIjA5YsQahfinnwWo/6rFrQaCsq3iVjymPNuBrL9Ep48Q2m9Jvf+SH/sKW0uGCUOZVdyIQeApIugEUHSkfW6wnAo52S50J/CEMiXddiK4WBdKQf8isaVyskR7G2fN+5axkpeGVcHkFtPZbQPe5ECoKuCkcJLvqD+pt5vr58WqtI1GCWCmtOiyLq6FCKwjk0i6DVhOXQ8oKOqh+8TiI4h6cFWnCWIsP875qMjaMXQ3IBW4xT53r2HlzSNYhR5EkErwqEiZQlVNfiWyk61YVN3WTXTMbgw+2j4ZlHbmJiYQOl3HZn0IOnAz910s4uguS+fN++619DCzVIJfUxM9DV9EFAuFnQEe035+1u5HSPYrcPJEeq/PpSHXQ1B3Ep3f0sbTThYR9DYhGR9IDJAuo7uuCQQFY9Z31JTQSVdeJHI7Us1PkAzHlu0TJO6Czrqv6mljRiSDoKdJ3Kzfl72JvrSE2jGC9wMOjtKGzGSLw7hSQ029+XzHoL235BECDaaCgOSWq584yM053noC+KuDT3lIxCU7v6aKbRihQedjf6r3l03i3lxST3qwM4RSms12DrGqiRFxTOxjpdp1q6IuiU8pRoIn/I9287TiVP2cDj7AmZjHVeE8Lk+NUV8a5Jz9b0ynhyzs9Nf3UYQxfIkykbFcMrOqkaf98Szs3aUHgp9OLrUOhfC2uDPzDC7P/9mLvPVcpe8TH2QeJlhrGFFOqdyfbI0WcraoMeFQ7JxMxiUl4TmnCsjZoKuiinfJpabNSWWVV8etrwbcxXGQeDKGq54XKijanWRcHqH2WGotvNZrcJpWlzNGBPrS8TmdMzuaGT+T88FrdiTFbp29g3zkNiBEspeF1eneNkz4V+NDh8qpzbLasGsfPbOl0MNVygxKcsClitNGwb1z2qNvScUyii9P/t0DmuYnM+yC1mVoQ8Hu7t2BrtazSXmvBXqhiEeMhdqjcNyGIb/AHOMOeg=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/ssapi
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"채팅 내역 파싱"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/chats/polling"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+채팅 내역 파싱
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"cursor","schema":{"type":"string"},"description":"마지막 데이터의 커서 (미입력 시 최근 데이터 반환)"},{"in":"query","name":"limit","schema":{"type":"integer","default":50,"maximum":100},"description":"한번에 가져올 값"}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"성공","content":{"application/json":{"schema":{"type":"object","properties":{"error":{"type":"integer","example":0},"currentCursor":{"type":"string"},"nextCursor":{"type":"string","nullable":true},"result":{"type":"array","items":{"type":"object","properties":{"_id":{"type":"string","description":"채팅 ID"},"type":{"type":"string","enum":["chat"],"description":"chat으로 고정"},"platform":{"type":"string","description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"방송인 아이디"},"message":{"type":"string","description":"채팅 메시지"},"user_id":{"type":"string","description":"시청자 아이디"},"nickname":{"type":"string","description":"시청자 닉네임"},"extras":{"type":"object","description":"추가 데이터"},"createdAt":{"type":"string","format":"date-time","description":"데이터 생성일시"},"ttl":{"type":"string","format":"date-time","description":"데이터 삭제예정일시"},"__v":{"type":"integer","description":"데이터 버전"}},"title":"Chat"}},"length":{"type":"integer"}}}}}},"400":{"description":"### 클라이언트 오류\n- `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청\n- `401 Unauthorized`: 인증되지 않은 요청\n- `403 Forbidden`: 권한이 없는 요청\n- `404 Not Found`: 요청한 리소스를 찾을 수 없음\n- `429 Too Many Requests`: 요청 횟수 제한 초과\n"}}}
+>
+  
+</StatusCodes>
+
+
+      

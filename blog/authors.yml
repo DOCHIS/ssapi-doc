@@ -1,0 +1,15 @@
+dochis:
+  name: 헛삯
+  title: Developer
+  url: https://github.com/dochis
+  image_url: /img/profile/dochis.jpg
+  page: true
+  socials:
+    github: dochis
+
+leaf:
+  name: 리프
+  title: Project Manager
+  url: https://ch.sooplive.co.kr/you1530
+  image_url: /img/profile/leaf.jpg
+  page: true

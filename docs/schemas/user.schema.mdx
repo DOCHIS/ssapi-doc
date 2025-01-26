@@ -1,0 +1,33 @@
+---
+id: user
+title: "User"
+description: ""
+sidebar_label: "User"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"platform":"string","streamer_id":"string","createdAt":"2024-07-29T15:51:28.071Z"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"User"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"platform":{"type":"string","description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"방송인 아이디"},"createdAt":{"type":"string","format":"date-time","description":"정보 생성일"}},"title":"User"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
