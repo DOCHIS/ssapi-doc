@@ -7,7 +7,7 @@ sidebar_position: 2
 :::info
 SSAPI의 API 키 사용을 신청하기 위한 양식입니다.
 
-작성 후 [문의하기](/docs/contact/index)를 통해 제출해 주세요.
+작성 후 [문의하기](/docs/contact)를 통해 제출해 주세요.
 :::
 
 ## ✓ 필수 작성 항목
