@@ -348,6 +348,19 @@ class APISocket{
 }
 ```
 
+Snappy 압축 해제를 위한 확장 함수
+
+```kotlin
+import com.google.gson.*
+import org.xerial.snappy.Snappy
+
+fun Array<Any>.toJson():JsonElement{
+    val json = Snappy.uncompress(first() as ByteArray).toString(StandardCharsets.UTF_8)
+    return  JsonParser.parseString(json)
+}
+```
+
+
 Room 모델
 ```kotlin
 import com.google.gson.annotations.SerializedName
