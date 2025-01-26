@@ -278,7 +278,6 @@ public class SocketExample {
 import com.google.gson.Gson
 import io.socket.client.IO
 import io.socket.client.Socket
-import org.bukkit.Bukkit
 
 
 class APISocket{
@@ -380,15 +379,16 @@ internal val dateGson = GsonBuilder().registerTypeAdapter(Date::class.java, obje
 
 </TabItem>
 <TabItem value="go" label="Go">
+:::caution 주의사항
+이 예시는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
+:::
 필요 라이브러리
 
 - Socket.IO 클라이언트: `github.com/googollee/go-socket.io-client`
 - Snappy: `github.com/golang/snappy`
 
 ---
-    :::caution 주의사항
-    이 ---는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
-    :::
+
 
     ```go
 package main
@@ -485,10 +485,19 @@ func main() {
 
 </TabItem>
 <TabItem value="php" label="PHP">
+
+:::caution 주의사항
+이 예시는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
+:::
+
 필요 라이브러리
 
 - Socket.IO 클라이언트: `elephantio/elephant.io`
 - Snappy: `ext-snappy`
+
+---
+
+예시 코드
 
 ```php
 <?php
@@ -568,6 +577,10 @@ $client->connect();
 
 </TabItem>
 <TabItem value="rust" label="Rust">
+:::caution 주의사항
+이 예시는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
+:::
+
 필요 라이브러리
 
 - Socket.IO 클라이언트: `socket-io-client`
@@ -577,9 +590,6 @@ $client->connect();
 
 ---
 
-:::caution 주의사항
-이 ---는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
-:::
 
 ```rust
 use serde_json::Value;
