@@ -13,6 +13,12 @@ import TabItem from "@theme/TabItem";
 
 <Tabs>
 <TabItem value="nodejs" label="Node.js">
+필요 라이브러리
+
+- Socket.IO 클라이언트: `socket.io-client@4.6.0`
+- Snappy: `snappy`
+
+---
 
 ```javascript
 const io = require("socket.io-client");
@@ -61,6 +67,13 @@ socket.on("donation", (compressedData) => {
 </TabItem>
 <TabItem value="python" label="Python">
 
+필요 라이브러리
+
+- Socket.IO 클라이언트: `python-socketio`
+- Snappy: `python-snappy`
+
+---
+
 ```python
 import socketio
 import snappy
@@ -106,6 +119,12 @@ sio.connect("https://socket.ssapi.kr", transports=["websocket"], timeout=5)
 
 </TabItem>
 <TabItem value="browser" label="Javascript (브라우저)">
+필요 라이브러리
+
+- Socket.IO 클라이언트: `socket.io-client@4.6.0`
+- Snappy 압축 해제: `snappyjs`
+
+---
 
 ```html
 <!DOCTYPE html>
@@ -169,6 +188,14 @@ sio.connect("https://socket.ssapi.kr", transports=["websocket"], timeout=5)
 
 </TabItem>
 <TabItem value="java" label="Java">
+
+필요 라이브러리
+
+- Socket.IO 클라이언트: `socket.io-client`
+- Snappy: `org.xerial.snappy`
+- JSON: `org.json`
+
+---
 
 ```java
 import io.socket.client.IO;
@@ -236,9 +263,134 @@ public class SocketExample {
 ```
 
 </TabItem>
-<TabItem value="go" label="Go">
+<TabItem value="kotlin" label="Kotlin">
+:::caution 주의사항
+이 예시는 github 오픈소스 기여를 통해 제공되었습니다.
+:::
 
-```go
+- `org.json` 대신 Google의 gson 라이브러리를 사용합니다.
+- 그 이외의 사항은 Java를 사용하는 예제와 같습니다.
+
+---
+
+소켓
+```kotlin
+import com.google.gson.Gson
+import io.socket.client.IO
+import io.socket.client.Socket
+import org.bukkit.Bukkit
+
+
+class APISocket{
+    internal lateinit var socket: Socket
+        private set
+
+    internal fun login(key:String){
+        val options = IO.Options()
+        options.run {
+            transports = arrayOf("websocket")
+            timeout = 5000
+            reconnection = true
+            reconnectionAttempts = Int.MAX_VALUE
+            reconnectionDelay = 1000
+            reconnectionDelayMax = 5000
+        }
+        socket = IO.socket("https://socket.ssapi.kr", options)
+
+        socket.on(Socket.EVENT_CONNECT) { args ->
+            println("소켓을 연결하였습니다.")
+            socket.emit("login", key)
+        }
+        socket.on(Socket.EVENT_DISCONNECT) { args ->
+            println("소켓 연결이 끊어졌습니다.")
+        }
+
+        socket.on("donation") { args ->
+
+            val json = args.toJson().asJsonObject
+            val streamerId = json["streamer_id"].asString; val platform = json["platform"].asString
+            val donorName = json["nickname"].asString
+            val count = json["cnt"].asInt; val amount = json["amount"].asInt
+            val message = json["message"].asString; val chatId = json["_id"].asString
+
+        }
+
+        socket.on("chat"){args ->
+            val json = args.toJson().asJsonObject
+            val platform = json["platform"].asString
+            val message = json["message"].asString
+            val name = json["nickname"].asString
+            val streamerId = json["streamer_id"].asString
+
+            //무언가 무언가 하기
+
+        }
+
+        socket.on("setReceiver"){args ->
+            val receiver = Gson().fromJson(args.toJson(), Array<String>::class.java)
+
+            //무언가 하기
+        }
+
+        socket.on("login"){ args ->
+            println("로그인하였습니다!")
+            val room = Gson().fromJson(args.toJson(), Room::class.java)
+        }
+        socket.connect()
+    }
+
+    internal fun receiveChatAlso() {
+        socket.emit("setReceiver", "chat,donation")
+    }
+
+    internal fun receiveDonationOnly() {
+        socket.emit("setReceiver", "donation")
+    }
+}
+```
+
+Room 모델
+```kotlin
+import com.google.gson.annotations.SerializedName
+import java.util.Date
+
+class Room(val id:String, val users:Array<User>, @SerializedName("users_limit") val usersLimit:Int, val createdAt:Date, val updatedAt:Date)
+```
+
+User 모델
+```kotlin
+import com.google.gson.annotations.SerializedName
+import java.util.Date
+
+class User(val platform:String, @SerializedName("streamer_id") val streamerId:String, val createdAt:Date, val updatedAt:Date)
+```
+
+Date 객체 직렬화 관련
+```kotlin
+import com.google.gson.*
+
+internal val dateGson = GsonBuilder().registerTypeAdapter(Date::class.java, object: JsonSerializer<Date> {
+    override fun serialize(src: Date?, p1: Type?, context: JsonSerializationContext?): JsonElement {
+        return context!!.serialize(
+            src?.let{ DateTimeFormatter.ISO_INSTANT.format(it.toInstant())}
+        )
+    }
+}).create()
+```
+
+</TabItem>
+<TabItem value="go" label="Go">
+필요 라이브러리
+
+- Socket.IO 클라이언트: `github.com/googollee/go-socket.io-client`
+- Snappy: `github.com/golang/snappy`
+
+---
+    :::caution 주의사항
+    이 ---는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
+    :::
+
+    ```go
 package main
 
 import (
@@ -333,6 +485,10 @@ func main() {
 
 </TabItem>
 <TabItem value="php" label="PHP">
+필요 라이브러리
+
+- Socket.IO 클라이언트: `elephantio/elephant.io`
+- Snappy: `ext-snappy`
 
 ```php
 <?php
@@ -412,6 +568,18 @@ $client->connect();
 
 </TabItem>
 <TabItem value="rust" label="Rust">
+필요 라이브러리
+
+- Socket.IO 클라이언트: `socket-io-client`
+- Snappy: `snap`
+- JSON 처리: `serde_json`
+- 비동기 런타임: `tokio`
+
+---
+
+:::caution 주의사항
+이 ---는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
+:::
 
 ```rust
 use serde_json::Value;
@@ -471,52 +639,7 @@ fn handle_compressed_data(compressed_data: &[u8]) -> Result<Value, Box<dyn Error
 </TabItem>
 </Tabs>
 
-## 필요한 라이브러리
-
-각 언어별로 필요한 라이브러리는 다음과 같습니다:
-
-### Node.js
-
-- Socket.IO 클라이언트: `socket.io-client@4.6.0`
-- Snappy: `snappy`
-
-### Python
-
-- Socket.IO 클라이언트: `python-socketio`
-- Snappy: `python-snappy`
-
-### Javascript(브라우저)
-
-- Socket.IO 클라이언트: `socket.io-client@4.6.0`
-- Snappy 압축 해제: `snappyjs`
-
-### Java
-
-- Socket.IO 클라이언트: `socket.io-client`
-- Snappy: `org.xerial.snappy`
-- JSON: `org.json`
-
-### Go
-
-- Socket.IO 클라이언트: `github.com/googollee/go-socket.io-client`
-- Snappy: `github.com/golang/snappy`
-
-### PHP
-
-- Socket.IO 클라이언트: `elephantio/elephant.io`
-- Snappy: `ext-snappy`
-
-### Rust
-
-- Socket.IO 클라이언트: `socket-io-client`
-- Snappy: `snap`
-- JSON 처리: `serde_json`
-- 비동기 런타임: `tokio`
-
 :::tip
-각 예제는 기본적인 구현을 보여주는 것이며, 실제 프로덕션 환경에서는 에러 처리, 재연결 로직, 로깅 등을 추가하는 것을 권장합니다.
+예제는 기본적인 구현 방법을 보여줍니다. 프로덕션 환경에서는 각종 예외 상황에 대한 대응이나 로그 기록 등 필요한 기능을 구현하시기 바랍니다.
 :::
 
-:::caution 주의사항
-Node.js, Python, Javascript (브라우저), Java를 제외한 다른 언어의 예시 코드는 AI가 생성한 것으로, 실제 동작을 완전히 보장하지 않을 수 있습니다. 해당 코드들은 참고용으로만 사용하시기 바랍니다.
-:::
