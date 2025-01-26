@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "SSAPI: 숲(아프리카)/치지직 후원 및 채팅 API",
+    "description": "탐색 모음의 제목"
+  },
+  "logo.alt": {
+    "message": "SSAPI 로고",
+    "description": "탐색 모음 로고의 대체 텍스트"
+  },
+  "item.label.Tutorial": {
+    "message": "튜토리얼",
+    "description": "레이블이 Tutorial인 탐색 모음 항목"
+  },
+  "item.label.Blog": {
+    "message": "블로그",
+    "description": "레이블이 Blog인 탐색 모음 항목"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "레이블이 GitHub인 탐색 모음 항목"
+  }
+}

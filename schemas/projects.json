@@ -1,0 +1,261 @@
+{
+  "partners": [
+    {
+      "type": "partnership",
+      "logo": "/img/partners/softcon.png",
+      "name": "뷰어십",
+      "subtitle": "SOFTC.ONE",
+      "period": "24년 05월 23일 ~",
+      "description": "더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공합니다.",
+      "link": ["https://viewership.softc.one/"]
+    },
+    {
+      "type": "partnership",
+      "logo": "/img/partners/fancim.png",
+      "name": "(주)일리오",
+      "subtitle": "셀럽후원플랫폼 팬심",
+      "period": "25년 1월 14일 ~",
+      "description": "더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공을 준비중입니다.",
+      "link": ["https://fancim.me/"]
+    },
+    {
+      "type": "partnership",
+      "logo": "/img/partners/versetime.png",
+      "name": "뻐스시간",
+      "subtitle": "버튜버 예능 그룹",
+      "period": "24년 3월 10일 ~",
+      "description": "각종 컨텐츠 제작을 협업하고있습니다",
+      "link": ["https://ch.sooplive.co.kr/versetime"]
+    }
+  ],
+  "minecraft": [
+    {
+      "logo": "/img/projects/cavalry2.png",
+      "name": "마병대2",
+      "period": "25년 01월 24일 ~",
+      "participants": "약 100명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/devil0108"]
+    },
+    {
+      "logo": "/img/projects/diamond.png",
+      "name": "다이아?서버",
+      "subtitle": "수미랜드 후열",
+      "period": "25년 01월 4일 ~",
+      "participants": "약 150명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/rmlrl771"]
+    },
+    {
+      "logo": "/img/projects/abong.png",
+      "name": "아봉서버",
+      "period": "25년 01월 1일 ~ 1월 11일",
+      "participants": "약 30명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/rmlrl771", "https://mcbmc.imweb.me/"]
+    },
+    {
+      "logo": "/img/projects/pixelmon.png",
+      "name": "픽셀몬 스터디 서버",
+      "period": "24년 12월 5일 ~ 12월 22일",
+      "participants": "약 50명",
+      "description": "API 지원",
+      "link": ["https://www.notion.so/1525766dce1c80619941eeb463871d2c"]
+    },
+    {
+      "logo": "/img/projects/sumiland.png",
+      "name": "수미랜드",
+      "period": "24년 12월 1일 ~ 12월 31일",
+      "participants": "약 200명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/tnal8675"]
+    },
+    {
+      "logo": "/img/projects/chungsaechi.png",
+      "name": "청새치숲4",
+      "period": "24년 12월 1일 ~",
+      "participants": "약 270명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/nopek98"]
+    },
+    {
+      "logo": "/img/projects/minttown.png",
+      "name": "박하마을",
+      "period": "24년 11월 30일 ~ 1월 5일",
+      "participants": "약 40명",
+      "description": "API 지원",
+      "link": ["https://organization-sqq.gitbook.io/minttown"]
+    },
+    {
+      "logo": "/img/projects/yottogi.png",
+      "name": "요뚜기월드 시즌2",
+      "period": "24년 10월 16일 ~",
+      "participants": "약 140명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/z4230x"]
+    },
+    {
+      "logo": "/img/projects/chuta.png",
+      "name": "츄타듀밸리",
+      "period": "24년 10월 14일 ~ 12월 4일",
+      "participants": "약 200명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/linco00"]
+    },
+    {
+      "logo": "/img/projects/iland.png",
+      "name": "아이랜드",
+      "period": "24년 10월 05일 ~ 10월 20일",
+      "participants": "약 5명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/qlxkals1528"]
+    },
+    {
+      "logo": "/img/projects/cavalry.png",
+      "name": "마병대",
+      "period": "24년 08월 21일 ~ 8월 24일",
+      "participants": "약 60명",
+      "description": "플러그인 개발, API 지원",
+      "link": ["https://ch.sooplive.co.kr/devil0108"]
+    },
+    {
+      "logo": "/img/projects/seaweed.gif",
+      "name": "해초마을",
+      "period": "24년 08월 16일 ~ 10월 7일",
+      "participants": "약 50명",
+      "description": "플러그인 개발, API 지원",
+      "link": ["https://ch.sooplive.co.kr/kjkj4424"]
+    },
+    {
+      "logo": "/img/projects/breadland.gif",
+      "name": "빵식랜드",
+      "period": "24년 08월 10일 ~",
+      "participants": "약 50명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/wbs5596"]
+    },
+    {
+      "logo": "/img/projects/clobae.gif",
+      "name": "클로배",
+      "period": "24년 08월 01일 ~ 8월 26일",
+      "participants": "약 250명",
+      "description": "플러그인 개발, API 지원",
+      "link": ["https://ch.sooplive.co.kr/vf3366"]
+    },
+    {
+      "logo": "/img/projects/healing.png",
+      "name": "힐링월드",
+      "period": "24년 07월 05일 ~",
+      "participants": "약 130명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/tmlarhf155"]
+    },
+    {
+      "logo": "/img/projects/jamyung.png",
+      "name": "자명랜드",
+      "period": "24년 07월 03일 ~",
+      "participants": "약 70명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/gjm0211"]
+    },
+    {
+      "logo": "/img/projects/landmakku.png",
+      "name": "랜드마꾸",
+      "period": "24년 4월 20일 ~ 8월 16일",
+      "participants": "약 400명",
+      "description": "플러그인 개발, API 지원",
+      "link": ["https://ch.sooplive.co.kr/ziyom2"]
+    },
+    {
+      "logo": "/img/projects/pocketkku.png",
+      "name": "포켓꾸",
+      "period": "24년 3월 8일 ~ 4월 5일",
+      "participants": "약 260명",
+      "description": "플러그인 개발, API 지원",
+      "link": ["https://ch.sooplive.co.kr/ziyom2"]
+    }
+  ],
+  "zomboid": [
+    {
+      "logo": "/img/projects/qpocalypse.png",
+      "name": "뀨포칼립스",
+      "period": "24년 11월 17일 ~ 12월 26일",
+      "participants": "약 90명",
+      "description": "API 지원",
+      "link": ["https://chzzk.naver.com/19008cc648cb3fc8ebbdc0df3d5a05de"]
+    },
+    {
+      "logo": "/img/projects/napocalypse.png",
+      "name": "나포칼립스",
+      "period": "24년 10월 27일 ~ 11월 7일",
+      "participants": "약 60명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/sh0w422"]
+    }
+  ],
+  "others": [
+    {
+      "date": "24/06/30",
+      "user": "버스시간 팀",
+      "description": "소속 스트리머분 생일 콘텐츠에서 사용할 내부 프로그램 개발 협업"
+    },
+    {
+      "date": "24/05/01",
+      "user": "익명",
+      "description": "채팅 API를 기반으로 한 미니게임 콘텐츠개발 지원"
+    },
+    {
+      "date": "24/04/13",
+      "user": "버스시간 팀",
+      "description": "소속 스트리머분 데뷔 콘서트에서 사용할 내부 프로그램 개발 협업"
+    }
+  ],
+  "history": [
+    {
+      "date": "24/12/01",
+      "content": "많은 마인크래프트 서버에서 연락을 주셔서 감사합니다!"
+    },
+    {
+      "date": "24/10/27",
+      "content": "이제 마인크래프트 뿐 아니라 좀보이드 서버에서도 SSAPI를 사용하네요!"
+    },
+    {
+      "date": "24/08/22",
+      "content": "API를 통해 제공 된 누적 후원액이 150억을 돌파했습니다!",
+      "type": "KPI"
+    },
+    {
+      "date": "24/06/13",
+      "content": "API를 통해 제공 된 누적 후원액이 15억을 돌파했습니다!",
+      "type": "KPI"
+    },
+    {
+      "date": "24/05/03",
+      "content": "API를 통해 제공 된 누적 후원액이 4억을 돌파했습니다!",
+      "type": "KPI"
+    },
+    {
+      "date": "24/04/22",
+      "content": "우리 서비스 이제 치지직을 지원합니다!",
+      "type": "update"
+    },
+    {
+      "date": "24/04/09",
+      "content": "더 많은플랫폼을 지원하기 위해 프로젝트 명을 SSAPI로 변경합니다",
+      "type": "update"
+    },
+    {
+      "date": "24/04/05",
+      "content": "등록 스트리머 250명 돌파와 API를 통해 제공 된 누적 후원액이 2억을 돌파했습니다!",
+      "type": "KPI"
+    },
+    {
+      "date": "24/03/01",
+      "content": "우리 서비스 이제 마인크래프트 서버를 적극 지원합니다. API 사용이 필요하시다 언제든 문의주세요"
+    },
+    {
+      "date": "24/02/24",
+      "content": "API 오픈! Private Beta를 시작합니다!"
+    }
+  ]
+}

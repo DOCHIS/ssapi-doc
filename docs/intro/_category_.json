@@ -1,0 +1,8 @@
+{
+  "label": "🐶 개요",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "SSAPI의 주요 개념과 원리를 설명합니다."
+  }
+}

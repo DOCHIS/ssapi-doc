@@ -1,42 +1,30 @@
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
-import Heading from '@theme/Heading';
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
+// src/pages/index.js
+import React from "react";
+import Layout from "@theme/Layout";
+import CTA from "@site/src/components/Landing/CTA";
+import Hero from "@site/src/components/Landing/Hero";
+import Metrics from "@site/src/components/Landing/Metrics";
+import Features from "@site/src/components/Landing/Features";
+import ProjectsList from "@site/src/components/Landing/ProjectsList";
+import SuccessStories from "@site/src/components/Landing/SuccessStories";
+import FeaturedProjects from "@site/src/components/Landing/FeaturedProjects";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
+      title={siteConfig.title}
+      description="숲(아프리카)과 치지직의 통합 스트리밍 데이터 플랫폼"
+    >
       <main>
-        <HomepageFeatures />
+        <Hero />
+        <Metrics />
+        <Features />
+        <SuccessStories />
+        <FeaturedProjects />
+        <ProjectsList />
+        <CTA />
       </main>
     </Layout>
   );

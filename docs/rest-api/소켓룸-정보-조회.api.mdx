@@ -1,0 +1,63 @@
+---
+id: 소켓룸-정보-조회
+title: "소켓룸 정보 조회"
+description: "소켓룸 정보 조회"
+sidebar_label: "소켓룸 정보 조회"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1lM9LG0EUx/+V5Z2nJi097S0HW9pTqUoPIchk80xG91dnJtKwDAQapWhKhRosJRGlItp6iDUtOfgXZWf/hzKbKPlV0oO97O4Mb7/vfT9v5kUg0KlyJmtg5yMoIuXIc1VZATtfUAUCHEUY+AIF2BE8yWbNq4TC4SyULPDBBt24Htz8AgJO4Ev0pYmgYegyh5qIzKYwYREIp4IeNV+yFiLYEBQ30ZFAIORBiFyyYRJWGosRkjO/DGQ6525T334ePuNvfUvvd+Kbhu40LN1uJK2eNejV4/MrfXww6Nat+HddH10lrbalWw3d6cWHh6AIVAVyMZaLck5ri1LpowNr0K3r4x0rPmhbeu8s2evH51fxRd+Kv1/Gpx0gwCR6YrHT0KVyI+DeYr9x91LvnlrJYTM+/pF8ujXlC8mResjX/wXYUEB3+pMIHI5UYikn5ymY0qgEG0pU4iPJPJyFc9KKb3qWft/RjWvduQWlCEgmXSO0JpCnGynodZd5bDwP8yWWkS/s7Yi2/vDF0iftpNV+kMKnD9CMEQLVsPRfchztxB+7utNL9voTvF4HgQdKma2ncy/a/lnSvHi4i4acB3xOQxQBD4WgZZw1rogxPEd83MhyKqyGVuYxGadx2k2+NsGklJWgBDaUMS2VmhkEGW6gEBDIt9Pbmo+gyl2woSJlKOxMhoZsSQjz3Jo9SysruVcvLN1oxz8bYMbZ3bRbMYyGGMZn3r0ro27SpmFgj4KAjD6e3XX/5ZvV1DrzN4L09xGCNDEQMEUPS3m8lF3KGn5hIKRH0075NBX/O5QJN/fFSXwnM6FLmZ8eU4MjGgHLQwqsQKASCGnWUVSkAte4q5TZfltFbmZ9gcA25YwWTbn5giJQQVpCnhLewhrYkHMcDE0vtqlbTQfk9GEzRO/79nx5FQjQSY5T3FL1u3Hr18a0o2gYsRpsoa8UkFER0qxBFZRSfwDB8bAN
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/ssapi
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"소켓룸 정보 조회"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/room"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+소켓룸 정보 조회
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"성공","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","description":"소켓소켓룸 식별을 위해 관리자가 부여한 아이디"},"users":{"type":"array","description":"소켓소켓룸에 가입 된 스트리머 목록","items":{"type":"object","properties":{"platform":{"type":"string","description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"방송인 아이디"},"createdAt":{"type":"string","format":"date-time","description":"정보 생성일"}},"title":"User"}},"users_limit":{"type":"integer","description":"소켓소켓룸 가입 수 제한"},"createdAt":{"type":"string","format":"date-time","description":"소켓소켓룸 정보 생성일"},"updatedAt":{"type":"string","format":"date-time","description":"소켓소켓룸 정보 업데이트"}},"title":"Room"}}}},"400":{"description":"실패","content":{"application/json":{"schema":{"type":"object","properties":{"error":{"type":"integer"},"message":{"type":"string"},"data":{"type":"object"}},"title":"Error"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

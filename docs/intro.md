@@ -2,46 +2,46 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# 🌟 소개
 
-Let's discover **Docusaurus in less than 5 minutes**.
+SSAPI는 숲(아프리카TV)과 치지직의 후원 및 채팅 데이터를 제공하는 API 서비스입니다. 최적화된 성능과 상세한 문서화를 통해 누구나 쉽게 사용할 수 있으며, 대규모 서버에서도 부담 없이 안정적으로 운영할 수 있습니다.
 
-## Getting Started
+2024년 2월 오픈 이후 500억회가 넘는 데이터를 처리했으며, 약 2,500명의 스트리머와 100여 명의 개발자들이 함께하고 있습니다.
 
-Get started by **creating a new site**.
+## 현재 지원 현황
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- **숲 (아프리카TV)**: 정식 서비스 단계
+- **치지직**: Beta 서비스 단계
 
-### What you'll need
+## 특징
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+SSAPI는 다음과 같은 특징을 가지고 있습니다:
 
-## Generate a new site
+- **최적화된 성능**: 100명당 2Mbps의 낮은 대역폭으로 운영 가능
+- **안정적인 처리**: 초당 2,000건 이상의 트랜잭션을 안정적으로 처리
+- **쉬운 연동**: 상세한 문서화와 예제로 빠른 개발 가능
+- **통합된 접근**: 여러 플랫폼의 데이터를 단일 API로 제공
 
-Generate a new Docusaurus site using the **classic template**.
+## API 제공 방식
 
-The classic template will automatically be added to your project after you run the command:
+SSAPI는 두 가지 방식으로 데이터를 제공합니다. 필요에 따라 하나를 선택하거나 함께 사용할 수 있습니다:
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+### Socket API
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+- 실시간 채팅/후원 데이터 스트리밍
+- Socket.IO 4.7.4 기반
+- 다수의 스트리머 데이터를 효율적으로 처리
+- 대규모 프로젝트에 권장
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+### REST API
 
-## Start your site
+- HTTP 기반의 간단한 데이터 조회
+- 소켓룸 관리 및 설정
+- 간단한 구현과 빠른 시작
+- 소규모 프로젝트나 테스트에 적합
 
-Run the development server:
+## 빠른 시작 가이드
 
-```bash
-cd my-website
-npm run start
-```
+SSAPI의 모든 문서를 꼼꼼히 확인하는 것을 권장하지만, 빠르게 이해할 수 있도록 빠른 시작 가이드를 준비했습니다.
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- [빠른 시작 가이드 바로가기](/docs/quick_start_guide)
