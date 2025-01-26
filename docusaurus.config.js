@@ -109,8 +109,16 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
+                label: "소개",
                 to: "/docs/intro",
+              },
+              {
+                label: "함께하는 프로젝트",
+                to: "/docs/intro/projects",
+              },
+              {
+                label: "가격 정책과 이용 정책",
+                to: "/docs/intro/policy",
               },
             ],
           },
@@ -121,15 +129,19 @@ const config = {
                 label: "디스코드",
                 href: "https://discord.gg/cNVpzCkEvM",
               },
+              {
+                label: "블로그",
+                to: "/blog",
+              },
+              {
+                label: "문의하기",
+                to: "/docs/contact",
+              },
             ],
           },
           {
             title: "More",
             items: [
-              {
-                label: "블로그",
-                to: "/blog",
-              },
               {
                 label: "개발자 방송국",
                 href: "https://ch.sooplive.co.kr/sack2022",
