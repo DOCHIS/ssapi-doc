@@ -28,3 +28,37 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* 탭 컨테이너 스타일링 */
+.tabs-container {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
+/* 탭 리스트 스타일링 */
+.tabs {
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  margin: 0;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* 탭 아이템 스타일링 */
+.tabs__item {
+  padding: var(--ifm-tabs-padding-vertical) var(--ifm-tabs-padding-horizontal);
+  margin: 0;
+  border-radius: 0;
+}
+
+/* 선택된 탭 스타일링 */
+.tabs__item--active {
+  border: none;
+  border-bottom: 2px solid var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-200);
+  font-weight: bold;
+}
+
+/* 탭 컨텐츠 스타일링 */
+.tabs-container [role="tabpanel"] {
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+}

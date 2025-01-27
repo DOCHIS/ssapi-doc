@@ -11,660 +11,682 @@ import TabItem from "@theme/TabItem";
 
 각 프로그래밍 언어별 Socket.IO 클라이언트 구현 예제입니다. 모든 예제는 소켓 연결, 인증, 데이터 수신 및 압축 해제 과정을 포함하고 있습니다.
 
-<Tabs>
-<TabItem value="nodejs" label="Node.js">
-필요 라이브러리
-
-- Socket.IO 클라이언트: `socket.io-client@4.6.0`
-- Snappy: `snappy`
-
----
-
-```javascript
-const io = require("socket.io-client");
-const { uncompressSync } = require("snappy");
-
-// 소켓 연결 설정
-const socket = io("https://socket.ssapi.kr", {
-  transports: ["websocket"],
-  timeout: 5000,
-});
-
-// 소켓 연결 성공 시 이벤트
-socket.on("connect", () => {
-  console.log("소켓 연결 성공");
-  socket.emit("login", "<API KEY 입력>");
-});
-
-// 소켓 연결 해제 시 이벤트
-socket.on("disconnect", (reason) => {
-  console.error("소켓 연결 끊김", reason);
-});
-
-// 채팅 메시지 수신 및 압축 해제
-socket.on("chat", (compressedData) => {
-  try {
-    const decompressedData = uncompressSync(compressedData);
-    const data = JSON.parse(decompressedData.toString());
-    console.log("수신된 압축 해제 메시지", data);
-  } catch (error) {
-    console.error("메시지 압축 해제 중 오류:", error);
-  }
-});
-
-// 후원 데이터 수신 및 압축 해제
-socket.on("donation", (compressedData) => {
-  try {
-    const decompressedData = uncompressSync(compressedData);
-    const data = JSON.parse(decompressedData.toString());
-    console.log("수신된 압축 해제 후원 데이터", data);
-  } catch (error) {
-    console.error("후원 데이터 압축 해제 중 오류:", error);
-  }
-});
-```
-
-</TabItem>
-<TabItem value="python" label="Python">
-
-필요 라이브러리
-
-- Socket.IO 클라이언트: `python-socketio`
-- Snappy: `python-snappy`
-
----
-
-```python
-import socketio
-import snappy
-import json
-
-# 소켓 연결 클라이언트 생성
-sio = socketio.Client()
-
-# 소켓 연결 이벤트
-@sio.event
-def connect():
-    print("소켓 연결 성공")
-    sio.emit("login", "<API KEY 입력>")
-
-# 소켓 연결 해제 이벤트
-@sio.event
-def disconnect():
-    print("소켓 연결 끊김")
-
-# 채팅 메시지 수신 및 압축 해제
-@sio.event
-def chat(compressed_data):
-    try:
-        decompressed_data = snappy.decompress(compressed_data)
-        data = json.loads(decompressed_data.decode('utf-8'))
-        print("수신된 압축 해제 메시지:", data)
-    except Exception as e:
-        print("메시지 압축 해제 중 오류:", e)
-
-# 후원 데이터 수신 및 압축 해제
-@sio.event
-def donation(compressed_data):
-    try:
-        decompressed_data = snappy.decompress(compressed_data)
-        data = json.loads(decompressed_data.decode('utf-8'))
-        print("수신된 압축 해제 후원 데이터:", data)
-    except Exception as e:
-        print("후원 데이터 압축 해제 중 오류:", e)
-
-# 소켓 연결
-sio.connect("https://socket.ssapi.kr", transports=["websocket"], timeout=5)
-```
-
-</TabItem>
-<TabItem value="browser" label="Javascript (브라우저)">
-필요 라이브러리
-
-- Socket.IO 클라이언트: `socket.io-client@4.6.0`
-- Snappy 압축 해제: `snappyjs`
-
----
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- 소켓 통신 라이브러리 -->
-    <script
-      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
-      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Snappy 압축 해제 라이브러리 -->
-    <script src="https://cdn.ssapi.kr/service/snappyjs.min.js"></script>
-  </head>
-
-  <body>
-    <script>
-      // Snappy 초기화
-      const socket = io("https://socket.ssapi.kr", {
-        transports: ["websocket"],
-        timeout: 5000,
-      });
-
-      // 소켓 연결
-      socket.on("connect", () => {
-        console.log("소켓 연결 성공");
-        socket.emit("login", "<API KEY 입력>");
-      });
-
-      // 소켓 연결 끊김
-      socket.on("disconnect", (reason) => {
-        console.error("소켓 연결 끊김", reason);
-      });
-
-      // 메시지 수신 및 압축 해제
-      socket.on("chat", (compressedData) => {
-        try {
-          const decompressedData = SnappyJS.uncompress(compressedData);
-          const data = JSON.parse(new TextDecoder().decode(decompressedData));
-          console.log("수신된 압축 해제 메시지", data);
-        } catch (error) {
-          console.error("메시지 압축 해제 중 오류:", error);
-        }
-      });
-
-      // 후원 데이터 수신 및 압축 해제
-      socket.on("donation", (compressedData) => {
-        try {
-          const decompressedData = SnappyJS.uncompress(compressedData);
-          const data = JSON.parse(new TextDecoder().decode(decompressedData));
-          console.log("수신된 압축 해제 후원 데이터", data);
-        } catch (error) {
-          console.error("후원 데이터 압축 해제 중 오류:", error);
-        }
-      });
-    </script>
-  </body>
-</html>
-```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-필요 라이브러리
-
-- Socket.IO 클라이언트: `socket.io-client`
-- Snappy: `org.xerial.snappy`
-- JSON: `org.json`
-
----
-
-```java
-import io.socket.client.IO;
-import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
-import org.json.JSONObject;
-import org.xerial.snappy.Snappy;
-
-import java.nio.charset.StandardCharsets;
-
-public class SocketExample {
-    public static void main(String[] args) {
-        try {
-            // 소켓 연결 옵션 설정
-            IO.Options options = new IO.Options();
-            options.transports = new String[]{"websocket"};
-            options.timeout = 5000; // 5초
-
-            Socket socket = IO.socket("https://socket.ssapi.kr", options);
-
-            // 소켓 연결 시 이벤트 핸들러
-            socket.on(Socket.EVENT_CONNECT, args1 -> {
-                System.out.println("소켓 연결 성공");
-                socket.emit("login", "<API KEY 입력>");
-            });
-
-            // 소켓 연결 해제 시 이벤트 핸들러
-            socket.on(Socket.EVENT_DISCONNECT, args12 -> {
-                String reason = args12[0].toString();
-                System.err.println("소켓 연결 끊김: " + reason);
-            });
-
-            // 채팅 메시지 수신 및 압축 해제
-            socket.on("chat", args13 -> {
-                try {
-                    byte[] compressed = (byte[]) args13[0];
-                    String parsed = Snappy.uncompressString(compressed);
-                    JSONObject jsonData = new JSONObject(parsed);
-                    System.out.println("수신된 압축 해제 메시지: " + jsonData);
-                } catch (Exception e) {
-                    System.err.println("메시지 압축 해제 중 오류: " + e.getMessage());
-                }
-            });
-
-            // 후원 데이터 수신 및 압축 해제
-            socket.on("donation", args14 -> {
-                try {
-                    byte[] compressed = (byte[]) args14[0];
-                    String parsed = Snappy.uncompressString(compressed);
-                    JSONObject jsonData = new JSONObject(parsed);
-                    System.out.println("수신된 압축 해제 후원 데이터: " + jsonData);
-                } catch (Exception e) {
-                    System.err.println("후원 데이터 압축 해제 중 오류: " + e.getMessage());
-                }
-            });
-
-            // 소켓 연결
-            socket.connect();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-</TabItem>
-<TabItem value="kotlin" label="Kotlin">
-:::caution 주의사항
-이 예시는 github 오픈소스 기여를 통해 제공되었습니다.
-:::
-
-- `org.json` 대신 Google의 gson 라이브러리를 사용합니다.
-- 그 이외의 사항은 Java를 사용하는 예제와 같습니다.
-
----
-
-소켓
-```kotlin
-import com.google.gson.Gson
-import io.socket.client.IO
-import io.socket.client.Socket
-
-
-class APISocket{
-    internal lateinit var socket: Socket
-        private set
-
-    internal fun login(key:String){
-        val options = IO.Options()
-        options.run {
-            transports = arrayOf("websocket")
-            timeout = 5000
-            reconnection = true
-            reconnectionAttempts = Int.MAX_VALUE
-            reconnectionDelay = 1000
-            reconnectionDelayMax = 5000
-        }
-        socket = IO.socket("https://socket.ssapi.kr", options)
-
-        socket.on(Socket.EVENT_CONNECT) { args ->
-            println("소켓을 연결하였습니다.")
-            socket.emit("login", key)
-        }
-        socket.on(Socket.EVENT_DISCONNECT) { args ->
-            println("소켓 연결이 끊어졌습니다.")
-        }
-
-        socket.on("donation") { args ->
-
-            val json = args.toJson().asJsonObject
-            val streamerId = json["streamer_id"].asString; val platform = json["platform"].asString
-            val donorName = json["nickname"].asString
-            val count = json["cnt"].asInt; val amount = json["amount"].asInt
-            val message = json["message"].asString; val chatId = json["_id"].asString
-
-        }
-
-        socket.on("chat"){args ->
-            val json = args.toJson().asJsonObject
-            val platform = json["platform"].asString
-            val message = json["message"].asString
-            val name = json["nickname"].asString
-            val streamerId = json["streamer_id"].asString
-
-            //무언가 무언가 하기
-
-        }
-
-        socket.on("setReceiver"){args ->
-            val receiver = Gson().fromJson(args.toJson(), Array<String>::class.java)
-
-            //무언가 하기
-        }
-
-        socket.on("login"){ args ->
-            println("로그인하였습니다!")
-            val room = Gson().fromJson(args.toJson(), Room::class.java)
-        }
-        socket.connect()
-    }
-
-    internal fun receiveChatAlso() {
-        socket.emit("setReceiver", "chat,donation")
-    }
-
-    internal fun receiveDonationOnly() {
-        socket.emit("setReceiver", "donation")
-    }
-}
-```
-
-Snappy 압축 해제를 위한 확장 함수
-
-```kotlin
-import com.google.gson.*
-import org.xerial.snappy.Snappy
-
-fun Array<Any>.toJson():JsonElement{
-    val json = Snappy.uncompress(first() as ByteArray).toString(StandardCharsets.UTF_8)
-    return  JsonParser.parseString(json)
-}
-```
-
-
-Room 모델
-```kotlin
-import com.google.gson.annotations.SerializedName
-import java.util.Date
-
-class Room(val id:String, val users:Array<User>, @SerializedName("users_limit") val usersLimit:Int, val createdAt:Date, val updatedAt:Date)
-```
-
-User 모델
-```kotlin
-import com.google.gson.annotations.SerializedName
-import java.util.Date
-
-class User(val platform:String, @SerializedName("streamer_id") val streamerId:String, val createdAt:Date, val updatedAt:Date)
-```
-
-Date 객체 직렬화 관련
-```kotlin
-import com.google.gson.*
-
-internal val dateGson = GsonBuilder().registerTypeAdapter(Date::class.java, object: JsonSerializer<Date> {
-    override fun serialize(src: Date?, p1: Type?, context: JsonSerializationContext?): JsonElement {
-        return context!!.serialize(
-            src?.let{ DateTimeFormatter.ISO_INSTANT.format(it.toInstant())}
-        )
-    }
-}).create()
-```
-
-</TabItem>
-<TabItem value="go" label="Go">
-:::caution 주의사항
-이 예시는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
-:::
-필요 라이브러리
-
-- Socket.IO 클라이언트: `github.com/googollee/go-socket.io-client`
-- Snappy: `github.com/golang/snappy`
-
----
-
-예시 코드
-
-```go
-package main
-
-import (
-    "encoding/json"
-    "fmt"
-    "log"
-
-    socketio "github.com/googollee/go-socket.io-client"
-    "github.com/golang/snappy"
-)
-
-func main() {
-    // 소켓 연결 옵션 설정
-    opts := &socketio.Options{
-        Transport: "websocket",
-        Query:     make(map[string]string),
-    }
-
-    // 소켓 클라이언트 생성
-    client, err := socketio.NewClient("https://socket.ssapi.kr", opts)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // 소켓 연결 이벤트
-    client.OnConnect(func() {
-        fmt.Println("소켓 연결 성공")
-        client.Emit("login", "<API KEY 입력>")
-    })
-
-    // 소켓 연결 해제 이벤트
-    client.OnDisconnect(func() {
-        fmt.Println("소켓 연결 끊김")
-    })
+<div className="tabs-container">
+  <Tabs groupId="programming-language">
+    <TabItem value="nodejs" label="Node.js">
+
+    ### Node.js 구현 예제
+
+    #### 필요한 라이브러리
+
+    - Socket.IO 클라이언트: `socket.io-client@4.6.0`
+    - Snappy: `snappy`
+
+    #### 예제 코드
+
+    ```javascript
+    const io = require("socket.io-client");
+    const { uncompressSync } = require("snappy");
+
+    // 소켓 연결 설정
+    const socket = io("https://socket.ssapi.kr", {
+      transports: ["websocket"],
+      timeout: 5000,
+    });
+
+    // 소켓 연결 성공 시 이벤트
+    socket.on("connect", () => {
+      console.log("소켓 연결 성공");
+      socket.emit("login", "<API KEY 입력>");
+    });
+
+    // 소켓 연결 해제 시 이벤트
+    socket.on("disconnect", (reason) => {
+      console.error("소켓 연결 끊김", reason);
+    });
 
     // 채팅 메시지 수신 및 압축 해제
-    client.On("chat", func(data []byte) {
-        try {
-            // 압축 해제
-            decompressed, err := snappy.Decode(nil, data)
-            if err != nil {
-                log.Printf("메시지 압축 해제 중 오류: %v", err)
-                return
-            }
-
-            // JSON 파싱
-            var jsonData map[string]interface{}
-            if err := json.Unmarshal(decompressed, &jsonData); err != nil {
-                log.Printf("JSON 파싱 중 오류: %v", err)
-                return
-            }
-
-            fmt.Printf("수신된 압축 해제 메시지: %+v\n", jsonData)
-        } catch (error) {
-            log.Printf("메시지 처리 중 오류: %v", error)
-        }
-    })
+    socket.on("chat", (compressedData) => {
+      try {
+        const decompressedData = uncompressSync(compressedData);
+        const data = JSON.parse(decompressedData.toString());
+        console.log("수신된 압축 해제 메시지", data);
+      } catch (error) {
+        console.error("메시지 압축 해제 중 오류:", error);
+      }
+    });
 
     // 후원 데이터 수신 및 압축 해제
-    client.On("donation", func(data []byte) {
-        try {
-            // 압축 해제
-            decompressed, err := snappy.Decode(nil, data)
-            if err != nil {
-                log.Printf("후원 데이터 압축 해제 중 오류: %v", err)
-                return
-            }
+    socket.on("donation", (compressedData) => {
+      try {
+        const decompressedData = uncompressSync(compressedData);
+        const data = JSON.parse(decompressedData.toString());
+        console.log("수신된 압축 해제 후원 데이터", data);
+      } catch (error) {
+        console.error("후원 데이터 압축 해제 중 오류:", error);
+      }
+    });
+    ```
 
-            // JSON 파싱
-            var jsonData map[string]interface{}
-            if err := json.Unmarshal(decompressed, &jsonData); err != nil {
-                log.Printf("JSON 파싱 중 오류: %v", err)
-                return
-            }
+    </TabItem>
+    <TabItem value="python" label="Python">
 
-            fmt.Printf("수신된 압축 해제 후원 데이터: %+v\n", jsonData)
-        } catch (error) {
-            log.Printf("후원 데이터 처리 중 오류: %v", error)
+    ### Python 구현 예제
+
+    #### 필요한 라이브러리
+
+    - Socket.IO 클라이언트: `python-socketio`
+    - Snappy: `python-snappy`
+
+    #### 예제 코드
+
+    ```python
+    import socketio
+    import snappy
+    import json
+
+    # 소켓 연결 클라이언트 생성
+    sio = socketio.Client()
+
+    # 소켓 연결 이벤트
+    @sio.event
+    def connect():
+        print("소켓 연결 성공")
+        sio.emit("login", "<API KEY 입력>")
+
+    # 소켓 연결 해제 이벤트
+    @sio.event
+    def disconnect():
+        print("소켓 연결 끊김")
+
+    # 채팅 메시지 수신 및 압축 해제
+    @sio.event
+    def chat(compressed_data):
+        try:
+            decompressed_data = snappy.decompress(compressed_data)
+            data = json.loads(decompressed_data.decode('utf-8'))
+            print("수신된 압축 해제 메시지:", data)
+        except Exception as e:
+            print("메시지 압축 해제 중 오류:", e)
+
+    # 후원 데이터 수신 및 압축 해제
+    @sio.event
+    def donation(compressed_data):
+        try:
+            decompressed_data = snappy.decompress(compressed_data)
+            data = json.loads(decompressed_data.decode('utf-8'))
+            print("수신된 압축 해제 후원 데이터:", data)
+        except Exception as e:
+            print("후원 데이터 압축 해제 중 오류:", e)
+
+    # 소켓 연결
+    sio.connect("https://socket.ssapi.kr", transports=["websocket"], timeout=5)
+    ```
+
+    </TabItem>
+    <TabItem value="browser" label="Javascript (브라우저)">
+
+    ### Javascript (브라우저) 구현 예제
+
+    #### 필요한 라이브러리
+    - Socket.IO 클라이언트: `socket.io-client@4.6.0`
+    - Snappy 압축 해제: `snappyjs`
+
+    ---
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <!-- 소켓 통신 라이브러리 -->
+        <script
+          src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+          integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+          crossorigin="anonymous"
+        ></script>
+
+        <!-- Snappy 압축 해제 라이브러리 -->
+        <script src="https://cdn.ssapi.kr/service/snappyjs.min.js"></script>
+      </head>
+
+      <body>
+        <script>
+          // Snappy 초기화
+          const socket = io("https://socket.ssapi.kr", {
+            transports: ["websocket"],
+            timeout: 5000,
+          });
+
+          // 소켓 연결
+          socket.on("connect", () => {
+            console.log("소켓 연결 성공");
+            socket.emit("login", "<API KEY 입력>");
+          });
+
+          // 소켓 연결 끊김
+          socket.on("disconnect", (reason) => {
+            console.error("소켓 연결 끊김", reason);
+          });
+
+          // 메시지 수신 및 압축 해제
+          socket.on("chat", (compressedData) => {
+            try {
+              const decompressedData = SnappyJS.uncompress(compressedData);
+              const data = JSON.parse(new TextDecoder().decode(decompressedData));
+              console.log("수신된 압축 해제 메시지", data);
+            } catch (error) {
+              console.error("메시지 압축 해제 중 오류:", error);
+            }
+          });
+
+          // 후원 데이터 수신 및 압축 해제
+          socket.on("donation", (compressedData) => {
+            try {
+              const decompressedData = SnappyJS.uncompress(compressedData);
+              const data = JSON.parse(new TextDecoder().decode(decompressedData));
+              console.log("수신된 압축 해제 후원 데이터", data);
+            } catch (error) {
+              console.error("후원 데이터 압축 해제 중 오류:", error);
+            }
+          });
+        </script>
+      </body>
+    </html>
+    ```
+
+    </TabItem>
+    <TabItem value="java" label="Java">
+
+    ### Java 구현 예제
+
+    #### 필요한 라이브러리
+    - Socket.IO 클라이언트: `socket.io-client`
+    - Snappy: `org.xerial.snappy`
+    - JSON: `org.json`
+
+    ---
+
+    ```java
+    import io.socket.client.IO;
+    import io.socket.client.Socket;
+    import io.socket.emitter.Emitter;
+    import org.json.JSONObject;
+    import org.xerial.snappy.Snappy;
+
+    import java.nio.charset.StandardCharsets;
+
+    public class SocketExample {
+        public static void main(String[] args) {
+            try {
+                // 소켓 연결 옵션 설정
+                IO.Options options = new IO.Options();
+                options.transports = new String[]{"websocket"};
+                options.timeout = 5000; // 5초
+
+                Socket socket = IO.socket("https://socket.ssapi.kr", options);
+
+                // 소켓 연결 시 이벤트 핸들러
+                socket.on(Socket.EVENT_CONNECT, args1 -> {
+                    System.out.println("소켓 연결 성공");
+                    socket.emit("login", "<API KEY 입력>");
+                });
+
+                // 소켓 연결 해제 시 이벤트 핸들러
+                socket.on(Socket.EVENT_DISCONNECT, args12 -> {
+                    String reason = args12[0].toString();
+                    System.err.println("소켓 연결 끊김: " + reason);
+                });
+
+                // 채팅 메시지 수신 및 압축 해제
+                socket.on("chat", args13 -> {
+                    try {
+                        byte[] compressed = (byte[]) args13[0];
+                        String parsed = Snappy.uncompressString(compressed);
+                        JSONObject jsonData = new JSONObject(parsed);
+                        System.out.println("수신된 압축 해제 메시지: " + jsonData);
+                    } catch (Exception e) {
+                        System.err.println("메시지 압축 해제 중 오류: " + e.getMessage());
+                    }
+                });
+
+                // 후원 데이터 수신 및 압축 해제
+                socket.on("donation", args14 -> {
+                    try {
+                        byte[] compressed = (byte[]) args14[0];
+                        String parsed = Snappy.uncompressString(compressed);
+                        JSONObject jsonData = new JSONObject(parsed);
+                        System.out.println("수신된 압축 해제 후원 데이터: " + jsonData);
+                    } catch (Exception e) {
+                        System.err.println("후원 데이터 압축 해제 중 오류: " + e.getMessage());
+                    }
+                });
+
+                // 소켓 연결
+                socket.connect();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-    })
-
-    // 소켓 연결
-    err = client.Connect()
-    if err != nil {
-        log.Fatal(err)
     }
+    ```
 
-    // 프로그램 종료 방지
-    select {}
-}
-```
+    </TabItem>
+    <TabItem value="kotlin" label="Kotlin">
 
-</TabItem>
-<TabItem value="php" label="PHP">
+    ### Kotlin 구현 예제
 
-:::caution 주의사항
-이 예시는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
-:::
+    :::info 기여자
+    이 예제는 [dvh-oscar](https://github.com/DOCHIS/ssapi-doc/pull/1)님의 기여로 제공되었습니다.
+    :::
 
-필요 라이브러리
+    - `org.json` 대신 Google의 gson 라이브러리를 사용합니다.
+    - 그 이외의 사항은 Java를 사용하는 예제와 같습니다.
 
-- Socket.IO 클라이언트: `elephantio/elephant.io`
-- Snappy: `ext-snappy`
+    ---
 
----
+    소켓
 
-예시 코드
+    ```kotlin
+    import com.google.gson.Gson
+    import io.socket.client.IO
+    import io.socket.client.Socket
 
-```php
-<?php
 
-require 'vendor/autoload.php';
+    class APISocket{
+        internal lateinit var socket: Socket
+            private set
 
-use ElephantIO\Client;
-use ElephantIO\Engine\SocketIO\Version4X;
+        internal fun login(key:String){
+            val options = IO.Options()
+            options.run {
+                transports = arrayOf("websocket")
+                timeout = 5000
+                reconnection = true
+                reconnectionAttempts = Int.MAX_VALUE
+                reconnectionDelay = 1000
+                reconnectionDelayMax = 5000
+            }
+            socket = IO.socket("https://socket.ssapi.kr", options)
 
-class SocketClient {
-    private $client;
+            socket.on(Socket.EVENT_CONNECT) { args ->
+                println("소켓을 연결하였습니다.")
+                socket.emit("login", key)
+            }
+            socket.on(Socket.EVENT_DISCONNECT) { args ->
+                println("소켓 연결이 끊어졌습니다.")
+            }
 
-    public function __construct() {
-        $this->client = new Client(new Version4X(
-            'https://socket.ssapi.kr',
-            [
-                'transport' => 'websocket',
-                'timeout' => 5000
-            ]
-        ));
+            socket.on("donation") { args ->
+
+                val json = args.toJson().asJsonObject
+                val streamerId = json["streamer_id"].asString; val platform = json["platform"].asString
+                val donorName = json["nickname"].asString
+                val count = json["cnt"].asInt; val amount = json["amount"].asInt
+                val message = json["message"].asString; val chatId = json["_id"].asString
+
+            }
+
+            socket.on("chat"){args ->
+                val json = args.toJson().asJsonObject
+                val platform = json["platform"].asString
+                val message = json["message"].asString
+                val name = json["nickname"].asString
+                val streamerId = json["streamer_id"].asString
+
+                //무언가 무언가 하기
+
+            }
+
+            socket.on("setReceiver"){args ->
+                val receiver = Gson().fromJson(args.toJson(), Array<String>::class.java)
+
+                //무언가 하기
+            }
+
+            socket.on("login"){ args ->
+                println("로그인하였습니다!")
+                val room = Gson().fromJson(args.toJson(), Room::class.java)
+            }
+            socket.connect()
+        }
+
+        internal fun receiveChatAlso() {
+            socket.emit("setReceiver", "chat,donation")
+        }
+
+        internal fun receiveDonationOnly() {
+            socket.emit("setReceiver", "donation")
+        }
     }
+    ```
 
-    public function connect() {
-        try {
-            // 소켓 연결
-            $this->client->initialize();
-            echo "소켓 연결 성공\n";
+    Snappy 압축 해제를 위한 확장 함수
 
-            // 로그인
-            $this->client->emit('login', '<API KEY 입력>');
+    ```kotlin
+    import com.google.gson.*
+    import org.xerial.snappy.Snappy
 
-            // 이벤트 리스닝
-            while (true) {
-                $message = $this->client->read();
+    fun Array<Any>.toJson():JsonElement{
+        val json = Snappy.uncompress(first() as ByteArray).toString(StandardCharsets.UTF_8)
+        return  JsonParser.parseString(json)
+    }
+    ```
 
-                if ($message) {
-                    switch ($message->event) {
-                        case 'chat':
-                            $this->handleChat($message->data);
-                            break;
-                        case 'donation':
-                            $this->handleDonation($message->data);
-                            break;
+    Room 모델
+
+    ```kotlin
+    import com.google.gson.annotations.SerializedName
+    import java.util.Date
+
+    class Room(val id:String, val users:Array<User>, @SerializedName("users_limit") val usersLimit:Int, val createdAt:Date, val updatedAt:Date)
+    ```
+
+    User 모델
+
+    ```kotlin
+    import com.google.gson.annotations.SerializedName
+    import java.util.Date
+
+    class User(val platform:String, @SerializedName("streamer_id") val streamerId:String, val createdAt:Date, val updatedAt:Date)
+    ```
+
+    Date 객체 직렬화 관련
+
+    ```kotlin
+    import com.google.gson.*
+
+    internal val dateGson = GsonBuilder().registerTypeAdapter(Date::class.java, object: JsonSerializer<Date> {
+        override fun serialize(src: Date?, p1: Type?, context: JsonSerializationContext?): JsonElement {
+            return context!!.serialize(
+                src?.let{ DateTimeFormatter.ISO_INSTANT.format(it.toInstant())}
+            )
+        }
+    }).create()
+    ```
+
+    </TabItem>
+    <TabItem value="go" label="Go">
+
+    ### Go 구현 예제
+
+    :::caution AI 생성 코드
+    이 예제는 AI가 생성한 코드입니다. 코드의 안정성과 동작을 보장하지 않습니다.
+    :::
+
+    #### 필요한 라이브러리
+    - Socket.IO 클라이언트: `github.com/googollee/go-socket.io-client`
+    - Snappy: `github.com/golang/snappy`
+
+    ---
+
+    예시 코드
+
+    ```go
+    package main
+
+    import (
+        "encoding/json"
+        "fmt"
+        "log"
+
+        socketio "github.com/googollee/go-socket.io-client"
+        "github.com/golang/snappy"
+    )
+
+    func main() {
+        // 소켓 연결 옵션 설정
+        opts := &socketio.Options{
+            Transport: "websocket",
+            Query:     make(map[string]string),
+        }
+
+        // 소켓 클라이언트 생성
+        client, err := socketio.NewClient("https://socket.ssapi.kr", opts)
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        // 소켓 연결 이벤트
+        client.OnConnect(func() {
+            fmt.Println("소켓 연결 성공")
+            client.Emit("login", "<API KEY 입력>")
+        })
+
+        // 소켓 연결 해제 이벤트
+        client.OnDisconnect(func() {
+            fmt.Println("소켓 연결 끊김")
+        })
+
+        // 채팅 메시지 수신 및 압축 해제
+        client.On("chat", func(data []byte) {
+            try {
+                // 압축 해제
+                decompressed, err := snappy.Decode(nil, data)
+                if err != nil {
+                    log.Printf("메시지 압축 해제 중 오류: %v", err)
+                    return
+                }
+
+                // JSON 파싱
+                var jsonData map[string]interface{}
+                if err := json.Unmarshal(decompressed, &jsonData); err != nil {
+                    log.Printf("JSON 파싱 중 오류: %v", err)
+                    return
+                }
+
+                fmt.Printf("수신된 압축 해제 메시지: %+v\n", jsonData)
+            } catch (error) {
+                log.Printf("메시지 처리 중 오류: %v", error)
+            }
+        })
+
+        // 후원 데이터 수신 및 압축 해제
+        client.On("donation", func(data []byte) {
+            try {
+                // 압축 해제
+                decompressed, err := snappy.Decode(nil, data)
+                if err != nil {
+                    log.Printf("후원 데이터 압축 해제 중 오류: %v", err)
+                    return
+                }
+
+                // JSON 파싱
+                var jsonData map[string]interface{}
+                if err := json.Unmarshal(decompressed, &jsonData); err != nil {
+                    log.Printf("JSON 파싱 중 오류: %v", err)
+                    return
+                }
+
+                fmt.Printf("수신된 압축 해제 후원 데이터: %+v\n", jsonData)
+            } catch (error) {
+                log.Printf("후원 데이터 처리 중 오류: %v", error)
+            }
+        })
+
+        // 소켓 연결
+        err = client.Connect()
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        // 프로그램 종료 방지
+        select {}
+    }
+    ```
+
+    </TabItem>
+    <TabItem value="php" label="PHP">
+
+    ### PHP 구현 예제
+
+    :::caution AI 생성 코드
+    이 예제는 AI가 생성한 코드입니다. 코드의 안정성과 동작을 보장하지 않습니다.
+    :::
+
+    #### 필요한 라이브러리
+    - Socket.IO 클라이언트: `elephantio/elephant.io`
+    - Snappy: `ext-snappy`
+
+    ---
+
+    예시 코드
+
+    ```php
+    <?php
+
+    require 'vendor/autoload.php';
+
+    use ElephantIO\Client;
+    use ElephantIO\Engine\SocketIO\Version4X;
+
+    class SocketClient {
+        private $client;
+
+        public function __construct() {
+            $this->client = new Client(new Version4X(
+                'https://socket.ssapi.kr',
+                [
+                    'transport' => 'websocket',
+                    'timeout' => 5000
+                ]
+            ));
+        }
+
+        public function connect() {
+            try {
+                // 소켓 연결
+                $this->client->initialize();
+                echo "소켓 연결 성공\n";
+
+                // 로그인
+                $this->client->emit('login', '<API KEY 입력>');
+
+                // 이벤트 리스닝
+                while (true) {
+                    $message = $this->client->read();
+
+                    if ($message) {
+                        switch ($message->event) {
+                            case 'chat':
+                                $this->handleChat($message->data);
+                                break;
+                            case 'donation':
+                                $this->handleDonation($message->data);
+                                break;
+                        }
                     }
                 }
+            } catch (Exception $e) {
+                echo "오류 발생: " . $e->getMessage() . "\n";
             }
-        } catch (Exception $e) {
-            echo "오류 발생: " . $e->getMessage() . "\n";
+        }
+
+        private function handleChat($compressedData) {
+            try {
+                $decompressedData = snappy_uncompress($compressedData);
+                $data = json_decode($decompressedData, true);
+                echo "수신된 압축 해제 메시지: " . json_encode($data, JSON_UNESCAPED_UNICODE) . "\n";
+            } catch (Exception $e) {
+                echo "메시지 압축 해제 중 오류: " . $e->getMessage() . "\n";
+            }
+        }
+
+        private function handleDonation($compressedData) {
+            try {
+                $decompressedData = snappy_uncompress($compressedData);
+                $data = json_decode($decompressedData, true);
+                echo "수신된 압축 해제 후원 데이터: " . json_encode($data, JSON_UNESCAPED_UNICODE) . "\n";
+            } catch (Exception $e) {
+                echo "후원 데이터 압축 해제 중 오류: " . $e->getMessage() . "\n";
+            }
         }
     }
 
-    private function handleChat($compressedData) {
-        try {
-            $decompressedData = snappy_uncompress($compressedData);
-            $data = json_decode($decompressedData, true);
-            echo "수신된 압축 해제 메시지: " . json_encode($data, JSON_UNESCAPED_UNICODE) . "\n";
-        } catch (Exception $e) {
-            echo "메시지 압축 해제 중 오류: " . $e->getMessage() . "\n";
-        }
+    // 클라이언트 사용
+    $client = new SocketClient();
+    $client->connect();
+    ```
+
+    </TabItem>
+    <TabItem value="rust" label="Rust">
+
+    ### Rust 구현 예제
+
+    :::caution AI 생성 코드
+    이 예제는 AI가 생성한 코드입니다. 코드의 안정성과 동작을 보장하지 않습니다.
+    :::
+
+    #### 필요한 라이브러리
+    - Socket.IO 클라이언트: `socket-io-client`
+    - Snappy: `snap`
+    - JSON 처리: `serde_json`
+    - 비동기 런타임: `tokio`
+
+    ---
+
+    예시 코드
+
+    ```rust
+    use serde_json::Value;
+    use socket_io_client::ClientBuilder;
+    use snap::raw::Decoder;
+    use std::error::Error;
+    use tokio;
+
+    #[tokio::main]
+    async fn main() -> Result<(), Box<dyn Error>> {
+        // 소켓 클라이언트 생성
+        let socket = ClientBuilder::new("https://socket.ssapi.kr")
+            .transport_type(socket_io_client::TransportType::Websocket)
+            .connect()
+            .await?;
+
+        // 소켓 연결 이벤트
+        socket.on("connect", |_| {
+            println!("소켓 연결 성공");
+            socket.emit("login", "<API KEY 입력>").unwrap();
+        });
+
+        // 소켓 연결 해제 이벤트
+        socket.on("disconnect", |reason: String| {
+            println!("소켓 연결 끊김: {}", reason);
+        });
+
+        // 채팅 메시지 수신 및 압축 해제
+        socket.on("chat", |compressed_data: Vec<u8>| {
+            match handle_compressed_data(&compressed_data) {
+                Ok(data) => println!("수신된 압축 해제 메시지: {}", data),
+                Err(e) => eprintln!("메시지 압축 해제 중 오류: {}", e),
+            }
+        });
+
+        // 후원 데이터 수신 및 압축 해제
+        socket.on("donation", |compressed_data: Vec<u8>| {
+            match handle_compressed_data(&compressed_data) {
+                Ok(data) => println!("수신된 압축 해제 후원 데이터: {}", data),
+                Err(e) => eprintln!("후원 데이터 압축 해제 중 오류: {}", e),
+            }
+        });
+
+        // 프로그램 종료 방지
+        tokio::signal::ctrl_c().await?;
+        Ok(())
     }
 
-    private function handleDonation($compressedData) {
-        try {
-            $decompressedData = snappy_uncompress($compressedData);
-            $data = json_decode($decompressedData, true);
-            echo "수신된 압축 해제 후원 데이터: " . json_encode($data, JSON_UNESCAPED_UNICODE) . "\n";
-        } catch (Exception $e) {
-            echo "후원 데이터 압축 해제 중 오류: " . $e->getMessage() . "\n";
-        }
+    fn handle_compressed_data(compressed_data: &[u8]) -> Result<Value, Box<dyn Error>> {
+        let mut decoder = Decoder::new();
+        let decompressed_data = decoder.decompress_vec(compressed_data)?;
+        let json_data: Value = serde_json::from_slice(&decompressed_data)?;
+        Ok(json_data)
     }
-}
+    ```
 
-// 클라이언트 사용
-$client = new SocketClient();
-$client->connect();
-```
+    </TabItem>
 
-</TabItem>
-<TabItem value="rust" label="Rust">
-:::caution 주의사항
-이 예시는 AI가 생성한 것으로 동작을 보장하지 않으니 유의하시기 바랍니다.
-:::
-
-필요 라이브러리
-
-- Socket.IO 클라이언트: `socket-io-client`
-- Snappy: `snap`
-- JSON 처리: `serde_json`
-- 비동기 런타임: `tokio`
-
----
-
-예시 코드
-
-```rust
-use serde_json::Value;
-use socket_io_client::ClientBuilder;
-use snap::raw::Decoder;
-use std::error::Error;
-use tokio;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn Error>> {
-    // 소켓 클라이언트 생성
-    let socket = ClientBuilder::new("https://socket.ssapi.kr")
-        .transport_type(socket_io_client::TransportType::Websocket)
-        .connect()
-        .await?;
-
-    // 소켓 연결 이벤트
-    socket.on("connect", |_| {
-        println!("소켓 연결 성공");
-        socket.emit("login", "<API KEY 입력>").unwrap();
-    });
-
-    // 소켓 연결 해제 이벤트
-    socket.on("disconnect", |reason: String| {
-        println!("소켓 연결 끊김: {}", reason);
-    });
-
-    // 채팅 메시지 수신 및 압축 해제
-    socket.on("chat", |compressed_data: Vec<u8>| {
-        match handle_compressed_data(&compressed_data) {
-            Ok(data) => println!("수신된 압축 해제 메시지: {}", data),
-            Err(e) => eprintln!("메시지 압축 해제 중 오류: {}", e),
-        }
-    });
-
-    // 후원 데이터 수신 및 압축 해제
-    socket.on("donation", |compressed_data: Vec<u8>| {
-        match handle_compressed_data(&compressed_data) {
-            Ok(data) => println!("수신된 압축 해제 후원 데이터: {}", data),
-            Err(e) => eprintln!("후원 데이터 압축 해제 중 오류: {}", e),
-        }
-    });
-
-    // 프로그램 종료 방지
-    tokio::signal::ctrl_c().await?;
-    Ok(())
-}
-
-fn handle_compressed_data(compressed_data: &[u8]) -> Result<Value, Box<dyn Error>> {
-    let mut decoder = Decoder::new();
-    let decompressed_data = decoder.decompress_vec(compressed_data)?;
-    let json_data: Value = serde_json::from_slice(&decompressed_data)?;
-    Ok(json_data)
-}
-```
-
-</TabItem>
-</Tabs>
+  </Tabs>
+</div>
 
 :::tip
 예제는 기본적인 구현 방법을 보여줍니다. 프로덕션 환경에서는 각종 예외 상황에 대한 대응이나 로그 기록 등 필요한 기능을 구현하시기 바랍니다.
 :::
-
