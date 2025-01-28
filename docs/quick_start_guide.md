@@ -62,7 +62,7 @@ API를 사용하기 전에 먼저 소켓룸에 스트리머를 등록해야 함.
 
 #### 빠른 설치 방법
 
-1. [GitHub에서 플러그인 다운로드](https://github.com/DOCHIS/ssapi-minecraft)
+1. [GitHub에서 플러그인 다운로드](https://github.com/DOCHIS/ssapi-minecraft/releases)
 2. plugins 폴더에 넣고 서버 재시작
 3. config.yml에 API 키 입력
 
@@ -73,12 +73,11 @@ API를 사용하기 전에 먼저 소켓룸에 스트리머를 등록해야 함.
 - 실시간 후원 이펙트
 - 커스텀 명령어 설정
 
-> 자세한 설정과 사용법은 [마인크래프트 플러그인 문서](/docs/minecraft/plugin)를 참고하세요!
+> 자세한 설정과 사용법은 [마인크래프트 플러그인 문서](https://github.com/DOCHIS/SSAPI-Minecraft/)를 참고하세요!
 
 ## 자세히 알아보기
 
 - [SSAPI의 원리와 구성](/docs/intro/api)
-- [마인크래프트 서버 연동 가이드](/docs/minecraft/guide)
 - [SSAPI를 사용해야 하는 이유](/docs/intro/why-use)
 - [SSAPI와 함께하는 프로젝트](/docs/intro/projects)
 - [가격 정책과 이용 정책](/docs/intro/policy)
