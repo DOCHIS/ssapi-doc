@@ -9,6 +9,7 @@ import ProjectsList from "@site/src/components/Landing/ProjectsList";
 import SuccessStories from "@site/src/components/Landing/SuccessStories";
 import FeaturedProjects from "@site/src/components/Landing/FeaturedProjects";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import MinecraftSupport from "@site/src/components/Landing/MinecraftSupport";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -21,6 +22,7 @@ export default function Home() {
         <Hero />
         <Metrics />
         <Features />
+        <MinecraftSupport />
         <SuccessStories />
         <FeaturedProjects />
         <ProjectsList />
