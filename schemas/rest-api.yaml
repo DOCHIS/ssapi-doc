@@ -146,6 +146,9 @@ components:
         id:
           type: string
           description: 소켓소켓룸 식별을 위해 관리자가 부여한 아이디
+        category:
+          type: string
+          description: 소켓소켓룸 카테고리
         users:
           type: array
           description: 소켓소켓룸에 가입 된 스트리머 목록

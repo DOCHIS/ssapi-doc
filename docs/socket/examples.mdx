@@ -66,6 +66,12 @@ import TabItem from "@theme/TabItem";
         console.error("후원 데이터 압축 해제 중 오류:", error);
       }
     });
+
+    // 1분 간격으로 ping 전송
+    let socket_clone = socket.clone();
+    setInterval(() => {
+      socket_clone.emit("ping");
+    }, 60000);
     ```
 
     </TabItem>
@@ -84,6 +90,8 @@ import TabItem from "@theme/TabItem";
     import socketio
     import snappy
     import json
+    import time
+    import threading
 
     # 소켓 연결 클라이언트 생성
     sio = socketio.Client()
@@ -118,6 +126,16 @@ import TabItem from "@theme/TabItem";
             print("수신된 압축 해제 후원 데이터:", data)
         except Exception as e:
             print("후원 데이터 압축 해제 중 오류:", e)
+
+    # 1분 간격으로 ping 전송
+    def send_ping():
+        while True:
+            sio.emit("ping")
+            time.sleep(60)
+
+    ping_thread = threading.Thread(target=send_ping)
+    ping_thread.daemon = True
+    ping_thread.start()
 
     # 소켓 연결
     sio.connect("https://socket.ssapi.kr", transports=["websocket"], timeout=5)
@@ -189,6 +207,11 @@ import TabItem from "@theme/TabItem";
               console.error("후원 데이터 압축 해제 중 오류:", error);
             }
           });
+
+          // 1분 간격으로 ping 전송
+          setInterval(() => {
+            socket.emit("ping");
+          }, 60000);
         </script>
       </body>
     </html>
@@ -263,6 +286,14 @@ import TabItem from "@theme/TabItem";
 
                 // 소켓 연결
                 socket.connect();
+
+                // 1분 간격으로 ping 전송
+                new Timer().scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        socket.emit("ping");
+                    }
+                }, 0, 60000);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -349,6 +380,13 @@ import TabItem from "@theme/TabItem";
                 val room = Gson().fromJson(args.toJson(), Room::class.java)
             }
             socket.connect()
+
+            // 1분 간격으로 ping 전송
+            Timer().scheduleAtFixedRate(object : TimerTask() {
+                override fun run() {
+                    socket.emit("ping")
+                }
+            }, 0, 60000)
         }
 
         internal fun receiveChatAlso() {
@@ -429,6 +467,7 @@ import TabItem from "@theme/TabItem";
         "encoding/json"
         "fmt"
         "log"
+        "time"
 
         socketio "github.com/googollee/go-socket.io-client"
         "github.com/golang/snappy"
@@ -510,6 +549,14 @@ import TabItem from "@theme/TabItem";
             log.Fatal(err)
         }
 
+        // 1분 간격으로 ping 전송
+        go func() {
+            ticker := time.NewTicker(1 * time.Minute)
+            for range ticker.C {
+                client.Emit("ping")
+            }
+        }()
+
         // 프로그램 종료 방지
         select {}
     }
@@ -562,8 +609,15 @@ import TabItem from "@theme/TabItem";
                 // 로그인
                 $this->client->emit('login', '<API KEY 입력>');
 
-                // 이벤트 리스닝
+                // 1분 간격으로 ping 전송
+                $lastPing = time();
                 while (true) {
+                    $now = time();
+                    if ($now - $lastPing >= 60) {
+                        $this->client->emit('ping');
+                        $lastPing = $now;
+                    }
+
                     $message = $this->client->read();
 
                     if ($message) {
@@ -666,6 +720,16 @@ import TabItem from "@theme/TabItem";
             match handle_compressed_data(&compressed_data) {
                 Ok(data) => println!("수신된 압축 해제 후원 데이터: {}", data),
                 Err(e) => eprintln!("후원 데이터 압축 해제 중 오류: {}", e),
+            }
+        });
+
+        // 1분 간격으로 ping 전송
+        let socket_clone = socket.clone();
+        tokio::spawn(async move {
+            let mut interval = tokio::time::interval(Duration::from_secs(60));
+            loop {
+                interval.tick().await;
+                socket_clone.emit("ping", ()).unwrap();
             }
         });
 

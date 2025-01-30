@@ -2,7 +2,7 @@
 id: 채팅-수-통계-데이터
 title: "채팅 수 통계 데이터"
 description: "⚠️ 제휴 전용 API"
-sidebar_label: "채팅 수 통계 데이터"
+sidebar_label: "채팅 수 통계 데이터 (제휴)"
 hide_title: true
 hide_table_of_contents: true
 api: eJztVltvE0cU/iuj4YVIm3gTIkT3LZVKlVYtiARVamKViXcSL/FemJ1FBGslNzKRFRvBQ1wsy4YgzK0yqoltZFTTH9PHnVn1L1Rn17cEQ9PSl0p9sXd2z/nOdb5zspiTLRdra3gpkzGIlaJo6fIyTipYp26KGQ43bAtr+Pfq4R+9e0ge1sJaB8nDvKy+BMl1S9Y78CD2D5Bo58W9/EBIPO2jcK8bljsyXxPPS/A6aHfF/QqIvgckH94RxYIoNuYAsi9alejtg/tIvM2H5Q6SxabcbSJZPQhed8CoeN6Q1RYK3pZEsSEev5L73THC2IVyRT7PIVnel/UcCo7egc7S5WUU7jaCVg7JhwVx90DU+5Hnu01ZfRmWD5EsVJB8sDeJiRXs0pTHDL6DtbUs3qCEUbbk8TTW1pJ+UsEOYcSknDI3EjAgcTc8ynawgi1iUqxhRjcpo1aK/sANk2IFM3rDMxjVscaZRxXsptLUJFjLYr7jgIbLmWFtYQVv2swkHGtYJ5zORur+yTKJuy1Z74T5FoQu3hTEo6asNFHQa8lGDsliLWjl0dnllUvownl1HoWVsizWZ9YtWSnIYm0GLagLi7Pq+Vl1fnV+QVNVTVW/X7fkk76sV2bQGL3dCTo5+aQf9FqQxODoXdDui/u1CREo8u4rKES5In7Jice1cQcMKzKZXV+ZnjHdYySK7hS5MixOtyjDCjYNyzA9E2vnVAWb5NbgcF5V/0bOomSJ4gtZy2tIdgqQqG5N7pU0dE6VnUJ0FKWchgBYdgro7Hyc4xkIKAkeu45tudQFJxdUFf6OW5f510G7ixWcsi1OLQ4SxHEyRiqKOnHdBbHs+7HaG9dpimMFO8x2KONGbIQyZrOpKaG3iOlkKNYgBa5nmoQNdD6O6Nq2M02K6LoBLpLM5WPyJwz7voJT6du3tz8JA1BGd+evfV6+tAINforgOGH89LeNWvpphcHjr1dW/7ELH7Lmx8kYXYsp2VIwtznJnMY0o8Sk0/olqhrhHyhG7MPitIY+c+YMCn/siHpf1jvyp16430Oy0hBPK+vWLLq2qKroc6KjK/SGR11+TUPyYUX8/CuQh6weyKNXKOg2RbOnIFk7DKsvjhN4LDJAmkdXLeLxtM2M21QHqHpPPqtPEMxJjXPoos02DF2n1jUNBW9KYbkGs0Q+2IsIa1J2EX1rc3TR9qwIOvoUlmtIPGvKvZLcbwBfyNZvsp4fjYt6KVZe+Ayt2jb6hlg7w0jdEQgKq48iBeDGGhBL0O4DYfgKNilP2zrW8BaNykVguuAElMJNjC5tYlg4NxpK7OZw5HgsgzWc5txxtUSCOMac68LvNhDA8TqtrMAUhNl8lI+4ajjcVoBp4v6YHHGjPgB0PCBfOMdCWBk8XBzeha++W41CMqxNO1I3OLBPbBgrGJyOXZmfU+dU6DjHdrlJop4esL98nQ9Ld6L8hnvdoJ0fT5iTEWXHFPr/uhKtK4OCcXqLJ5wMMWDIxi2SHXTWWnTJoy4aDQQFj7srqeC07XIQzGY3iEuvsozvw+t4SkPP6YZLNjIwlTdJxqUfqcrZK4MBPrlK/OcWlQ/kdZvuTNvvbpKMB8LRfvMvp+rT9pOPxjGxdY0jSMKBGRBCtPIqOE2JDuNjLTvQW0qlqMMntN7bZQBlxHJffrEKW8BxgjlBKBH64BOxdiaws9lYYtXeppbv46HzHM7YT/q+/yd3xbPn
@@ -23,53 +23,109 @@ import Heading from "@theme/Heading";
   as={"h1"}
   className={"openapi__heading"}
   children={"채팅 수 통계 데이터"}
->
-</Heading>
+></Heading>
 
 <MethodEndpoint
   method={"get"}
   path={"/chats/summaries/streamers"}
   context={"endpoint"}
->
-  
-</MethodEndpoint>
-
-
+></MethodEndpoint>
 
 ⚠️ 제휴 전용 API
 이 API는 별도 제휴를 통해서만 제공되는 제휴 전용 API입니다.
 일반 API에 비해 심사 요건이 매우 까다롭습니다.
 제휴를 하지 않은 경우 API 키가 있더라도 사용할 수 없습니다.
 
-
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
   children={"Request"}
->
-</Heading>
+></Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"reference_time","required":true,"schema":{"type":"string","format":"date-time"},"description":"데이터를 불러올 기준 시간 (ISO 8601 형식)\n예시) 2024-06-01T12:00:00Z\n주의) 데이터보관주기가 경과된 데이터는 삭제하므로 제공되지 않습니다.\n"},{"in":"query","name":"duration","required":true,"schema":{"type":"integer","minimum":30,"maximum":3600},"description":"데이터를 불러올 기간 (단위: 초)\n최소: 30초\n최대: 3600초 (1시간)\n"}]}
->
-  
-</ParamsDetails>
+  parameters={[
+    {
+      in: "query",
+      name: "reference_time",
+      required: true,
+      schema: { type: "string", format: "date-time" },
+      description:
+        "데이터를 불러올 기준 시간 (ISO 8601 형식)\n예시) 2024-06-01T12:00:00Z\n주의) 데이터보관주기가 경과된 데이터는 삭제하므로 제공되지 않습니다.\n",
+    },
+    {
+      in: "query",
+      name: "duration",
+      required: true,
+      schema: { type: "integer", minimum: 30, maximum: 3600 },
+      description:
+        "데이터를 불러올 기간 (단위: 초)\n최소: 30초\n최대: 3600초 (1시간)\n",
+    },
+  ]}
+></ParamsDetails>
 
-<RequestSchema
-  title={"Body"}
-  body={undefined}
->
-  
-</RequestSchema>
+<RequestSchema title={"Body"} body={undefined}></RequestSchema>
 
 <StatusCodes
   id={undefined}
   label={undefined}
-  responses={{"200":{"description":"성공","content":{"application/json":{"schema":{"type":"object","properties":{"error":{"type":"integer","example":0},"summaries":{"type":"object","properties":{"soop":{"type":"object","additionalProperties":{"type":"integer"}},"chzzk":{"type":"object","additionalProperties":{"type":"integer"}}}},"reference":{"type":"object","properties":{"IOS8601":{"type":"object","properties":{"start":{"type":"string","format":"date-time"},"end":{"type":"string","format":"date-time"}}},"KST":{"type":"object","properties":{"start":{"type":"string"},"end":{"type":"string"}}}}},"duration":{"type":"integer"},"total":{"type":"object","properties":{"streamer":{"type":"integer"},"chat":{"type":"integer"}}}}}}}},"400":{"description":"### 클라이언트 오류\n- `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청\n- `401 Unauthorized`: 인증되지 않은 요청\n- `403 Forbidden`: 권한이 없는 요청\n- `404 Not Found`: 요청한 리소스를 찾을 수 없음\n- `429 Too Many Requests`: 요청 횟수 제한 초과\n"}}}
->
-  
-</StatusCodes>
-
-
-      
+  responses={{
+    "200": {
+      description: "성공",
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              error: { type: "integer", example: 0 },
+              summaries: {
+                type: "object",
+                properties: {
+                  soop: {
+                    type: "object",
+                    additionalProperties: { type: "integer" },
+                  },
+                  chzzk: {
+                    type: "object",
+                    additionalProperties: { type: "integer" },
+                  },
+                },
+              },
+              reference: {
+                type: "object",
+                properties: {
+                  IOS8601: {
+                    type: "object",
+                    properties: {
+                      start: { type: "string", format: "date-time" },
+                      end: { type: "string", format: "date-time" },
+                    },
+                  },
+                  KST: {
+                    type: "object",
+                    properties: {
+                      start: { type: "string" },
+                      end: { type: "string" },
+                    },
+                  },
+                },
+              },
+              duration: { type: "integer" },
+              total: {
+                type: "object",
+                properties: {
+                  streamer: { type: "integer" },
+                  chat: { type: "integer" },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "400": {
+      description:
+        "### 클라이언트 오류\n- `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청\n- `401 Unauthorized`: 인증되지 않은 요청\n- `403 Forbidden`: 권한이 없는 요청\n- `404 Not Found`: 요청한 리소스를 찾을 수 없음\n- `429 Too Many Requests`: 요청 횟수 제한 초과\n",
+    },
+  }}
+></StatusCodes>
