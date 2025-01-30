@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 4
 ---
 
-# ↑↓ setReceiver
+# ↕ setReceiver
 
 :::danger
 login 후 사용해야 하는 이벤트입니다.
@@ -31,6 +31,8 @@ login 후 사용해야 하는 이벤트입니다.
 
 ## Response
 
+setReceiver 요청에 대한 응답은 `receiver` 이벤트로 전달됩니다.
+
 ### Response Fields
 
 | 필드     | 타입  | 설명                                        |
@@ -39,7 +41,7 @@ login 후 사용해야 하는 이벤트입니다.
 
 ### Example Response
 
-```
+```json
 {
   "receiver": ["ALL"]
 }
