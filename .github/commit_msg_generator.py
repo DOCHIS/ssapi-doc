@@ -126,7 +126,38 @@ def get_commit_changes(commit_hash: str) -> str:
         log_message(f"변경사항 가져오기 실패: {str(e)}", "ERROR")
         return ""
 
-def generate_commit_message(diff: str, max_tokens: int = 1000) -> tuple[str, str]:
+def get_user_input() -> tuple[str, int, str]:
+    """사용자로부터 커밋 해시, 토큰 수, 그리고 선택적으로 주석 방향을 입력받습니다"""
+    try:
+        log_message("커밋 해시를 입력해주세요:", "INFO")
+        commit_hash = input().strip()
+        
+        while True:
+            log_message("토큰 수를 입력해주세요 (기본값: 1000):", "INFO")
+            token_input = input().strip()
+            
+            if not token_input:  # 빈 입력이면 기본값 사용
+                tokens = 1000
+                break
+                
+            try:
+                tokens = int(token_input)
+                if tokens > 0:
+                    break
+                log_message("토큰 수는 양수여야 합니다.", "WARNING")
+            except ValueError:
+                log_message("유효하지 않은 토큰 수입니다. 숫자를 입력해주세요.", "WARNING")
+        
+        log_message("주석 작성 방향을 입력해주세요 (선택사항, 입력하지 않으면 자동 생성):", "INFO")
+        comment_direction = input().strip()
+        
+        return commit_hash, tokens, comment_direction
+
+    except KeyboardInterrupt:
+        log_message("\n프로그램을 종료합니다.", "INFO")
+        sys.exit(0)
+
+def generate_commit_message(diff: str, max_tokens: int = 1000, comment_direction: str = "") -> tuple[str, str]:
     """Claude API를 사용하여 커밋 메시지를 생성합니다"""
     try:
         api_key = get_api_key()
@@ -134,7 +165,9 @@ def generate_commit_message(diff: str, max_tokens: int = 1000) -> tuple[str, str
         client = anthropic.Anthropic(api_key=api_key)
         log_message("API 클라이언트 생성 완료", "SUCCESS")
         
-        prompt = f"""Git diff를 분석하여 커밋 메시지를 작성해주세요.
+        direction_text = f"\n추가 지시사항: {comment_direction}" if comment_direction else ""
+        
+        prompt = f"""Git diff를 분석하여 커밋 메시지를 작성해주세요.{direction_text}
 
         응답 형식:
         반드시 다음 JSON 형식으로 응답해주세요:
@@ -192,34 +225,9 @@ def update_commit_message(commit_hash: str, title: str, description: str) -> Non
         log_message(f"커밋 메시지 수정 중 오류: {str(e)}", "ERROR")
         raise
 
-def get_user_input() -> tuple[str, int]:
-    """사용자로부터 커밋 해시와 토큰 수를 입력받습니다"""
-    try:
-        log_message("커밋 해시를 입력해주세요:", "INFO")
-        commit_hash = input().strip()
-        
-        while True:
-            log_message("토큰 수를 입력해주세요 (기본값: 1000):", "INFO")
-            token_input = input().strip()
-            
-            if not token_input:  # 빈 입력이면 기본값 사용
-                return commit_hash, 1000
-                
-            try:
-                tokens = int(token_input)
-                if tokens > 0:
-                    return commit_hash, tokens
-                log_message("토큰 수는 양수여야 합니다.", "WARNING")
-            except ValueError:
-                log_message("유효하지 않은 토큰 수입니다. 숫자를 입력해주세요.", "WARNING")
-                
-    except KeyboardInterrupt:
-        log_message("\n프로그램을 종료합니다.", "INFO")
-        sys.exit(0)
-
 def main():
     try:
-        commit_hash, max_tokens = get_user_input()
+        commit_hash, max_tokens, comment_direction = get_user_input()
         log_message(f"=== 커밋 메시지 생성 시작 (commit_hash: {commit_hash}, tokens: {max_tokens}) ===", "START")
         
         changes = get_commit_changes(commit_hash)
@@ -227,7 +235,7 @@ def main():
             log_message("변경사항을 가져올 수 없습니다.", "ERROR")
             return
             
-        title, description = generate_commit_message(changes, max_tokens)
+        title, description = generate_commit_message(changes, max_tokens, comment_direction)
         log_message("생성된 커밋 메시지:", "INFO")
         log_message(f"제목: {title}", "INFO")
         log_message(f"설명: {description}", "INFO")
