@@ -30,6 +30,30 @@
   ],
   "minecraft": [
     {
+      "logo": "/img/projects/agari.png",
+      "name": "AGARI 월드",
+      "period": "25년 02월 16일 ~",
+      "participants": "약 30명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/dalchesom"]
+    },
+    {
+      "logo": "/img/projects/ohamama.png",
+      "name": "오함마 시즌2",
+      "period": "25년 02월 07일 ~",
+      "participants": "약 20명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/legendhyuk"]
+    },
+    {
+      "logo": "/img/projects/daketmon.png",
+      "name": "더켓몬 서버",
+      "period": "25년 02월 04일 ~",
+      "participants": "약 100명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/tinkerblond"]
+    },
+    {
       "logo": "/img/projects/cavalry2.png",
       "name": "마병대2",
       "period": "25년 01월 24일 ~ 1월 31일",
