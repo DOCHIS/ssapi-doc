@@ -32,10 +32,18 @@
     {
       "logo": "/img/projects/agari.png",
       "name": "AGARI 월드",
-      "period": "25년 02월 16일 ~",
+      "period": "25년 02월 16일 ~ 03월 07일",
+      "participants": "약 30명",
+      "description": "서버 개발 운영영",
+      "link": ["https://ch.sooplive.co.kr/dalchesom"]
+    },
+    {
+      "logo": "/img/projects/meijjang.png",
+      "name": "메이's 좀비월드 CBT",
+      "period": "25년 02월 10일 ~ 02월 14일",
       "participants": "약 30명",
       "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/dalchesom"]
+      "link": ["https://ch.sooplive.co.kr/meijjang00"]
     },
     {
       "logo": "/img/projects/ohamama.png",
