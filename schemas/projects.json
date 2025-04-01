@@ -30,11 +30,27 @@
   ],
   "minecraft": [
     {
+      "logo": "/img/projects/perkemon.png",
+      "name":"퍼켓몬",
+      "period":"25년 03월 08일 ~ 03월 25일",
+      "participants":"약 390명",
+      "description":"API 지원",
+      "link":["https://ch.sooplive.co.kr/reaperd123"]
+    },
+    {
+      "logo": "/img/projects/doutmon.png",
+      "name": "돗켓몬 서버",
+      "period":"25년 02월 21일 ~ 02월 28일",
+      "participants":"약 30명",
+      "description":"API 지원",
+      "link":["https://ch.sooplive.co.kr/gkfn11"]
+    },
+    {
       "logo": "/img/projects/agari.png",
       "name": "AGARI 월드",
       "period": "25년 02월 16일 ~ 03월 07일",
-      "participants": "약 30명",
-      "description": "서버 개발 운영영",
+      "participants": "약 90명",
+      "description": "서버 개발 운영",
       "link": ["https://ch.sooplive.co.kr/dalchesom"]
     },
     {
@@ -79,6 +95,14 @@
       "link": ["https://ch.sooplive.co.kr/rmlrl771"]
     },
     {
+      "logo": "/img/projects/rlc.webp",
+      "name":"RLC서버",
+      "period":"25년 01월 25일 ~ 01월 30일",
+      "participants":"약 15명",
+      "description":"API 지원",
+      "link":["https://ch.sooplive.co.kr/elisehs"]
+    },
+    {
       "logo": "/img/projects/abong.png",
       "name": "아봉서버",
       "period": "25년 01월 1일 ~ 1월 11일",
@@ -105,8 +129,8 @@
     {
       "logo": "/img/projects/chungsaechi.png",
       "name": "청새치숲4",
-      "period": "24년 12월 1일 ~",
-      "participants": "약 270명",
+      "period": "24년 12월 1일 ~ 25년 02월 26일",
+      "participants": "약 530명",
       "description": "API 지원",
       "link": ["https://ch.sooplive.co.kr/nopek98"]
     },
