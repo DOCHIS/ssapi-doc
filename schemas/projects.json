@@ -54,6 +54,14 @@
       "link": ["https://ch.sooplive.co.kr/dalchesom"]
     },
     {
+      "logo": "/img/projects/tachocho_city.png",
+      "name": "쵸록시티",
+      "period": "25년 02월 21일 ~ 03월 05일",
+      "participants": "약 70명",
+      "description": "API 지원",
+      "link": ["https://ch.sooplive.co.kr/tachocho"]
+    },
+    {
       "logo": "/img/projects/meijjang.png",
       "name": "메이's 좀비월드 CBT",
       "period": "25년 02월 10일 ~ 02월 14일",
