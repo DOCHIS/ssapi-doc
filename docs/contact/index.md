@@ -34,11 +34,6 @@ SSAPI 관련 문의는 디스코드를 통해 가장 빠르게 답변받으실 �
         <h3 style={{ margin: '0 0 0.5rem 0' }}>📧 이메일</h3>
         <code className={styles.code}>dochis2013@gmail.com</code>
       </div>
-
-      <div className={styles.contactItem}>
-        <h3 style={{ margin: '0 0 0.5rem 0' }}>💬 카카오톡</h3>
-        <a href="https://open.kakao.com/o/sr3sL9Fg" className={styles.button}>1:1 오픈채팅 바로가기</a>
-      </div>
     </div>
 
   </div>
