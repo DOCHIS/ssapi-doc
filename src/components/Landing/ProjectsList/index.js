@@ -18,18 +18,21 @@ const ProjectsList = () => {
   const baseProjects = [
     ...projectsData.partners.map((p) => ({
       ...p,
-      type: "partnership",
+      type: "affiliate",
+      displayName: p.name,
       supportInfo: p.subtitle,
     })),
     ...projectsData.minecraft.map((p) => ({
       ...p,
       type: "minecraft",
-      supportInfo: `${p.support} · ${p.participants}`,
+      displayName: p.contentName,
+      supportInfo: p.participants ? `약 ${p.participants}명` : '',
     })),
     ...projectsData.zomboid.map((p) => ({
       ...p,
       type: "zomboid",
-      supportInfo: `${p.support} · ${p.participants}`,
+      displayName: p.contentName,
+      supportInfo: p.participants ? `약 ${p.participants}명` : '',
     })),
   ];
 
@@ -105,7 +108,7 @@ const ProjectsList = () => {
               <motion.div
                 key={`${project.name}-${idx}`}
                 className={`${styles.projectItem} ${
-                  project.type === "partnership" ? styles.partnerItem : ""
+                  project.type === "affiliate" ? styles.partnerItem : ""
                 }`}
                 whileHover={{
                   scale: 1.02,
@@ -120,7 +123,7 @@ const ProjectsList = () => {
                 />
                 <div className={styles.textContent}>
                   <h3 className={styles.name}>
-                    {project.name}
+                    {project.displayName}
                     {project.subtitle && (
                       <span className={styles.nameSubtitle}>
                         {project.subtitle}
@@ -128,9 +131,11 @@ const ProjectsList = () => {
                     )}
                   </h3>
                   <p className={styles.subtitle}>
-                    {project.description.length > 30
-                      ? project.description.slice(0, 30) + "..."
-                      : project.description}
+                    {project.description ? (
+                      project.description.length > 30
+                        ? project.description.slice(0, 30) + "..."
+                        : project.description
+                    ) : project.supportInfo}
                   </p>
                 </div>
               </motion.div>

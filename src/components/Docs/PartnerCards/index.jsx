@@ -9,10 +9,11 @@ export default function PartnerCards() {
         <div key={idx} className={styles.partnerCard}>
           <img src={partner.logo} alt={partner.name} />
           <div className={styles.partnerInfo}>
-            <h3>[{partner.type === 'partnership' ? '제휴' : '파트너'}] {partner.name}</h3>
+            <h3>[{partner.type === 'affiliate' ? '제휴' : '파트너'}] {partner.name}</h3>
             <p>
-              <span>{partner.period}</span>
-              <span>{partner.subtitle}</span>
+              {partner.startDate && <span>{partner.startDate}</span>}
+              {partner.endDate && <span> ~ {partner.endDate}</span>}
+              {partner.subtitle && <span> • {partner.subtitle}</span>}
             </p>
             <a href={partner.link[0]} target="_blank" rel="noopener noreferrer">
               바로가기
