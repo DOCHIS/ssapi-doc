@@ -13,12 +13,15 @@
     "dev": "npx docusaurus start",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "rest-api-generate": "docusaurus gen-api-docs all"
+    "rest-api-generate": "docusaurus gen-api-docs all",
+    "build-projects": "node .husky/scripts/build-projects.js",
+    "optimize-images": "node .husky/scripts/optimize-images.js",
+    "precommit": "node .husky/scripts/optimize-images.js && node .husky/scripts/build-projects.js && git add schemas/projects.json static/img/"
   },
   "dependencies": {
-    "@docusaurus/core": "3.7.0",
-    "@docusaurus/plugin-sitemap": "^3.7.0",
-    "@docusaurus/preset-classic": "3.7.0",
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/plugin-sitemap": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "docusaurus-plugin-sass": "^0.2.6",
@@ -30,8 +33,10 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.7.0",
-    "@docusaurus/types": "3.7.0"
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/types": "3.7.0",
+    "gray-matter": "^4.0.3",
+    "sharp": "^0.34.4"
   },
   "browserslist": {
     "production": [
