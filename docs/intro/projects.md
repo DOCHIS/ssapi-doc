@@ -10,23 +10,17 @@ import PartnerCards from '@site/src/components/Docs/PartnerCards';
 
 <PartnerCards />
 
-## 서버 목록
+## 컨텐츠 목록
 
 import ServerList from '@site/src/components/Docs/ServerList';
 
-### 마인크래프트 서버
+### 마인크래프트 컨텐츠
 
 <ServerList type="minecraft" />
 
-### 좀보이드 서버
+### 좀보이드 컨텐츠
 
 <ServerList type="zomboid" />
-
-## 기타
-
-import OtherProjects from '@site/src/components/Docs/OtherProjects';
-
-<OtherProjects />
 
 ## 연혁
 

@@ -3,24 +3,21 @@ import { motion } from "framer-motion";
 import styles from "./styles.module.scss";
 import projectsData from "../../../../schemas/projects.json";
 
-// 참여자 수로 정렬하고 상위 6개 프로젝트 선택
+// 참여자 수로 정렬하고 상위 8개 프로젝트 선택
 const TOP_PROJECTS = projectsData.minecraft
-  .map((project) => ({
-    ...project,
-    participantsCount: parseInt(project.participants.replace(/[^0-9]/g, "")),
-  }))
-  .sort((a, b) => b.participantsCount - a.participantsCount)
-  .slice(0, 6)
+  .filter((project) => typeof project.participants === 'number' && project.participants > 0)
+  .sort((a, b) => b.participants - a.participants)
+  .slice(0, 8)
   .map((project) => ({
     icon: (
       <img
         src={project.logo}
-        alt={project.name}
+        alt={project.contentName}
         className={styles.projectIcon}
       />
     ),
-    title: project.name,
-    metrics: [`참여 인원: ${project.participants}`],
+    title: project.contentName,
+    metrics: [`참여 인원: 약 ${project.participants}명`],
   }));
 
 export default function FeaturedProjects() {
