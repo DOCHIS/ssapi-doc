@@ -1,277 +1,363 @@
 {
   "partners": [
     {
-      "type": "partnership",
-      "logo": "/img/partners/softcon.png",
-      "name": "뷰어십",
-      "subtitle": "SOFTC.ONE",
-      "period": "24년 05월 23일 ~",
-      "description": "더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공합니다.",
-      "link": ["https://viewership.softc.one/"]
-    },
-    {
-      "type": "partnership",
-      "logo": "/img/partners/fancim.png",
+      "type": "affiliate",
+      "logo": "/img/partners/9cb90d323d63.png",
       "name": "(주)일리오",
       "subtitle": "셀럽후원플랫폼 팬심",
-      "period": "25년 1월 14일 ~",
+      "startDate": "2025-01-14",
       "description": "더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공을 준비중입니다.",
-      "link": ["https://fancim.me/"]
+      "link": [
+        "https://fancim.me/"
+      ]
     },
     {
-      "type": "partnership",
-      "logo": "/img/partners/versetime.png",
+      "type": "affiliate",
+      "logo": "/img/partners/552178139181.png",
+      "name": "뷰어십",
+      "subtitle": "SOFTC.ONE",
+      "startDate": "2024-05-23",
+      "description": "더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공합니다.",
+      "link": [
+        "https://viewership.softc.one/"
+      ]
+    },
+    {
+      "type": "affiliate",
+      "logo": "/img/partners/702f9ad12d22.png",
       "name": "뻐스시간",
       "subtitle": "버튜버 예능 그룹",
-      "period": "24년 3월 10일 ~",
+      "startDate": "2024-03-10",
       "description": "각종 컨텐츠 제작을 협업하고있습니다",
-      "link": ["https://ch.sooplive.co.kr/versetime"]
+      "link": [
+        "https://ch.sooplive.co.kr/versetime"
+      ]
     }
   ],
   "minecraft": [
     {
-      "logo": "/img/projects/perkemon.png",
-      "name":"퍼켓몬",
-      "period":"25년 03월 08일 ~ 03월 25일",
-      "participants":"약 390명",
-      "description":"API 지원",
-      "link":["https://ch.sooplive.co.kr/reaperd123"]
+      "logo": "/img/projects/7b2d2ef9ccc0.png",
+      "organizer": "알 수 없음",
+      "contentName": "마병대3",
+      "category": "minecraft",
+      "startDate": "2025-10-03",
+      "broadcastLink": "https://ch.sooplive.co.kr/devil0108",
+      "endDate": "2025-10-10",
+      "participants": 100
     },
     {
-      "logo": "/img/projects/doutmon.png",
-      "name": "돗켓몬 서버",
-      "period":"25년 02월 21일 ~ 02월 28일",
-      "participants":"약 30명",
-      "description":"API 지원",
-      "link":["https://ch.sooplive.co.kr/gkfn11"]
+      "logo": "/img/projects/21a9c38cc90c.png",
+      "organizer": "알 수 없음",
+      "contentName": "풋켓몬 서버",
+      "category": "minecraft",
+      "startDate": "2025-09-01",
+      "broadcastLink": "https://game.naver.com/lounge/chzzk/board/detail/6555655",
+      "endDate": "2025-09-30",
+      "participants": 130
     },
     {
-      "logo": "/img/projects/agari.png",
-      "name": "AGARI 월드",
-      "period": "25년 02월 16일 ~ 03월 07일",
-      "participants": "약 90명",
-      "description": "서버 개발 운영",
-      "link": ["https://ch.sooplive.co.kr/dalchesom"]
+      "logo": "/img/projects/cc5d07816afc.gif",
+      "organizer": "알 수 없음",
+      "contentName": "에이콘 서버",
+      "category": "minecraft",
+      "startDate": "2025-07-01",
+      "broadcastLink": "https://chzzk.naver.com/f2a9973e36680c32467a266d4e9d90c1",
+      "endDate": "2025-09-09",
+      "participants": 40
     },
     {
-      "logo": "/img/projects/tachocho_city.png",
-      "name": "쵸록시티",
-      "period": "25년 02월 21일 ~ 03월 05일",
-      "participants": "약 70명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/tachocho"]
+      "logo": "/img/projects/0c192accb720.png",
+      "organizer": "알 수 없음",
+      "contentName": "RG랜드",
+      "category": "minecraft",
+      "startDate": "2025-06-05",
+      "broadcastLink": "https://chzzk.naver.com/d7a48b928dcbf95146ec25681271111d",
+      "endDate": "2025-07-31",
+      "participants": 30
     },
     {
-      "logo": "/img/projects/meijjang.png",
-      "name": "메이's 좀비월드 CBT",
-      "period": "25년 02월 10일 ~ 02월 14일",
-      "participants": "약 30명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/meijjang00"]
+      "logo": "/img/projects/e4870c4aac7c.jpg",
+      "organizer": "알 수 없음",
+      "contentName": "여우골",
+      "category": "minecraft",
+      "startDate": "2025-05-13",
+      "broadcastLink": "https://chzzk.naver.com/d7a48b928dcbf95146ec25681271111d",
+      "participants": 60
     },
     {
-      "logo": "/img/projects/ohamama.png",
-      "name": "오함마 시즌2",
-      "period": "25년 02월 07일 ~",
-      "participants": "약 20명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/legendhyuk"]
+      "logo": "/img/projects/54cb369b8c1c.png",
+      "organizer": "알 수 없음",
+      "contentName": "퍼켓몬",
+      "category": "minecraft",
+      "startDate": "2025-03-08",
+      "broadcastLink": "https://ch.sooplive.co.kr/reaperd123",
+      "endDate": "2025-03-25",
+      "participants": 390
     },
     {
-      "logo": "/img/projects/daketmon.png",
-      "name": "더켓몬 서버",
-      "period": "25년 02월 04일 ~",
-      "participants": "약 100명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/tinkerblond"]
+      "logo": "/img/projects/2f563b73ade3.png",
+      "organizer": "알 수 없음",
+      "contentName": "돗켓몬 서버",
+      "category": "minecraft",
+      "startDate": "2025-02-21",
+      "broadcastLink": "https://ch.sooplive.co.kr/gkfn11",
+      "endDate": "2025-02-28",
+      "participants": 30
     },
     {
-      "logo": "/img/projects/cavalry2.png",
-      "name": "마병대2",
-      "period": "25년 01월 24일 ~ 1월 31일",
-      "participants": "약 100명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/devil0108"]
+      "logo": "/img/projects/7ec0a53d2638.png",
+      "organizer": "알 수 없음",
+      "contentName": "쵸록시티",
+      "category": "minecraft",
+      "startDate": "2025-02-21",
+      "broadcastLink": "https://ch.sooplive.co.kr/tachocho",
+      "endDate": "2025-03-05",
+      "participants": 70
     },
     {
-      "logo": "/img/projects/diamond.png",
-      "name": "다이아?서버",
-      "subtitle": "수미랜드 후열",
-      "period": "25년 01월 4일 ~",
-      "participants": "약 150명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/rmlrl771"]
+      "logo": "/img/projects/046195abce47.png",
+      "organizer": "알 수 없음",
+      "contentName": "AGARI 월드",
+      "category": "minecraft",
+      "startDate": "2025-02-16",
+      "broadcastLink": "https://ch.sooplive.co.kr/dalchesom",
+      "endDate": "2025-03-07",
+      "participants": 90
     },
     {
-      "logo": "/img/projects/rlc.webp",
-      "name":"RLC서버",
-      "period":"25년 01월 25일 ~ 01월 30일",
-      "participants":"약 15명",
-      "description":"API 지원",
-      "link":["https://ch.sooplive.co.kr/elisehs"]
+      "logo": "/img/projects/acde6a704853.png",
+      "organizer": "알 수 없음",
+      "contentName": "메이's 좀비월드 CBT",
+      "category": "minecraft",
+      "startDate": "2025-02-10",
+      "broadcastLink": "https://ch.sooplive.co.kr/meijjang00",
+      "endDate": "2025-02-14",
+      "participants": 30
     },
     {
-      "logo": "/img/projects/abong.png",
-      "name": "아봉서버",
-      "period": "25년 01월 1일 ~ 1월 11일",
-      "participants": "약 30명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/rmlrl771", "https://mcbmc.imweb.me/"]
+      "logo": "/img/projects/e1c29944c5d3.png",
+      "organizer": "알 수 없음",
+      "contentName": "오함마 시즌2",
+      "category": "minecraft",
+      "startDate": "2025-02-07",
+      "broadcastLink": "https://ch.sooplive.co.kr/legendhyuk",
+      "participants": 20
     },
     {
-      "logo": "/img/projects/pixelmon.png",
-      "name": "픽셀몬 스터디 서버",
-      "period": "24년 12월 5일 ~ 12월 22일",
-      "participants": "약 50명",
-      "description": "API 지원",
-      "link": ["https://www.notion.so/1525766dce1c80619941eeb463871d2c"]
+      "logo": "/img/projects/388e00a48943.png",
+      "organizer": "알 수 없음",
+      "contentName": "더켓몬 서버",
+      "category": "minecraft",
+      "startDate": "2025-02-04",
+      "broadcastLink": "https://ch.sooplive.co.kr/tinkerblond",
+      "participants": 100
     },
     {
-      "logo": "/img/projects/sumiland.png",
-      "name": "수미랜드",
-      "period": "24년 12월 1일 ~ 12월 31일",
-      "participants": "약 200명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/tnal8675"]
+      "logo": "/img/projects/78087bb26419.webp",
+      "organizer": "알 수 없음",
+      "contentName": "RLC서버",
+      "category": "minecraft",
+      "startDate": "2025-01-25",
+      "broadcastLink": "https://ch.sooplive.co.kr/elisehs",
+      "endDate": "2025-01-30",
+      "participants": 15
     },
     {
-      "logo": "/img/projects/chungsaechi.png",
-      "name": "청새치숲4",
-      "period": "24년 12월 1일 ~ 25년 02월 26일",
-      "participants": "약 530명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/nopek98"]
+      "logo": "/img/projects/7b2d2ef9ccc0.png",
+      "organizer": "알 수 없음",
+      "contentName": "마병대2",
+      "category": "minecraft",
+      "startDate": "2025-01-24",
+      "broadcastLink": "https://ch.sooplive.co.kr/devil0108",
+      "endDate": "2025-01-31",
+      "participants": 100
     },
     {
-      "logo": "/img/projects/minttown.png",
-      "name": "박하마을",
-      "period": "24년 11월 30일 ~ 1월 5일",
-      "participants": "약 40명",
-      "description": "API 지원",
-      "link": ["https://organization-sqq.gitbook.io/minttown"]
+      "logo": "/img/projects/7ce459c63d66.png",
+      "organizer": "알 수 없음",
+      "contentName": "다이아?서버",
+      "category": "minecraft",
+      "startDate": "2025-01-04",
+      "broadcastLink": "https://ch.sooplive.co.kr/rmlrl771",
+      "participants": 150
     },
     {
-      "logo": "/img/projects/yottogi.png",
-      "name": "요뚜기월드 시즌2",
-      "period": "24년 10월 16일 ~",
-      "participants": "약 140명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/z4230x"]
+      "logo": "/img/projects/85dfc9993468.png",
+      "organizer": "알 수 없음",
+      "contentName": "아봉서버",
+      "category": "minecraft",
+      "startDate": "2025-01-01",
+      "broadcastLink": "https://ch.sooplive.co.kr/rmlrl771",
+      "endDate": "2025-01-11",
+      "participants": 30,
+      "noticeLink": "https://mcbmc.imweb.me/"
     },
     {
-      "logo": "/img/projects/chuta.png",
-      "name": "츄타듀밸리",
-      "period": "24년 10월 14일 ~ 12월 4일",
-      "participants": "약 200명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/linco00"]
+      "logo": "/img/projects/9bfb8fb68445.png",
+      "organizer": "알 수 없음",
+      "contentName": "픽셀몬 스터디 서버",
+      "category": "minecraft",
+      "startDate": "2024-12-05",
+      "broadcastLink": "https://www.notion.so/1525766dce1c80619941eeb463871d2c",
+      "endDate": "2024-12-22",
+      "participants": 50
     },
     {
-      "logo": "/img/projects/iland.png",
-      "name": "아이랜드",
-      "period": "24년 10월 05일 ~ 10월 20일",
-      "participants": "약 5명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/qlxkals1528"]
+      "logo": "/img/projects/9adf795f12e7.png",
+      "organizer": "알 수 없음",
+      "contentName": "수미랜드",
+      "category": "minecraft",
+      "startDate": "2024-12-01",
+      "broadcastLink": "https://ch.sooplive.co.kr/tnal8675",
+      "endDate": "2024-12-31",
+      "participants": 200
     },
     {
-      "logo": "/img/projects/cavalry.png",
-      "name": "마병대",
-      "period": "24년 08월 21일 ~ 8월 24일",
-      "participants": "약 60명",
-      "description": "플러그인 개발, API 지원",
-      "link": ["https://ch.sooplive.co.kr/devil0108"]
+      "logo": "/img/projects/2f1df3a9b6f2.png",
+      "organizer": "알 수 없음",
+      "contentName": "청새치숲4",
+      "category": "minecraft",
+      "startDate": "2024-12-01",
+      "broadcastLink": "https://ch.sooplive.co.kr/nopek98",
+      "participants": 530
     },
     {
-      "logo": "/img/projects/seaweed.gif",
-      "name": "해초마을",
-      "period": "24년 08월 16일 ~ 10월 7일",
-      "participants": "약 50명",
-      "description": "플러그인 개발, API 지원",
-      "link": ["https://ch.sooplive.co.kr/kjkj4424"]
+      "logo": "/img/projects/d3052eb4fe97.png",
+      "organizer": "알 수 없음",
+      "contentName": "박하마을",
+      "category": "minecraft",
+      "startDate": "2024-11-30",
+      "broadcastLink": "https://organization-sqq.gitbook.io/minttown",
+      "endDate": "2024-01-05",
+      "participants": 40
     },
     {
-      "logo": "/img/projects/breadland.gif",
-      "name": "빵식랜드",
-      "period": "24년 08월 10일 ~",
-      "participants": "약 50명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/wbs5596"]
+      "logo": "/img/projects/491ec8389e4c.png",
+      "organizer": "알 수 없음",
+      "contentName": "요뚜기월드 시즌2",
+      "category": "minecraft",
+      "startDate": "2024-10-16",
+      "broadcastLink": "https://ch.sooplive.co.kr/z4230x",
+      "participants": 140
     },
     {
-      "logo": "/img/projects/clobae.gif",
-      "name": "클로배",
-      "period": "24년 08월 01일 ~ 8월 26일",
-      "participants": "약 250명",
-      "description": "플러그인 개발, API 지원",
-      "link": ["https://ch.sooplive.co.kr/vf3366"]
+      "logo": "/img/projects/e99d88b5b44a.png",
+      "organizer": "알 수 없음",
+      "contentName": "츄타듀밸리",
+      "category": "minecraft",
+      "startDate": "2024-10-14",
+      "broadcastLink": "https://ch.sooplive.co.kr/linco00",
+      "endDate": "2024-12-04",
+      "participants": 200
     },
     {
-      "logo": "/img/projects/healing.png",
-      "name": "힐링월드",
-      "period": "24년 07월 05일 ~",
-      "participants": "약 130명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/tmlarhf155"]
+      "logo": "/img/projects/bfa597621fce.png",
+      "organizer": "알 수 없음",
+      "contentName": "아이랜드",
+      "category": "minecraft",
+      "startDate": "2024-10-05",
+      "broadcastLink": "https://ch.sooplive.co.kr/qlxkals1528",
+      "endDate": "2024-10-20",
+      "participants": 5
     },
     {
-      "logo": "/img/projects/jamyung.png",
-      "name": "자명랜드",
-      "period": "24년 07월 03일 ~",
-      "participants": "약 70명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/gjm0211"]
+      "logo": "/img/projects/a67d8a666b56.png",
+      "organizer": "알 수 없음",
+      "contentName": "마병대",
+      "category": "minecraft",
+      "startDate": "2024-08-21",
+      "broadcastLink": "https://ch.sooplive.co.kr/devil0108",
+      "endDate": "2024-08-24",
+      "participants": 60
     },
     {
-      "logo": "/img/projects/landmakku.png",
-      "name": "랜드마꾸",
-      "period": "24년 4월 20일 ~ 8월 16일",
-      "participants": "약 400명",
-      "description": "플러그인 개발, API 지원",
-      "link": ["https://ch.sooplive.co.kr/ziyom2"]
+      "logo": "/img/projects/d26d1db631c4.gif",
+      "organizer": "알 수 없음",
+      "contentName": "해초마을",
+      "category": "minecraft",
+      "startDate": "2024-08-16",
+      "broadcastLink": "https://ch.sooplive.co.kr/kjkj4424",
+      "endDate": "2024-10-07",
+      "participants": 50
     },
     {
-      "logo": "/img/projects/pocketkku.png",
-      "name": "포켓꾸",
-      "period": "24년 3월 8일 ~ 4월 5일",
-      "participants": "약 260명",
-      "description": "플러그인 개발, API 지원",
-      "link": ["https://ch.sooplive.co.kr/ziyom2"]
+      "logo": "/img/projects/f6d8fb8ea78a.gif",
+      "organizer": "알 수 없음",
+      "contentName": "빵식랜드",
+      "category": "minecraft",
+      "startDate": "2024-08-10",
+      "broadcastLink": "https://ch.sooplive.co.kr/wbs5596",
+      "participants": 50
+    },
+    {
+      "logo": "/img/projects/3a94f108f0a1.gif",
+      "organizer": "알 수 없음",
+      "contentName": "클로배",
+      "category": "minecraft",
+      "startDate": "2024-08-01",
+      "broadcastLink": "https://ch.sooplive.co.kr/vf3366",
+      "endDate": "2024-08-26",
+      "participants": 250
+    },
+    {
+      "logo": "/img/projects/178313639b99.png",
+      "organizer": "알 수 없음",
+      "contentName": "힐링월드",
+      "category": "minecraft",
+      "startDate": "2024-07-05",
+      "broadcastLink": "https://ch.sooplive.co.kr/tmlarhf155",
+      "participants": 130
+    },
+    {
+      "logo": "/img/projects/61c733da6c89.png",
+      "organizer": "알 수 없음",
+      "contentName": "자명랜드",
+      "category": "minecraft",
+      "startDate": "2024-07-03",
+      "broadcastLink": "https://ch.sooplive.co.kr/gjm0211",
+      "participants": 70
+    },
+    {
+      "logo": "/img/projects/4d004bf9bac6.png",
+      "organizer": "알 수 없음",
+      "contentName": "랜드마꾸",
+      "category": "minecraft",
+      "startDate": "2024-04-20",
+      "broadcastLink": "https://ch.sooplive.co.kr/ziyom2",
+      "endDate": "2024-08-16",
+      "participants": 400
+    },
+    {
+      "logo": "/img/projects/bfdc98a2e901.png",
+      "organizer": "알 수 없음",
+      "contentName": "포켓꾸",
+      "category": "minecraft",
+      "startDate": "2024-03-08",
+      "broadcastLink": "https://ch.sooplive.co.kr/ziyom2",
+      "endDate": "2024-04-05",
+      "participants": 260
     }
   ],
   "zomboid": [
     {
-      "logo": "/img/projects/qpocalypse.png",
-      "name": "뀨포칼립스",
-      "period": "24년 11월 17일 ~ 12월 26일",
-      "participants": "약 90명",
-      "description": "API 지원",
-      "link": ["https://chzzk.naver.com/19008cc648cb3fc8ebbdc0df3d5a05de"]
+      "logo": "/img/projects/2cb81420acb1.png",
+      "organizer": "알 수 없음",
+      "contentName": "뀨포칼립스",
+      "category": "zomboid",
+      "startDate": "2024-11-17",
+      "broadcastLink": "https://chzzk.naver.com/19008cc648cb3fc8ebbdc0df3d5a05de",
+      "endDate": "2024-12-26",
+      "participants": 90
     },
     {
-      "logo": "/img/projects/napocalypse.png",
-      "name": "나포칼립스",
-      "period": "24년 10월 27일 ~ 11월 7일",
-      "participants": "약 60명",
-      "description": "API 지원",
-      "link": ["https://ch.sooplive.co.kr/sh0w422"]
-    }
-  ],
-  "others": [
-    {
-      "date": "24/06/30",
-      "user": "뻐스시간 팀",
-      "description": "소속 스트리머분 생일 콘텐츠에서 사용할 내부 프로그램 개발 협업"
-    },
-    {
-      "date": "24/05/01",
-      "user": "익명",
-      "description": "채팅 API를 기반으로 한 미니게임 콘텐츠개발 지원"
-    },
-    {
-      "date": "24/04/13",
-      "user": "뻐스시간 팀",
-      "description": "소속 스트리머분 데뷔 콘서트에서 사용할 내부 프로그램 개발 협업"
+      "logo": "/img/projects/c12b9358c435.png",
+      "organizer": "알 수 없음",
+      "contentName": "나포칼립스",
+      "category": "zomboid",
+      "startDate": "2024-10-27",
+      "broadcastLink": "https://ch.sooplive.co.kr/sh0w422",
+      "endDate": "2024-11-07",
+      "participants": 60
     }
   ],
   "history": [
