@@ -220,6 +220,18 @@
   }
 }
 
+.organizerText {
+  color: #000000;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  [data-theme='dark'] & {
+    color: #ffffff;
+  }
+}
+
 .nameCell {
   font-weight: 600;
   color: var(--ifm-color-emphasis-900);

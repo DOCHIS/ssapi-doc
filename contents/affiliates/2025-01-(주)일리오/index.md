@@ -1,7 +1,6 @@
 ---
 name: (주)일리오
 subtitle: 셀럽후원플랫폼 팬심
-image: image.png
 startDate: 2025-01-14
 link:
   - https://fancim.me/

@@ -1,7 +1,6 @@
 ---
 name: 뻐스시간
 subtitle: 버튜버 예능 그룹
-image: image.png
 startDate: 2024-03-10
 link:
   - https://ch.sooplive.co.kr/versetime

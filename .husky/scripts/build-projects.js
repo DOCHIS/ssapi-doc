@@ -2,7 +2,6 @@
 
 /**
  * contents/ 디렉토리의 마크다운 파일들을 읽어서 schemas/projects.json 생성
- * 날짜순으로 정렬하고 이미지 최적화도 함께 수행
  *
  * 디렉토리 구조:
  * contents/
@@ -87,43 +86,53 @@ function createPeriodString(startDate, endDate) {
 }
 
 /**
- * 이미지 경로 생성 (static/img로 복사)
- * 이미지 내용의 해시를 파일명으로 사용하여 캐싱 및 중복 방지
+ * 디렉토리에서 image.* 파일 자동 찾기
  */
-function getImagePath(dirPath, imageName, category) {
-  if (!imageName) return null;
+function findImageFile(dirPath) {
+  if (!fs.existsSync(dirPath)) return null;
 
-  const sourceImagePath = path.join(dirPath, imageName);
-  if (!fs.existsSync(sourceImagePath)) return null;
+  const entries = fs.readdirSync(dirPath);
+  const imageFile = entries.find(file => /^image\.(png|jpg|jpeg|gif|webp)$/i.test(file));
 
-  // 이미지 파일 내용의 해시 계산
+  return imageFile ? path.join(dirPath, imageFile) : null;
+}
+
+/**
+ * 최적화된 이미지 경로 반환
+ * optimize-images.js로 배포된 이미지의 퍼블릭 경로 계산
+ */
+function getImagePath(dirPath, category) {
+  // 디렉토리에서 image.* 파일 자동 찾기
+  const sourceImagePath = findImageFile(dirPath);
+
+  if (!sourceImagePath) {
+    console.warn(`⚠️  원본 이미지를 찾을 수 없음: ${dirPath}`);
+    return null;
+  }
+
+  // 원본 이미지의 해시 계산 (optimize-images.js와 동일)
   const crypto = require('crypto');
   const imageContent = fs.readFileSync(sourceImagePath);
   const hash = crypto.createHash('md5').update(imageContent).digest('hex').substring(0, 12);
 
-  // static/img/projects 또는 static/img/partners로 복사
+  // static/img에 배포된 최적화 이미지 경로 (항상 .png)
+  const optimizedFileName = `${hash}.png`;
   const targetDir = category === 'affiliate'
     ? path.join(staticImgDir, 'partners')
     : path.join(staticImgDir, 'projects');
+  const optimizedPath = path.join(targetDir, optimizedFileName);
 
-  fs.mkdirSync(targetDir, { recursive: true });
-
-  const ext = path.extname(imageName);
-  const targetFileName = `${hash}${ext}`;
-  const targetPath = path.join(targetDir, targetFileName);
-
-  // 파일 복사 (이미 존재하면 스킵 - 같은 해시 = 같은 이미지)
-  try {
-    if (!fs.existsSync(targetPath)) {
-      fs.copyFileSync(sourceImagePath, targetPath);
-    }
-    return category === 'affiliate'
-      ? `/img/partners/${targetFileName}`
-      : `/img/projects/${targetFileName}`;
-  } catch (error) {
-    console.warn(`⚠️  이미지 복사 실패: ${error.message}`);
+  // 배포된 이미지가 없으면 경고
+  if (!fs.existsSync(optimizedPath)) {
+    console.warn(`⚠️  배포된 이미지가 없음: ${optimizedFileName}`);
+    console.warn(`   먼저 'npm run optimize-images'를 실행하세요.`);
     return null;
   }
+
+  // 퍼블릭 경로 반환
+  return category === 'affiliate'
+    ? `/img/partners/${optimizedFileName}`
+    : `/img/projects/${optimizedFileName}`;
 }
 
 /**
@@ -139,7 +148,7 @@ function processAffiliates() {
   for (const { indexPath, dirPath, dirName } of indexFiles) {
     const { frontmatter, body } = parseMarkdownFile(indexPath);
 
-    const logo = getImagePath(dirPath, frontmatter.image, 'affiliate');
+    const logo = getImagePath(dirPath, 'affiliate');
 
     // startDate를 문자열로 변환 (gray-matter가 Date 객체로 파싱하는 경우 대비)
     const startDate = frontmatter.startDate instanceof Date
@@ -152,7 +161,7 @@ function processAffiliates() {
 
     const affiliate = {
       type: 'affiliate',
-      logo: logo || frontmatter.image, // fallback to original if copy fails
+      logo: logo,
       name: frontmatter.name,
       subtitle: frontmatter.subtitle || '',
       startDate: startDate,
@@ -201,10 +210,10 @@ function processProjects(category) {
       ? frontmatter.endDate.toISOString().split('T')[0]
       : (frontmatter.endDate ? String(frontmatter.endDate) : null);
 
-    const logo = getImagePath(dirPath, frontmatter.image, 'project');
+    const logo = getImagePath(dirPath, 'project');
 
     const project = {
-      logo: logo || frontmatter.image,
+      logo: logo,
       organizer: frontmatter.organizer,
       contentName: frontmatter.contentName,
       category: frontmatter.category,

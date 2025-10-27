@@ -16,6 +16,7 @@
     "rest-api-generate": "docusaurus gen-api-docs all",
     "build-projects": "node .husky/scripts/build-projects.js",
     "optimize-images": "node .husky/scripts/optimize-images.js",
+    "bp": "npm run optimize-images && npm run build-projects",
     "precommit": "node .husky/scripts/optimize-images.js && node .husky/scripts/build-projects.js && git add schemas/projects.json static/img/"
   },
   "dependencies": {

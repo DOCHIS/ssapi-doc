@@ -1,10 +1,10 @@
 ---
-organizer: 알 수 없음
-contentName: 힐링월드
+organizer: 희란둥이
+contentName: 힐링월드(시즌2/3/4~)
 category: minecraft
-startDate: 2024-07-05T00:00:00.000Z
-image: image.png
+startDate: 2024-07-05
 participants: 130
-broadcastLink: 'https://ch.sooplive.co.kr/tmlarhf155'
+broadcastLink: 'https://www.sooplive.co.kr/station/wjdgmlfks123'
+noticeLink: https://www.sooplive.co.kr/station/wjdgmlfks123/post/134046789
 ---
 

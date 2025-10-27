@@ -1,11 +1,11 @@
 ---
-organizer: 알 수 없음
+organizer: 감스트
 contentName: 마병대
 category: minecraft
-startDate: 2024-08-21T00:00:00.000Z
-image: image.png
-endDate: 2024-08-24T00:00:00.000Z
+startDate: 2024-08-21
+endDate: 2024-08-24
 participants: 60
 broadcastLink: 'https://ch.sooplive.co.kr/devil0108'
+noticeLink: https://www.sooplive.co.kr/station/devil0108
 ---
 

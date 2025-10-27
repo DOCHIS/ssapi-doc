@@ -1,7 +1,6 @@
 ---
 name: 뷰어십
 subtitle: SOFTC.ONE
-image: image.png
 startDate: 2024-05-23
 link:
   - https://viewership.softc.one/

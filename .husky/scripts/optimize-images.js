@@ -2,24 +2,19 @@
 
 /**
  * 프로젝트 이미지 최적화 스크립트
- * - contents/ 디렉토리의 모든 image.* 파일을 찾아서 최적화
- * - 이미지를 최대 200x200px로 리사이즈
- * - PNG로 변환
- * - 메타데이터 제거
- * - 처리된 이미지 추적
+ * - contents/ 디렉토리의 원본 이미지를 읽어서 최적화
+ * - 최대 200x200px로 리사이즈, PNG로 변환, 메타데이터 제거
+ * - 최적화된 이미지를 static/img/에 배포
  */
 
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
 const sharp = require('sharp');
+const crypto = require('crypto');
 
 const rootDir = path.join(__dirname, '../..');
 const contentsDir = path.join(rootDir, 'contents');
-const dataDir = path.join(rootDir, 'bin/data');
-const backupDir = path.join(dataDir, 'backups');
-const logDir = path.join(dataDir, 'logs');
-const processedFile = path.join(dataDir, 'processed_images.json');
+const staticImgDir = path.join(rootDir, 'static/img');
 
 // 컬러 출력용
 const colors = {
@@ -46,37 +41,24 @@ function log(message, type = 'INFO') {
 }
 
 /**
- * 파일의 MD5 해시 계산
+ * 이미지가 속한 카테고리 판단 (프로젝트 or 제휴사)
  */
-function calculateFileHash(filePath) {
-  const content = fs.readFileSync(filePath);
-  return crypto.createHash('md5').update(content).digest('hex');
-}
-
-/**
- * 백업 생성
- */
-function createBackup(filePath) {
-  try {
-    fs.mkdirSync(backupDir, { recursive: true });
-    const filename = path.basename(filePath);
-    const dirName = path.basename(path.dirname(filePath));
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
-    const backupPath = path.join(backupDir, `${timestamp}_${dirName}_${filename}`);
-    fs.copyFileSync(filePath, backupPath);
-    log(`백업 생성: ${backupPath}`, 'SUCCESS');
-  } catch (error) {
-    log(`백업 실패: ${error.message}`, 'ERROR');
-    throw error;
+function getImageCategory(imagePath) {
+  const relativePath = path.relative(contentsDir, imagePath);
+  if (relativePath.startsWith('affiliates')) {
+    return 'affiliate';
   }
+  return 'project';
 }
 
 /**
- * 이미지 처리
+ * 이미지 최적화 및 static/img에 배포
  */
 async function processImage(imagePath, maxSize = 200) {
   try {
-    const image = sharp(imagePath);
+    // 원본 이미지를 버퍼로 읽기
+    const imageBuffer = fs.readFileSync(imagePath);
+    const image = sharp(imageBuffer);
     const metadata = await image.metadata();
 
     log(`원본 크기: ${metadata.width}x${metadata.height}, 포맷: ${metadata.format}`, 'INFO');
@@ -106,26 +88,52 @@ async function processImage(imagePath, maxSize = 200) {
       log(`이미지가 ${maxSize}px보다 작아 원본 크기 유지`, 'INFO');
     }
 
-    // PNG로 변환하고 메타데이터 제거
-    await processedImage
+    // 원본 이미지의 해시 계산 (build-projects.js와 동일한 해시 사용)
+    const hash = crypto.createHash('md5').update(imageBuffer).digest('hex').substring(0, 12);
+
+    // PNG로 변환하고 메타데이터 제거하여 버퍼로 저장
+    const processedBuffer = await processedImage
       .png({ compressionLevel: 9 })
       .withMetadata({}) // 메타데이터 제거
-      .toFile(imagePath + '.tmp');
+      .toBuffer();
 
-    // 임시 파일을 원본으로 교체
-    fs.unlinkSync(imagePath);
-    fs.renameSync(imagePath + '.tmp', imagePath);
+    // 카테고리에 따라 저장 경로 결정
+    const category = getImageCategory(imagePath);
+    const targetDir = category === 'affiliate'
+      ? path.join(staticImgDir, 'partners')
+      : path.join(staticImgDir, 'projects');
 
-    log(`이미지 처리 완료: ${path.basename(imagePath)}`, 'SUCCESS');
+    // 대상 디렉토리 생성
+    fs.mkdirSync(targetDir, { recursive: true });
+
+    // 해시 기반 파일명으로 PNG 저장
+    const targetFileName = `${hash}.png`;
+    const targetPath = path.join(targetDir, targetFileName);
+
+    // 파일이 이미 존재하면 스킵 (같은 해시 = 같은 이미지)
+    if (fs.existsSync(targetPath)) {
+      log(`이미 최적화됨 (스킵): ${targetFileName}`, 'INFO');
+    } else {
+      fs.writeFileSync(targetPath, processedBuffer);
+      log(`저장 완료: ${category === 'affiliate' ? 'partners' : 'projects'}/${targetFileName}`, 'SUCCESS');
+    }
+
+    const publicPath = category === 'affiliate'
+      ? `/img/partners/${targetFileName}`
+      : `/img/projects/${targetFileName}`;
 
     return {
+      originalPath: imagePath,
       originalSize: [metadata.width, metadata.height],
       newSize: Math.max(metadata.width, metadata.height) > maxSize
         ? [maxSize, maxSize]
         : [metadata.width, metadata.height],
       originalFormat: metadata.format,
       newFormat: 'png',
-      processedAt: new Date().toISOString()
+      processedAt: new Date().toISOString(),
+      targetPath: targetPath,
+      publicPath: publicPath,
+      hash: hash
     };
   } catch (error) {
     log(`이미지 처리 실패: ${error.message}`, 'ERROR');
@@ -168,19 +176,7 @@ async function main() {
   // contents 디렉토리 확인
   if (!fs.existsSync(contentsDir)) {
     log(`contents 디렉토리를 찾을 수 없습니다: ${contentsDir}`, 'WARNING');
-    log('아직 마이그레이션을 실행하지 않았다면 npm run migrate를 먼저 실행하세요.', 'INFO');
     return;
-  }
-
-  // 필요한 디렉토리 생성
-  fs.mkdirSync(dataDir, { recursive: true });
-  fs.mkdirSync(backupDir, { recursive: true });
-  fs.mkdirSync(logDir, { recursive: true });
-
-  // 처리된 이미지 목록 로드
-  let processedImages = {};
-  if (fs.existsSync(processedFile)) {
-    processedImages = JSON.parse(fs.readFileSync(processedFile, 'utf8'));
   }
 
   // contents 디렉토리에서 image.* 파일 찾기
@@ -194,51 +190,18 @@ async function main() {
   log(`\n총 ${imageFiles.length}개의 image.* 파일을 찾았습니다.\n`, 'INFO');
 
   let processedCount = 0;
-  let skippedCount = 0;
 
   for (const imagePath of imageFiles) {
     const relativePath = path.relative(rootDir, imagePath);
-
-    // 원본 파일 해시 계산
-    const originalHash = calculateFileHash(imagePath);
-
-    // 이미 처리된 이미지인지 확인
-    const isProcessed = Object.values(processedImages).some(
-      info => info.relativePath === relativePath && info.originalHash === originalHash
-    );
-
-    if (isProcessed) {
-      skippedCount++;
-      continue;
-    }
-
     log(`\n이미지 처리 시작: ${relativePath}`, 'PROCESS');
 
-    // 백업 생성
-    createBackup(imagePath);
-
     // 이미지 처리
-    const processResult = await processImage(imagePath);
-
-    // 처리 후 해시 계산
-    const processedHash = calculateFileHash(imagePath);
-
-    // 처리 완료 기록
-    processedImages[processedHash] = {
-      relativePath: relativePath,
-      processedAt: new Date().toISOString(),
-      originalHash: originalHash,
-      processDetails: processResult
-    };
-
-    // 처리 기록 저장
-    fs.writeFileSync(processedFile, JSON.stringify(processedImages, null, 2), 'utf8');
-
+    await processImage(imagePath);
     processedCount++;
   }
 
   log(`\n✅ 이미지 최적화 완료!`, 'SUCCESS');
-  log(`처리됨: ${processedCount}개, 건너뜀: ${skippedCount}개`, 'INFO');
+  log(`처리됨: ${processedCount}개`, 'INFO');
 }
 
 main().catch(error => {

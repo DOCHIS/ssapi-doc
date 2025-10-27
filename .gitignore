@@ -11,8 +11,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
-bin/.env
-bin/data/
 
 # IDE and editor files
 .idea/

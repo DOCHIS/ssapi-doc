@@ -60,14 +60,18 @@ export default function ServerList({ type }) {
             </div>
           </td>
           <td className={styles.organizerCell}>
-            <a
-              href={content.broadcastLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.organizerLink}
-            >
-              {content.organizer}
-            </a>
+            {content.broadcastLink ? (
+              <a
+                href={content.broadcastLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.organizerLink}
+              >
+                {content.organizer}
+              </a>
+            ) : (
+              <span className={styles.organizerText}>{content.organizer}</span>
+            )}
           </td>
           <td className={styles.nameCell}>{content.contentName}</td>
           <td className={styles.periodCell}>
