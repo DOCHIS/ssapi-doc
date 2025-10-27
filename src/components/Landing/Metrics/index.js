@@ -20,10 +20,10 @@ const METRICS = [
     icon: <Activity />,
   },
   {
-    number: "2Mbps",
+    number: "1Mbps",
     label: "최적화 대역폭",
     description:
-      "스트리머 100명당 2Mbps의 대역폭으로 운영이 가능합니다. 최적화된 설계로 리소스를 절약합니다.",
+      "스트리머 100명당 1Mbps의 대역폭으로 운영이 가능합니다. 최적화된 설계로 리소스를 절약합니다.",
     icon: <Zap />,
   },
   {

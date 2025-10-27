@@ -1,0 +1,8 @@
+{
+  "label": "📘 추가 정보",
+  "position": 9,
+  "link": {
+    "type": "generated-index",
+    "description": "SSAPI의 이용 정책, API 원리, 사용 이유 등을 확인합니다"
+  }
+}

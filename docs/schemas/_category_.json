@@ -1,8 +1,8 @@
 {
-  "label": "Schemas",
-  "position": 99999999,
+  "label": "📋 데이터 스키마",
+  "position": 7,
   "link": {
     "type": "generated-index",
-    "description": "SSAPI의 주요 개념과 원리를 설명합니다."
+    "description": "API 응답 데이터의 구조와 필드 설명을 확인합니다"
   }
 }

@@ -1,8 +1,8 @@
 {
-  "label": "💚 Socket API",
+  "label": "⚡ Socket API",
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "SSAPI의 Socket API 설명"
+    "description": "Socket.IO 기반 실시간 데이터 스트리밍 API로 채팅과 후원 데이터를 실시간으로 수신합니다"
   }
 }

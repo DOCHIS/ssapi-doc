@@ -1,8 +1,9 @@
 ---
-sidebar_position: 3
+sidebar_position: 8
+sidebar_label: 🎮 함께하는 프로젝트
 ---
 
-# SSAPI와 함께하는 프로젝트
+# 🎮 SSAPI와 함께하는 프로젝트
 
 ## 제휴 / 파트너
 

@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 const FEATURES = [
   {
     title: "최적화된 네트워크",
-    description: "100명당 2Mbps",
+    description: "100명당 1Mbps",
     icon: <Server className="w-6 h-6" />,
     details: ["압축을 통한 대역 최적화", "매우 가벼운 소켓 시스템"],
   },

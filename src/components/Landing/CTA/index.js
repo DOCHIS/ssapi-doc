@@ -65,10 +65,10 @@ export default function CTA() {
           </Link>
           <Link
             className={styles.secondaryButton}
-            to="https://discord.gg/cNVpzCkEvM"
+            to="/docs/contact"
           >
             <ExternalLink className={styles.buttonIcon} />
-            Discord
+            문의하기
           </Link>
         </motion.div>
       </motion.div>

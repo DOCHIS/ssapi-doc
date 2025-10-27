@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
-sidebar_label: 문의하기
+sidebar_position: 11
+sidebar_label: 💬 문의하기
 title: 문의하기
 ---
 
-import styles from './styles.module.css';
+import styles from './contact/styles.module.css';
 
 <div className={styles.pageHeader}>
   <div className={styles.headerContent}>
