@@ -1,146 +1,154 @@
-import React, { useRef, useEffect, useState } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import React, { useRef, useEffect, useMemo } from "react";
+import { motion } from "framer-motion";
 import projectsData from "@site/schemas/projects.json";
 import styles from "./styles.module.scss";
 
-// 배열을 랜덤하게 섞는 함수
-const shuffleArray = (array) => {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-};
-
 const ProjectsList = () => {
-  // 기본 프로젝트 데이터 설정
-  const baseProjects = [
-    ...projectsData.partners.map((p) => ({
-      ...p,
-      type: "affiliate",
-      displayName: p.name,
-      supportInfo: p.subtitle,
-    })),
-    ...projectsData.minecraft.map((p) => ({
-      ...p,
-      type: "minecraft",
-      displayName: p.contentName,
-      supportInfo: p.participants ? `약 ${p.participants}명` : '',
-    })),
-    ...projectsData.zomboid.map((p) => ({
-      ...p,
-      type: "zomboid",
-      displayName: p.contentName,
-      supportInfo: p.participants ? `약 ${p.participants}명` : '',
-    })),
-  ];
-
   const scrollRef = useRef();
-  const animationRef = useRef(null);
-  const [direction, setDirection] = useState(1);
-  const [items, setItems] = useState([
-    ...shuffleArray(baseProjects),
-    ...shuffleArray(baseProjects),
-    ...shuffleArray(baseProjects),
-  ]);
-  const controls = useAnimationControls();
 
-  // 스크롤 속도 조정 (더 높은 값 = 더 느린 속도)
-  const SCROLL_DURATION = 45; // 기존 30에서 45로 증가
+  // 중복 제거 및 셔플된 유니크 프로젝트 생성 (메모이제이션)
+  const uniqueProjects = useMemo(() => {
+    const projectsMap = new Map();
+
+    // partners 추가
+    projectsData.partners.forEach((p) => {
+      const key = `${p.logo}-${p.name}`;
+      if (!projectsMap.has(key)) {
+        projectsMap.set(key, {
+          ...p,
+          type: "affiliate",
+          displayName: p.name,
+          supportInfo: p.subtitle,
+        });
+      }
+    });
+
+    // minecraft 추가
+    projectsData.minecraft.forEach((p) => {
+      const key = `${p.logo}-${p.contentName}`;
+      if (!projectsMap.has(key)) {
+        projectsMap.set(key, {
+          ...p,
+          type: "minecraft",
+          displayName: p.contentName,
+          supportInfo: p.participants ? `약 ${p.participants}명` : '',
+        });
+      }
+    });
+
+    // zomboid 추가
+    projectsData.zomboid.forEach((p) => {
+      const key = `${p.logo}-${p.contentName}`;
+      if (!projectsMap.has(key)) {
+        projectsMap.set(key, {
+          ...p,
+          type: "zomboid",
+          displayName: p.contentName,
+          supportInfo: p.participants ? `약 ${p.participants}명` : '',
+        });
+      }
+    });
+
+    // Fisher-Yates 셔플 알고리즘
+    const array = Array.from(projectsMap.values());
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array;
+  }, []);
+
+  // 스크롤 속도 (px/s)
+  const SCROLL_SPEED = 160;
 
   useEffect(() => {
-    let isMounted = true;
+    const scrollElement = scrollRef.current;
+    if (!scrollElement) return;
 
-    const startScroll = async () => {
-      if (!scrollRef.current || !isMounted) return;
+    let animationId;
+    let startTime = Date.now();
+    let currentX = 0;
 
-      const animate = async () => {
-        if (!scrollRef.current || !isMounted) return;
+    const animate = () => {
+      const now = Date.now();
+      const delta = (now - startTime) / 1000; // 초 단위
+      startTime = now;
 
-        try {
-          await controls.start({
-            x:
-              direction === 1
-                ? [-200, -(scrollRef.current.scrollWidth / 2)]
-                : [-(scrollRef.current.scrollWidth / 2), -200],
-            transition: {
-              duration: SCROLL_DURATION,
-              ease: "linear",
-            },
-          });
+      // 일정한 속도로 왼쪽으로 이동
+      currentX -= SCROLL_SPEED * delta;
 
-          if (isMounted) {
-            setDirection((prev) => prev * -1);
-          }
-        } catch (error) {
-          // 애니메이션이 취소된 경우 무시
-        }
-      };
-
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    startScroll();
-
-    // 클린업 함수
-    return () => {
-      isMounted = false;
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+      // 한 세트가 완전히 지나가면 리셋 (seamless loop)
+      const itemWidth = scrollElement.scrollWidth / 2;
+      if (Math.abs(currentX) >= itemWidth) {
+        currentX = 0;
       }
-      controls.stop();
+
+      scrollElement.style.transform = `translateX(${currentX}px)`;
+      animationId = requestAnimationFrame(animate);
     };
-  }, [direction]);
+
+    animationId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, []);
+
+  // 프로젝트 카드 렌더링 함수
+  const renderProjectCard = (project, idx) => (
+    <motion.div
+      key={`${project.logo}-${project.displayName}-${idx}`}
+      className={`${styles.projectItem} ${
+        project.type === "affiliate" ? styles.partnerItem : ""
+      }`}
+      whileHover={{
+        scale: 1.02,
+        transition: { duration: 0.2 },
+      }}
+    >
+      <img
+        src={project.logo}
+        alt={project.displayName}
+        className={styles.logo}
+        loading="lazy"
+      />
+      <div className={styles.textContent}>
+        <h3 className={styles.name}>
+          {project.displayName}
+          {project.subtitle && (
+            <span className={styles.nameSubtitle}>
+              {project.subtitle}
+            </span>
+          )}
+        </h3>
+        <p className={styles.subtitle}>
+          {project.description ? (
+            project.description.length > 30
+              ? project.description.slice(0, 30) + "..."
+              : project.description
+          ) : project.supportInfo}
+        </p>
+      </div>
+    </motion.div>
+  );
 
   return (
     <section className={styles.projectsSection}>
       <div className={styles.container}>
         <h2 className={styles.title}>SSAPI와 함께하는 프로젝트</h2>
         <div className={styles.scrollWrapper}>
-          <motion.div
+          <div
             ref={scrollRef}
             className={styles.scrollTrack}
-            animate={controls}
-            initial={{ x: -200 }}
           >
-            {items.map((project, idx) => (
-              <motion.div
-                key={`${project.name}-${idx}`}
-                className={`${styles.projectItem} ${
-                  project.type === "affiliate" ? styles.partnerItem : ""
-                }`}
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.2 },
-                }}
-              >
-                <img
-                  src={project.logo}
-                  alt={project.name}
-                  className={styles.logo}
-                  loading="lazy"
-                />
-                <div className={styles.textContent}>
-                  <h3 className={styles.name}>
-                    {project.displayName}
-                    {project.subtitle && (
-                      <span className={styles.nameSubtitle}>
-                        {project.subtitle}
-                      </span>
-                    )}
-                  </h3>
-                  <p className={styles.subtitle}>
-                    {project.description ? (
-                      project.description.length > 30
-                        ? project.description.slice(0, 30) + "..."
-                        : project.description
-                    ) : project.supportInfo}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* 원본 세트 */}
+            {uniqueProjects.map((project, idx) => renderProjectCard(project, idx))}
+            {/* 복사본 세트 (무한 스크롤용) */}
+            {uniqueProjects.map((project, idx) => renderProjectCard(project, idx + uniqueProjects.length))}
+          </div>
         </div>
       </div>
     </section>
