@@ -5,11 +5,15 @@ sidebar_label: 🎮 함께하는 프로젝트
 
 # 🎮 SSAPI와 함께하는 프로젝트
 
-## 제휴 / 파트너
+## 제휴사
 
 import PartnerCards from '@site/src/components/Docs/PartnerCards';
 
-<PartnerCards />
+<PartnerCards type="affiliate" />
+
+## 파트너
+
+<PartnerCards type="partner" />
 
 ## 컨텐츠 목록
 

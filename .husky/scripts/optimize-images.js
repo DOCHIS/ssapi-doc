@@ -41,13 +41,10 @@ function log(message, type = 'INFO') {
 }
 
 /**
- * 이미지가 속한 카테고리 판단 (프로젝트 or 제휴사)
+ * 이미지가 속한 카테고리 판단 (모든 이미지는 projects 디렉토리에 저장)
  */
 function getImageCategory(imagePath) {
-  const relativePath = path.relative(contentsDir, imagePath);
-  if (relativePath.startsWith('affiliates')) {
-    return 'affiliate';
-  }
+  // 모든 이미지를 projects 디렉토리에 통일
   return 'project';
 }
 
@@ -97,11 +94,9 @@ async function processImage(imagePath, maxSize = 200) {
       .withMetadata({}) // 메타데이터 제거
       .toBuffer();
 
-    // 카테고리에 따라 저장 경로 결정
+    // 모든 이미지를 projects 디렉토리에 저장
     const category = getImageCategory(imagePath);
-    const targetDir = category === 'affiliate'
-      ? path.join(staticImgDir, 'partners')
-      : path.join(staticImgDir, 'projects');
+    const targetDir = path.join(staticImgDir, 'projects');
 
     // 대상 디렉토리 생성
     fs.mkdirSync(targetDir, { recursive: true });
@@ -115,12 +110,10 @@ async function processImage(imagePath, maxSize = 200) {
       log(`이미 최적화됨 (스킵): ${targetFileName}`, 'INFO');
     } else {
       fs.writeFileSync(targetPath, processedBuffer);
-      log(`저장 완료: ${category === 'affiliate' ? 'partners' : 'projects'}/${targetFileName}`, 'SUCCESS');
+      log(`저장 완료: projects/${targetFileName}`, 'SUCCESS');
     }
 
-    const publicPath = category === 'affiliate'
-      ? `/img/partners/${targetFileName}`
-      : `/img/projects/${targetFileName}`;
+    const publicPath = `/img/projects/${targetFileName}`;
 
     return {
       originalPath: imagePath,

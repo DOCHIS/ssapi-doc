@@ -6,7 +6,8 @@
  * 디렉토리 구조:
  * contents/
  *   projects/YYYY-MM-프로젝트명/index.md
- *   affiliates/YYYY-MM-제휴사명/index.md
+ *   affiliates/YYYY-MM-제휴사명/index.md (기존 제휴사)
+ *   partners/YYYY-MM-파트너명/index.md (새로운 파트너)
  */
 
 const fs = require('fs');
@@ -117,9 +118,7 @@ function getImagePath(dirPath, category) {
 
   // static/img에 배포된 최적화 이미지 경로 (항상 .png)
   const optimizedFileName = `${hash}.png`;
-  const targetDir = category === 'affiliate'
-    ? path.join(staticImgDir, 'partners')
-    : path.join(staticImgDir, 'projects');
+  const targetDir = path.join(staticImgDir, 'projects');
   const optimizedPath = path.join(targetDir, optimizedFileName);
 
   // 배포된 이미지가 없으면 경고
@@ -130,59 +129,78 @@ function getImagePath(dirPath, category) {
   }
 
   // 퍼블릭 경로 반환
-  return category === 'affiliate'
-    ? `/img/partners/${optimizedFileName}`
-    : `/img/projects/${optimizedFileName}`;
+  return `/img/projects/${optimizedFileName}`;
+}
+
+/**
+ * 제휴사/파트너 처리 공통 함수
+ */
+function processPartnerType(dirName, type) {
+  const targetDir = path.join(contentsDir, dirName);
+  if (!fs.existsSync(targetDir)) return [];
+
+  const indexFiles = findIndexFiles(targetDir);
+  const items = [];
+
+  for (const { indexPath, dirPath, dirName } of indexFiles) {
+    const { frontmatter, body } = parseMarkdownFile(indexPath);
+
+    const logo = getImagePath(dirPath, type);
+
+    const item = {
+      type: type,
+      logo: logo,
+      name: frontmatter.name,
+      subtitle: frontmatter.subtitle || '',
+      description: body,
+      link: frontmatter.link || []
+    };
+
+    // 제휴사(affiliate)만 startDate/endDate 사용
+    if (type === 'affiliate') {
+      // startDate를 문자열로 변환 (gray-matter가 Date 객체로 파싱하는 경우 대비)
+      const startDate = frontmatter.startDate instanceof Date
+        ? frontmatter.startDate.toISOString().split('T')[0]
+        : String(frontmatter.startDate);
+
+      const endDate = frontmatter.endDate instanceof Date
+        ? frontmatter.endDate.toISOString().split('T')[0]
+        : (frontmatter.endDate ? String(frontmatter.endDate) : null);
+
+      item.startDate = startDate;
+      item._startDate = startDate; // 정렬용
+
+      // endDate가 있을 때만 추가
+      if (endDate) {
+        item.endDate = endDate;
+      }
+    }
+
+    items.push(item);
+  }
+
+  // 제휴사는 시작일 기준 정렬, 파트너는 이름순 정렬
+  if (type === 'affiliate') {
+    items.sort((a, b) => String(b._startDate).localeCompare(String(a._startDate)));
+    return items.map(({ _startDate, ...rest }) => rest);
+  } else {
+    items.sort((a, b) => a.name.localeCompare(b.name));
+    return items;
+  }
 }
 
 /**
  * 제휴사 처리
  */
 function processAffiliates() {
-  const affiliatesDir = path.join(contentsDir, 'affiliates');
-  if (!fs.existsSync(affiliatesDir)) return [];
+  return processPartnerType('affiliates', 'affiliate');
+}
 
-  const indexFiles = findIndexFiles(affiliatesDir);
-  const affiliates = [];
-
-  for (const { indexPath, dirPath, dirName } of indexFiles) {
-    const { frontmatter, body } = parseMarkdownFile(indexPath);
-
-    const logo = getImagePath(dirPath, 'affiliate');
-
-    // startDate를 문자열로 변환 (gray-matter가 Date 객체로 파싱하는 경우 대비)
-    const startDate = frontmatter.startDate instanceof Date
-      ? frontmatter.startDate.toISOString().split('T')[0]
-      : String(frontmatter.startDate);
-
-    const endDate = frontmatter.endDate instanceof Date
-      ? frontmatter.endDate.toISOString().split('T')[0]
-      : (frontmatter.endDate ? String(frontmatter.endDate) : null);
-
-    const affiliate = {
-      type: 'affiliate',
-      logo: logo,
-      name: frontmatter.name,
-      subtitle: frontmatter.subtitle || '',
-      startDate: startDate,
-      description: body,
-      link: frontmatter.link || [],
-      _startDate: startDate // 정렬용
-    };
-
-    // endDate가 있을 때만 추가
-    if (endDate) {
-      affiliate.endDate = endDate;
-    }
-
-    affiliates.push(affiliate);
-  }
-
-  // 시작일 기준 내림차순 정렬 (최신순)
-  affiliates.sort((a, b) => String(b._startDate).localeCompare(String(a._startDate)));
-
-  // 정렬용 필드 제거
-  return affiliates.map(({ _startDate, ...rest }) => rest);
+/**
+ * 파트너 처리
+ */
+function processPartners() {
+  return processPartnerType('partners', 'partner');
 }
 
 /**
@@ -262,13 +280,15 @@ function main() {
   console.log('📦 프로젝트 데이터 빌드 시작...\n');
 
   const result = {
-    partners: processAffiliates(),
+    affiliates: processAffiliates(),
+    partners: processPartners(),
     minecraft: processProjects('minecraft'),
     zomboid: processProjects('zomboid'),
     history: loadHistory()
   };
 
-  console.log(`✓ 제휴사: ${result.partners.length}개`);
+  console.log(`✓ 제휴사: ${result.affiliates.length}개`);
+  console.log(`✓ 파트너: ${result.partners.length}개`);
   console.log(`✓ 마인크래프트: ${result.minecraft.length}개`);
   console.log(`✓ 좀보이드: ${result.zomboid.length}개`);
   console.log(`✓ 히스토리: ${result.history.length}개`);

@@ -66,11 +66,13 @@ npm run precommit
 ```
 
 이 프로젝트는 **파일 기반 콘텐츠 관리 시스템**을 사용합니다:
-- `contents/projects/` 및 `contents/affiliates/`에 개별 마크다운 파일 저장
+- `contents/projects/`, `contents/affiliates/`, `contents/partners/`에 개별 마크다운 파일 저장
 - 각 프로젝트는 독립된 디렉토리: `contents/projects/YYYY-MM-프로젝트명/index.md`
-- 이미지는 마크다운 파일과 함께 저장: `contents/projects/YYYY-MM-프로젝트명/image.png`
+- 제휴사는 `contents/affiliates/YYYY-MM-제휴사명/index.md` (startDate 필수)
+- 파트너는 `contents/partners/YYYY-MM-파트너명/index.md` (startDate 불필요, 이름순 정렬)
+- 이미지는 마크다운 파일과 함께 저장: `contents/*/YYYY-MM-명칭/image.png`
 - 빌드 스크립트가 마크다운 파일들을 `schemas/projects.json`으로 통합 (자동 생성, 직접 편집 금지)
-- 이미지는 캐시 무효화를 위해 MD5 해시 기반 파일명으로 `static/img/projects/` 또는 `static/img/partners/`에 복사됨
+- 모든 이미지는 캐시 무효화를 위해 MD5 해시 기반 파일명으로 `static/img/projects/`에 통일하여 복사됨
 
 ## 아키텍처 개요
 
@@ -91,7 +93,8 @@ ssapi-doc/
 │   └── contact/            # 연락처 정보
 ├── contents/                # 파일 기반 콘텐츠 관리 (원본 데이터)
 │   ├── projects/           # 프로젝트 마크다운 파일 (YYYY-MM-프로젝트명/index.md)
-│   └── affiliates/         # 제휴사 마크다운 파일 (YYYY-MM-제휴사명/index.md)
+│   ├── affiliates/         # 제휴사 마크다운 파일 (YYYY-MM-제휴사명/index.md, startDate 필수)
+│   └── partners/           # 파트너 마크다운 파일 (YYYY-MM-파트너명/index.md, startDate 불필요)
 ├── src/
 │   ├── components/
 │   │   ├── Landing/        # 랜딩 페이지 섹션 (Hero, Features 등)
@@ -105,8 +108,7 @@ ssapi-doc/
 │   ├── projects.json       # contents/로부터 자동 생성 (편집 금지)
 │   └── history.json        # 히스토리 데이터 (빌드 스크립트가 읽음)
 ├── static/img/             # 정적 자산 (contents/에서 자동 복사)
-│   ├── projects/           # 프로젝트 이미지 (해시 기반 파일명)
-│   └── partners/           # 파트너/제휴사 이미지 (해시 기반 파일명)
+│   └── projects/           # 모든 이미지 (프로젝트/제휴사/파트너, 해시 기반 파일명)
 ├── .husky/
 │   └── scripts/            # 빌드 및 최적화 스크립트
 │       ├── build-projects.js      # 마크다운 → JSON 변환기
@@ -237,11 +239,11 @@ REST API 문서는 `schemas/rest-api.yaml`로부터 **자동 생성**됩니다:
 ### .husky/scripts/build-projects.js
 
 `contents/`의 마크다운 파일들을 `schemas/projects.json`으로 변환:
-- `contents/projects/` 및 `contents/affiliates/`에서 `index.md` 파일 스캔
+- `contents/projects/`, `contents/affiliates/`, `contents/partners/`에서 `index.md` 파일 스캔
 - gray-matter를 사용하여 프론트매터 파싱
 - 캐시 무효화를 위해 MD5 해시 기반 파일명으로 이미지를 `static/img/`에 복사
-- `startDate` 기준으로 정렬 (최신순)
-- 카테고리별로 프로젝트 그룹화: `minecraft`, `zomboid`, `partners`
+- 제휴사는 `startDate` 기준으로 정렬 (최신순), 파트너는 이름순 정렬
+- 카테고리별로 그룹화: `affiliates`, `partners`, `minecraft`, `zomboid`
 - 히스토리 데이터를 위해 `schemas/history.json`과 병합
 - 통합된 JSON을 `schemas/projects.json`에 출력
 

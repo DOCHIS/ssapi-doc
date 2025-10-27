@@ -1,36 +1,78 @@
 {
-  "partners": [
+  "affiliates": [
     {
       "type": "affiliate",
-      "logo": "/img/partners/9cb90d323d63.png",
+      "logo": "/img/projects/9cb90d323d63.png",
       "name": "(주)일리오",
       "subtitle": "셀럽후원플랫폼 팬심",
-      "startDate": "2025-01-14",
       "description": "더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공을 준비중입니다.",
       "link": [
         "https://fancim.me/"
-      ]
+      ],
+      "startDate": "2025-01-14"
     },
     {
       "type": "affiliate",
-      "logo": "/img/partners/552178139181.png",
+      "logo": "/img/projects/552178139181.png",
       "name": "뷰어십",
       "subtitle": "SOFTC.ONE",
-      "startDate": "2024-05-23",
       "description": "더 나은 인터넷 방송 생태계 구현을 위해 수집중인 데이터 일부를 제공합니다.",
       "link": [
         "https://viewership.softc.one/"
-      ]
+      ],
+      "startDate": "2024-05-23"
     },
     {
       "type": "affiliate",
-      "logo": "/img/partners/702f9ad12d22.png",
+      "logo": "/img/projects/702f9ad12d22.png",
       "name": "뻐스시간",
       "subtitle": "버튜버 예능 그룹",
-      "startDate": "2024-03-10",
       "description": "각종 컨텐츠 제작을 협업하고있습니다",
       "link": [
         "https://ch.sooplive.co.kr/versetime"
+      ],
+      "startDate": "2024-03-10"
+    }
+  ],
+  "partners": [
+    {
+      "type": "partner",
+      "logo": "/img/projects/452a5f1c685c.png",
+      "name": "가내수공업팀",
+      "subtitle": "마인크래프트 컨텐츠 운영팀",
+      "description": "물초고 여름방학 운동회, 픽셀몬 스터디 서버 등을 성공적으로 운영한 팀",
+      "link": [
+        "https://docs.google.com/spreadsheets/d/1wgKahj3186F9I46IpK3DxmkAv8KS_DN9_-H3geC0Flg/edit?gid=0#gid=0"
+      ]
+    },
+    {
+      "type": "partner",
+      "logo": "/img/projects/de65623287b5.png",
+      "name": "얼렁뚱땅컴퍼니",
+      "subtitle": "마인크래프트 컨텐츠 개발팀",
+      "description": "오함마와 마병대 등 대형 컨텐츠를 개발한 마인크래프트 서버 개발팀",
+      "link": [
+        "https://www.youtube.com/@chuchuchu95"
+      ]
+    },
+    {
+      "type": "partner",
+      "logo": "/img/projects/582780b0f640.png",
+      "name": "픽셀업스튜디오",
+      "subtitle": "마인크래프트 컨텐츠 개발팀",
+      "description": "밍친서버, 알엘시서버 등의 서버를 개발한 마인크래프트 컨텐츠 개발팀",
+      "link": [
+        "https://www.youtube.com/@Pixel-up_studio"
+      ]
+    },
+    {
+      "type": "partner",
+      "logo": "/img/projects/1bdef93f9eff.png",
+      "name": "하이퍼루나틱",
+      "subtitle": "마인크래프트 컨텐츠 개발팀",
+      "description": "다이아게임, 클로배서버, 띵타이쿤 등을 개발한 마인크래프트 컨텐츠 개발팀",
+      "link": [
+        "https://hyperlunatic.com/"
       ]
     }
   ],
