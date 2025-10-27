@@ -100,6 +100,39 @@ const config = {
             label: "문서",
           },
           { to: "/blog", label: "블로그", position: "left" },
+          {
+            type: "dropdown",
+            label: "바로가기",
+            position: "left",
+            items: [
+              {
+                label: "API 키 신청",
+                to: "/docs/contact/application",
+              },
+              {
+                label: "빠른 시작 가이드",
+                to: "/docs/quick_start_guide",
+              },
+              {
+                label: "함께하는 프로젝트",
+                to: "/docs/intro/projects",
+              },
+              {
+                label: "가격 정책과 이용 정책",
+                to: "/docs/intro/policy",
+              },
+              {
+                label: "문의하기",
+                to: "/docs/contact",
+              },
+            ],
+          },
+          {
+            label: "관리자 대시보드",
+            href: "http://dashboard.ssapi.kr/",
+            position: "right",
+            className: "navbar-dashboard-link",
+          },
         ],
       },
       footer: {

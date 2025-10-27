@@ -62,3 +62,36 @@
 .tabs-container [role="tabpanel"] {
   padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
 }
+
+/* 네비게이션 바 대시보드 링크 버튼 스타일 */
+.navbar-dashboard-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 1rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar-dashboard-link:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none !important;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .navbar-dashboard-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .navbar-dashboard-link:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+}
