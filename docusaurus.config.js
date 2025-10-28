@@ -100,6 +100,13 @@ const config = {
             label: "문서",
           },
           { to: "/blog", label: "블로그", position: "left" },
+          { to: "/docs/projects", label: "포트폴리오", position: "left" },
+          {
+            label: "관리자 대시보드",
+            href: "http://dashboard.ssapi.kr/",
+            position: "right",
+            className: "navbar-dashboard-link",
+          },
         ],
       },
       footer: {
@@ -114,11 +121,11 @@ const config = {
               },
               {
                 label: "함께하는 프로젝트",
-                to: "/docs/intro/projects",
+                to: "/docs/projects",
               },
               {
-                label: "가격 정책과 이용 정책",
-                to: "/docs/intro/policy",
+                label: "이용 정책",
+                to: "/docs/additional-info/policy",
               },
             ],
           },
@@ -175,7 +182,7 @@ const config = {
             sidebarOptions: {
               groupPathsBy: "tag",
             },
-            showSchemas: true,
+            showSchemas: false,
           },
         },
       },

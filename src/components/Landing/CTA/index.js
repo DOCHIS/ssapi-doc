@@ -1,77 +1,65 @@
-// src/components/CTA/index.jsx
 import React from "react";
-import Link from "@docusaurus/Link";
 import { motion } from "framer-motion";
-import { Rocket, ExternalLink, Code } from "lucide-react";
+import Link from "@docusaurus/Link";
+import { ArrowRight, BookOpen } from "lucide-react";
 import styles from "./styles.module.scss";
 
 export default function CTA() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
-    <section className={styles.ctaSection}>
-      <div className={styles.backgroundEffects}>
-        <div className={styles.grid} />
-        <div className={styles.glow} />
-        <div className={styles.blobContainer}>
-          <div className={styles.blob} />
-          <div className={styles.blob} />
-          <div className={styles.blob} />
-        </div>
-        <div className={styles.particles}>
-          <div className={styles.particle} />
-          <div className={styles.particle} />
-          <div className={styles.particle} />
-        </div>
+    <section className={styles.cta}>
+      <div className={styles.container}>
+        <motion.div
+          className={styles.ctaCard}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className={styles.ctaContent}>
+            <motion.h2
+              className={styles.ctaTitle}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              지금 바로 시작하세요
+            </motion.h2>
+            <motion.p
+              className={styles.ctaDescription}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              API 키 발급부터 기술 지원까지, 모든 과정을 함께합니다.
+              <br />
+              SSAPI와 함께 더 나은 스트리밍 서비스를 만들어보세요.
+            </motion.p>
+            <motion.div
+              className={styles.ctaButtons}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Link to="/docs/intro" className={styles.primaryButton}>
+                <BookOpen size={20} />
+                문서 시작하기
+                <ArrowRight size={20} />
+              </Link>
+              <Link to="/docs/contact" className={styles.secondaryButton}>
+                문의하기
+              </Link>
+            </motion.div>
+          </div>
+          <div className={styles.ctaBackground}>
+            <div className={styles.gradientOrb1} />
+            <div className={styles.gradientOrb2} />
+            <div className={styles.gradientOrb3} />
+          </div>
+        </motion.div>
       </div>
-
-      <motion.div
-        className={styles.ctaContainer}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.div className={styles.content} variants={itemVariants}>
-          <Rocket className={styles.icon} />
-          <h2 className={styles.title}>시작할 준비가 되셨나요?</h2>
-          <p className={styles.description}>
-            API 키 발급부터 기술 지원까지 모든 과정을 도와드립니다
-          </p>
-        </motion.div>
-
-        <motion.div className={styles.buttons} variants={itemVariants}>
-          <Link className={styles.primaryButton} to="/docs/intro">
-            <Code className={styles.buttonIcon} />
-            문서 보기
-          </Link>
-          <Link
-            className={styles.secondaryButton}
-            to="https://discord.gg/cNVpzCkEvM"
-          >
-            <ExternalLink className={styles.buttonIcon} />
-            Discord
-          </Link>
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

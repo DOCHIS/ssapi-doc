@@ -1,201 +1,386 @@
+// styles.module.scss
 .projects {
-  padding: 6rem 0;
-  background: var(--ifm-background-surface-color);
+  padding: 5rem 0;
+  background: var(--ifm-background-color);
+  position: relative;
+  overflow: hidden;
 
   @media (max-width: 768px) {
     padding: 3rem 0;
   }
 }
 
+.bgEffects {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradientBlob1,
+.gradientBlob2 {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+}
+
+.gradientBlob1 {
+  background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+  top: -250px;
+  left: -250px;
+  animation: blobFloat 25s infinite ease-in-out;
+}
+
+.gradientBlob2 {
+  background: linear-gradient(135deg, #3b82f6 0%, #93c5fd 100%);
+  bottom: -250px;
+  right: -250px;
+  animation: blobFloat 30s infinite ease-in-out reverse;
+}
+
+.bgEffects::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 6s ease-in-out infinite;
+  z-index: 1;
+}
+
 .container {
-  width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.15) 100%);
+  color: var(--ifm-color-primary);
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(37, 99, 235, 0.2);
+
+  svg {
+    animation: sparkle 2s ease-in-out infinite;
+  }
 }
 
 .title {
-  text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  color: var(--ifm-heading-color);
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  color: var(--ifm-color-emphasis-900);
 
   @media (max-width: 768px) {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 }
 
 .subtitle {
-  text-align: center;
-  font-size: 1.5rem;
-  line-height: 1.8;
-  margin-bottom: 4rem;
-  color: var(--ifm-color-emphasis-800);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 400;
-  position: relative;
-  padding: 2rem 0;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 3px;
-    background: var(--ifm-color-primary);
-    border-radius: 2px;
-  }
-
-  &::before {
-    top: 0;
-  }
-
-  &::after {
-    bottom: 0;
-  }
-
-  br {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    padding: 1.5rem 0;
-  }
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  padding: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 5rem;
 
-  @media (max-width: 768px) {
-    gap: 1.5rem;
-    padding: 0;
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 
 .card {
-  background: var(--ifm-card-background-color);
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  cursor: default;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    .imageOverlay {
+      opacity: 1;
+    }
 
-    .iconWrapper img {
+    .projectImage {
+      transform: scale(1.08);
+    }
+
+    .cardInner {
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.2);
+      border-color: var(--ifm-color-primary);
+      transform: translateY(-6px);
+    }
+
+    .projectTitle {
+      color: var(--ifm-color-primary);
+    }
+
+    .participants {
       transform: scale(1.05);
     }
   }
 }
 
-.iconWrapper {
-  height: 240px;
+.cardInner {
+  position: relative;
+  background: var(--ifm-background-surface-color);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--ifm-color-emphasis-100);
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-}
-
-.content {
-  padding: 2rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cardTitle {
-  margin: 0 0 1rem;
-  font-size: 1.4rem;
-  color: var(--ifm-heading-color);
-  font-weight: 600;
-  letter-spacing: -0.5px;
-}
-
-.metrics {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.metric {
-  color: var(--ifm-color-success);
-  font-weight: 500;
-  font-size: 1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
 
-  &:before {
-    content: "•";
-    margin-right: 0.75rem;
-    color: var(--ifm-color-primary);
-    font-size: 1.2rem;
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(37, 99, 235, 0.15) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cardContent {
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.projectTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.participants {
+  font-size: 0.8125rem;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+/* CTA Section */
+.ctaSection {
+  margin-top: 4rem;
+  padding: 4rem 3rem;
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  border-radius: 0.75rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 70%
+      ),
+      linear-gradient(
+        -45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.03) 50%,
+        transparent 70%
+      );
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 1.5rem;
   }
 }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.ctaContent {
+  position: relative;
+  text-align: center;
+  z-index: 1;
 }
 
-.tag {
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-color-emphasis-700);
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
+.ctaTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.ctaDescription {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 160px;
+  justify-content: center;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.primaryButton {
+  background: white;
+  color: #1e40af;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   &:hover {
-    background: var(--ifm-color-primary);
-    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: #1e40af;
+    text-decoration: none;
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
   }
 }
 
-// Dark mode adjustments
-[data-theme="dark"] {
-  .card {
-    background: var(--ifm-card-background-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
 
-    &:hover {
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    }
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px) scale(1.05);
+    color: white;
+    text-decoration: none;
   }
+}
 
-  .iconWrapper {
-    background: var(--ifm-color-emphasis-200);
+@keyframes blobFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
   }
+  33% {
+    transform: translate(40px, -60px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-30px, 30px) rotate(240deg);
+  }
+}
 
-  .tag {
-    background: var(--ifm-color-emphasis-200);
-    color: var(--ifm-color-emphasis-900);
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+}
 
-    &:hover {
-      background: var(--ifm-color-primary);
-      color: white;
-    }
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.08;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.12;
+    transform: translate(-50%, -50%) scale(1.1);
   }
 }

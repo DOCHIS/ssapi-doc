@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 const FEATURES = [
   {
     title: "최적화된 네트워크",
-    description: "100명당 2Mbps",
+    description: "100명당 1Mbps",
     icon: <Server className="w-6 h-6" />,
     details: ["압축을 통한 대역 최적화", "매우 가벼운 소켓 시스템"],
   },
@@ -19,13 +19,13 @@ const FEATURES = [
   },
   {
     title: "높은 성능의 API",
-    description: "2,000개/초 까지 대응",
+    description: "500개/초 까지 대응",
     icon: <Zap className="w-6 h-6" />,
     details: ["실시간 모니터링", "자동 복구 시스템"],
   },
   {
     title: "확장 가능성",
-    description: "400+ 동시접속",
+    description: "2,000+ 동시접속",
     icon: <ArrowRight className="w-6 h-6" />,
     details: ["REST/Socket API", "유연한 구조"],
   },

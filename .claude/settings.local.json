@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(cat:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm install:*)",
+      "Bash(chmod:*)",
+      "Bash(npm pkg set:*)",
+      "Bash(npm run migrate:*)",
+      "Bash(npm run build-projects:*)",
+      "Bash(npm pkg:*)",
+      "Bash(npm run precommit:*)",
+      "Bash(curl:*)",
+      "Bash(npm run rest-api-generate:*)",
+      "Bash(npm run optimize-images:*)",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

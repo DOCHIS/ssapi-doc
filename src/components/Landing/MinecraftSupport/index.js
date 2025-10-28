@@ -108,7 +108,7 @@ export default function MinecraftSupport() {
           </Link>
           <Link
             className={styles.secondaryButton}
-            to="/docs/contact/application"
+            to="http://dashboard.ssapi.kr/"
           >
             <Key className={styles.buttonIcon} />
             API 키 신청

@@ -1,9 +1,14 @@
 .minecraftSection {
   position: relative;
   overflow: hidden;
-  padding: 6rem 0;
-  background: #507b3c;
+  padding: 5rem 0;
+  background: #8b4513; // 기본 흙 색상
 
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
+
+  // 마인크래프트 블록 패턴 배경
   &::before {
     content: "";
     position: absolute;
@@ -11,36 +16,87 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("@site/static/img/landing/minecraft-bg.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    mix-blend-mode: soft-light;
+    background-image:
+      // 잔디 블록 레이어
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 80px,
+        #527f3c 80px,
+        #6b9a54 96px,
+        #527f3c 96px,
+        #527f3c 176px
+      ),
+      // 흙 블록 레이어
+      repeating-linear-gradient(
+        90deg,
+        #8b4513 0px,
+        #8b4513 16px,
+        #a0522d 16px,
+        #a0522d 32px,
+        #6d3710 32px,
+        #6d3710 48px,
+        #8b4513 48px,
+        #8b4513 64px
+      ),
+      // 돌 블록 레이어
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 176px,
+        #808080 176px,
+        #696969 192px,
+        #a9a9a9 192px,
+        #808080 208px,
+        transparent 208px
+      );
+    opacity: 0.8;
+    image-rendering: pixelated;
     pointer-events: none;
+    z-index: 1;
   }
 
   :global(html[data-theme="dark"]) & {
-    background: #2d4a22;
+    background: #5a3a1f;
   }
 }
 
 .backgroundEffects {
   position: absolute;
   inset: 0;
-  opacity: 0.15;
+  opacity: 0.6;
   overflow: hidden;
+  z-index: 3;
 }
 
 .grid {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(
+  background-image:
+    // 16x16 픽셀 그리드 (마인크래프트 블록 크기)
+    linear-gradient(
+      rgba(0, 0, 0, 0.3) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.3) 1px,
+      transparent 1px
+    ),
+    // 밝은 하이라이트 그리드
+    linear-gradient(
       rgba(255, 255, 255, 0.1) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 32px 32px;
-  animation: gridMove 20s linear infinite;
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    );
+  background-size: 16px 16px, 16px 16px, 16px 16px, 16px 16px;
+  background-position: 0 0, 0 0, 1px 1px, 1px 1px;
+  animation: gridMove 30s linear infinite;
+  image-rendering: pixelated;
 }
 
 .cubes {
@@ -53,62 +109,109 @@
   position: absolute;
   width: 64px;
   height: 64px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  animation: cubeFloat 20s infinite linear;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  animation: cubeFloat 15s infinite ease-in-out;
+  image-rendering: pixelated;
+
+  // 3D 블록 효과
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
 
   &:nth-child(1) {
     top: 10%;
     left: 10%;
     animation-delay: -2s;
+    background: #8b4513; // 흙 블록
   }
   &:nth-child(2) {
     top: 70%;
     left: 20%;
     animation-delay: -4s;
+    background: linear-gradient(to bottom, #6b9a54 0%, #6b9a54 20%, #8b4513 20%); // 잔디 블록
   }
   &:nth-child(3) {
     top: 40%;
     left: 80%;
     animation-delay: -6s;
+    background: #808080; // 돌 블록
   }
   &:nth-child(4) {
     top: 20%;
     left: 60%;
     animation-delay: -8s;
+    background: #654321; // 나무 블록
   }
   &:nth-child(5) {
     top: 80%;
     left: 70%;
     animation-delay: -10s;
+    background: #ffd700; // 금 블록
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
   }
   &:nth-child(6) {
     top: 60%;
     left: 30%;
     animation-delay: -12s;
+    background: #4682b4; // 다이아 블록
+    box-shadow: 0 0 20px rgba(70, 130, 180, 0.5);
   }
   &:nth-child(7) {
     top: 30%;
     left: 40%;
     animation-delay: -14s;
+    background: #dc143c; // 레드스톤 블록
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
   }
   &:nth-child(8) {
     top: 50%;
     left: 90%;
     animation-delay: -16s;
+    background: #00ff7f; // 에메랄드 블록
+    box-shadow: 0 0 20px rgba(0, 255, 127, 0.5);
   }
 }
 
 .glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.2) 0%,
-    transparent 70%
-  );
+  background:
+    // 중앙 햇빛 효과
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(255, 255, 150, 0.2) 0%,
+      transparent 50%
+    ),
+    // 주변 글로우
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 70%
+    );
 }
 
 .container {
@@ -117,7 +220,11 @@
   margin: 0 auto;
   padding: 0 2rem;
   color: white;
-  z-index: 1;
+  z-index: 20;
+
+  @media (max-width: 640px) {
+    padding: 0 1.5rem;
+  }
 }
 
 .header {
@@ -137,9 +244,11 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
+  text-shadow:
+    3px 3px 0 rgba(0, 0, 0, 0.5),
+    -1px -1px 0 rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
 }
 
 .description {
@@ -160,46 +269,59 @@
 .feature {
   text-align: center;
   padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 4px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.3);
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow:
+      inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+      0 8px 20px rgba(0, 0, 0, 0.4);
   }
 
   h3 {
     font-size: 1.25rem;
     margin: 1rem 0;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   p {
-    opacity: 0.9;
+    opacity: 0.95;
     line-height: 1.6;
   }
 }
 
 .showcase {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.15);
   padding: 3rem;
   margin: 4rem 0;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.3);
 
   h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   p {
     font-size: 1.125rem;
     line-height: 1.8;
-    opacity: 0.9;
+    opacity: 0.95;
   }
 }
 
@@ -215,39 +337,55 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-weight: 600;
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 200px;
 }
 
 .primaryButton {
   background: white;
   color: #507b3c;
+  border: 3px solid rgba(80, 123, 60, 0.3);
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.3);
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.05);
     background: rgba(255, 255, 255, 0.95);
     color: #3c5c2d;
     text-decoration: none;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(80, 123, 60, 0.5);
+    box-shadow:
+      inset 2px 2px 4px rgba(255, 255, 255, 0.9),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.4);
   }
 }
 
 .secondaryButton {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.3);
 
   &:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow:
+      inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+      inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -281,7 +419,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(32px);
+    transform: translateY(16px);
   }
 }
 

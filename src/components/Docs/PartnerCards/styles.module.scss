@@ -1,85 +1,102 @@
 .partnerGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   margin: 1.5rem 0;
-
-  @media (max-width: 996px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .partnerCard {
   background: var(--ifm-card-background-color);
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 12px;
-  padding: 2rem;
-  height: 375px;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
   transition: all 0.2s ease;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  gap: 1.5rem;
 
   &:hover {
     border-color: var(--ifm-color-primary);
-    box-shadow: 0 4px 20px var(--ifm-color-primary-darker);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   img {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
-    margin-bottom: 1.5rem;
-    border-radius: 50%;
+    border-radius: 8px;
     flex-shrink: 0;
     background: white;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
   }
 }
 
 .partnerInfo {
-  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
 
   h3 {
-    margin-bottom: 1rem;
+    margin: 0;
     color: var(--ifm-heading-color);
     font-size: 1.1rem;
     font-weight: 600;
-    line-height: 1.4;
-    flex-shrink: 0;
+    line-height: 1.3;
   }
 
-  p {
+  .subtitle {
+    margin: 0;
+    color: var(--ifm-color-primary);
+    line-height: 1.3;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .description {
     margin: 0;
     color: var(--ifm-color-emphasis-700);
-    line-height: 1.6;
-    font-size: 0.95rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    line-height: 1.5;
+    font-size: 0.9rem;
   }
 
   a {
-    display: inline-block;
-    margin-top: auto;
-    padding: 0.75rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.25rem;
     background: var(--ifm-color-primary);
-    color: white;
+    color: white !important;
     text-decoration: none;
     font-weight: 500;
-    border-radius: 8px;
-    transition: background 0.2s ease;
-    flex-shrink: 0;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 
     &:hover {
       background: var(--ifm-color-primary-darker);
+      transform: translateY(-1px);
     }
+  }
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
   }
 }

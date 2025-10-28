@@ -1,0 +1,38 @@
+// _shared.scss - Landing 페이지 공통 스타일
+
+// 타입 1: 컨테이너 섹션 (좌우 여백 있음)
+@mixin section-container {
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
+}
+
+@mixin content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 640px) {
+    padding: 0 1.5rem;
+  }
+}
+
+// 타입 2: 풀 사이즈 섹션 (좌우 여백 없음)
+@mixin section-fullwidth {
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+@mixin content-fullwidth {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}

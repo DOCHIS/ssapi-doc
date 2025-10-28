@@ -1,0 +1,6 @@
+echo "🔨 Pre-commit 훅 실행 중..."
+
+# precommit 스크립트 실행
+npm run precommit --silent
+
+echo "\n✅ Pre-commit 훅 완료!"

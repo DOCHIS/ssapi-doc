@@ -1,89 +1,98 @@
 ---
 sidebar_position: 2
+sidebar_label: 🚀 빠른 시작
 ---
 
-# 🚄 빠른 시작 가이드
+# 🚀 빠른 시작
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import Admonition from '@theme/Admonition';
+SSAPI를 5분 안에 시작하는 방법을 안내합니다.
 
-<Admonition type="caution">
- 가급적 문서 전체를 살펴보시는 것을 권장하지만, SSAPI를 빠르게 훑어보고 싶으신 분들을 위해 준비했습니다.
- 
- 빠르게 훑기 위해 음슴체를 사용합니다!
-</Admonition>
+## 1. API 키 발급
 
-## SSAPI 먼저 이해 시켜줘
+[SSAPI 대시보드 ↗](http://dashboard.ssapi.kr/)에서 회원가입 후 API 키를 신청합니다.
 
-### 🤔 SSAPI 뭐임?
+:::tip
+마인크래프트 서버나 대규모 콘텐츠의 경우 무료로 제공될 수 있습니다. [이용 정책](/docs/additional-info/policy)을 확인하세요.
+:::
 
-숲/치지직의 후원과 채팅 데이터를 활용해 더 다양한 방송 콘텐츠를 제작하고, 스트리머들이 제작비를 충당할 수 있도록 돕는 API 서비스임.
+## 2. 스트리머 등록
 
-### 🛠 SSAPI는 어떻게 동작함?
+소켓룸에 스트리머를 등록하는 방법은 두 가지입니다.
 
-SSAPI의 API를 통해 스트리머를 등록하면 SSAPI 서버가 알아서 채팅을 따서 소켓과 REST API로 제공함. 이를 위해 서비스를 분산해두었음.
+### 대시보드 사용 (추천)
 
-### 🤷 근데 이거 왜 써야함?
+[관리자 대시보드 ↗](http://dashboard.ssapi.kr/)에서 간편하게 스트리머를 등록하고 관리할 수 있습니다.
 
-1~10명 정도 규모의 후원과 채팅 API를 사용하는건 사실 어렵진 않음. 하지만 SSAPI는 이런 장점이 있음:
+- GUI 기반 직관적인 관리
+- 스트리머 목록 확인
+- 실시간 통계 확인
 
-- 다수의 스트리머가 참여하는 컨텐츠에서 빛을 냄. 100명당 겨우 2Mbps 정도의 인터넷 대역만을 사용할 정도로 최적화되어 있음
-- 숲과 치지직을 하나의 API로 제공하고 문서화가 잘되어있어서 개발 시간을 줄일 수 있음
+### REST API 사용
 
-### 👥 이거 누가 씀?
+프로그래밍 방식으로 스트리머를 등록할 수 있습니다.
 
-게임/컨텐츠/대규모 마크섭 같은데서 많이 씀. 뷰어십, 포켓꾸, 힐링월드 같은 대형 서비스들이 이미 사용중임.
+```bash
+POST https://api.ssapi.kr/room/streamer
+Content-Type: application/json
+Authorization: Bearer YOUR_API_KEY
 
-### 💰 유료임?
+{
+  "streamerId": "streamer_id",
+  "platform": "afreeca"  # 또는 "chzzk"
+}
+```
 
-다수에게 재미있거나 유익한 서비스(예: 대형 마크섭, 다수가 즐기는 컨텐츠)는 무료로 제공함. 그 외에는 유료 정책으로 운영됨.
+[스트리머 등록 API 문서 →](/docs/rest-api/소켓룸에-스트리머-등록)
 
-## API 키 발급받고 시작하기
+## 3. 데이터 수신
 
-### 🔑 API 키 발급
+### Socket API (권장)
 
-컨텐츠 개발자나 운영자만 신청 가능함. [문의하기 페이지](/docs/contact)를 통해 신청하면 됨.
+실시간 데이터 스트리밍으로 다수 스트리머의 데이터를 효율적으로 처리합니다.
 
-### 📝 스트리머 등록하기
+```javascript
+const io = require('socket.io-client');
+const socket = io('https://socket.ssapi.kr');
 
-API를 사용하기 전에 먼저 소켓룸에 스트리머를 등록해야 함. REST API로 등록할 수 있음.
+// 로그인
+socket.emit('login', { apiKey: 'YOUR_API_KEY' });
 
-### 📊 데이터 받아보기
+// 채팅 수신
+socket.on('chat', (data) => {
+  console.log(data);
+});
 
-두 가지 방법으로 데이터를 받을 수 있음:
+// 후원 수신
+socket.on('donation', (data) => {
+  console.log(data);
+});
+```
 
-- Socket: 다수 스트리머 데이터를 효율적으로 받을 수 있음
-- REST API: 간단하게 구현 가능하지만 트래픽이 더 많이 발생함
+[Socket API 상세 문서 →](/docs/socket/start)
 
-### 🎮 마인크래프트 서버 연동하기
+### REST API
 
-마인크래프트 서버에서 SSAPI를 사용하시는 분들이 많아, 전용 플러그인을 무료로 제공하고 있음:
+간단한 HTTP 요청으로 데이터를 조회합니다.
 
-#### 빠른 설치 방법
+```bash
+GET https://api.ssapi.kr/room/info
+Authorization: Bearer YOUR_API_KEY
+```
 
-1. [GitHub에서 플러그인 다운로드](https://github.com/DOCHIS/ssapi-minecraft/releases)
-2. plugins 폴더에 넣고 서버 재시작
-3. config.yml에 API 키 입력
+[REST API 상세 문서 →](/docs/rest-api/start)
 
-#### 주요 기능
+## 마인크래프트 연동
 
-- 후원 시 자동 아이템 지급
-- 채팅 연동 (디스코드 스타일)
-- 실시간 후원 이펙트
-- 커스텀 명령어 설정
+마인크래프트 서버를 위한 전용 플러그인을 제공합니다.
 
-> 자세한 설정과 사용법은 [마인크래프트 플러그인 문서](https://github.com/DOCHIS/SSAPI-Minecraft/)를 참고하세요!
+1. [GitHub에서 플러그인 다운로드 ↗](https://github.com/DOCHIS/ssapi-minecraft/releases)
+2. `plugins/` 폴더에 복사 후 서버 재시작
+3. `config.yml`에 API 키 입력
 
-## 자세히 알아보기
+[마인크래프트 플러그인 문서 ↗](https://github.com/DOCHIS/SSAPI-Minecraft/)
 
-- [SSAPI의 원리와 구성](/docs/intro/api)
-- [SSAPI를 사용해야 하는 이유](/docs/intro/why-use)
-- [SSAPI와 함께하는 프로젝트](/docs/intro/projects)
-- [가격 정책과 이용 정책](/docs/intro/policy)
-- [REST API 시작하기](/docs/rest-api/start)
-- [Socket API 시작하기](/docs/socket/start)
+## 다음 단계
 
-### 💬 문의하기
-
-더 궁금한 점이 있다면 [문의하기](/docs/contact)로 연락주세요!
+- [데이터 스키마](/docs/schemas) - API 응답 구조 확인
+- [코드 예제](/docs/socket/examples) - 실제 구현 예제
+- [참고 자료](/docs/additional) - 코드표 및 세부 정보
