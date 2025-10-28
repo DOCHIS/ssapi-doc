@@ -1,13 +1,13 @@
 // src/pages/index.js
 import React from "react";
 import Layout from "@theme/Layout";
-import CTA from "@site/src/components/Landing/CTA";
 import Hero from "@site/src/components/Landing/Hero";
 import Metrics from "@site/src/components/Landing/Metrics";
 import Features from "@site/src/components/Landing/Features";
-import ProjectsList from "@site/src/components/Landing/ProjectsList";
 import SuccessStories from "@site/src/components/Landing/SuccessStories";
 import FeaturedProjects from "@site/src/components/Landing/FeaturedProjects";
+import Partners from "@site/src/components/Landing/Partners";
+import CTA from "@site/src/components/Landing/CTA";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import MinecraftSupport from "@site/src/components/Landing/MinecraftSupport";
 
@@ -25,7 +25,7 @@ export default function Home() {
         <MinecraftSupport />
         <SuccessStories />
         <FeaturedProjects />
-        <ProjectsList />
+        <Partners />
         <CTA />
       </main>
     </Layout>
