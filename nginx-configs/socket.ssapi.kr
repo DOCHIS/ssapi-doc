@@ -1,0 +1,22 @@
+# socket.ssapi.kr -> 내부 포트 27010
+server {
+    listen 80;
+    server_name socket.ssapi.kr;
+
+    location / {
+        proxy_pass http://localhost:27010;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # WebSocket 지원 (Socket.IO용)
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        # WebSocket 타임아웃 설정
+        proxy_read_timeout 86400;
+        proxy_send_timeout 86400;
+    }
+}

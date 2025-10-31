@@ -1,0 +1,22 @@
+# cdn.ssapi.kr -> 내부 포트 27012
+server {
+    listen 80;
+    server_name cdn.ssapi.kr;
+
+    location / {
+        proxy_pass http://localhost:27012;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # CDN 캐싱 설정
+        proxy_cache_valid 200 1d;
+        proxy_cache_use_stale error timeout invalid_header updating;
+        add_header X-Cache-Status $upstream_cache_status;
+
+        # CORS 헤더 (CDN용)
+        add_header Access-Control-Allow-Origin *;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS";
+    }
+}

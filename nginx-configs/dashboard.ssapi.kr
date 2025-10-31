@@ -1,0 +1,13 @@
+# dashboard.ssapi.kr -> 내부 포트 20020
+server {
+    listen 80;
+    server_name dashboard.ssapi.kr;
+
+    location / {
+        proxy_pass http://localhost:20020;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
