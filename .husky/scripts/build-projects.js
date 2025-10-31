@@ -17,7 +17,7 @@ const matter = require('gray-matter');
 const rootDir = path.join(__dirname, '../..');
 const contentsDir = path.join(rootDir, 'contents');
 const outputPath = path.join(rootDir, 'schemas/projects.json');
-const historyPath = path.join(rootDir, 'schemas/history.json');
+const historyPath = path.join(rootDir, 'contents/history.json');
 const staticImgDir = path.join(rootDir, 'static/img');
 
 /**
