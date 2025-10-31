@@ -19,43 +19,73 @@ SSAPI는 2024년 2월 24일 출시 이후 현재로 **616일째**가 되었습�
 
 다만, 관련 내용에 대한 많은 불편 사항 접수로 인하여 **이제 컨텐츠 제작 목적이더라도 제품/프로그램을 신청하는 경우와 동일하게 대표 스트리머가 아닌 경우에도 신청이 가능하도록 완화**되었습니다.
 
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', margin: '30px 0'}}>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', borderRadius: '12px', color: 'white'}}>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '16px'}}>🔒 기존 정책</div>
+    <div style={{fontSize: '14px', lineHeight: '1.6'}}>
+      • 일정 팔로워 이상 스트리머만 신청 가능<br/>
+      • 운영진/개발자는 스트리머의 공식 인정 필요<br/>
+      • 엄격한 검증 과정
+    </div>
+  </div>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', borderRadius: '12px', color: 'white'}}>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '16px'}}>🔓 완화된 정책</div>
+    <div style={{fontSize: '14px', lineHeight: '1.6'}}>
+      • 대표 스트리머가 아니어도 신청 가능<br/>
+      • 제품/프로그램과 동일한 기준 적용<br/>
+      • 신청 절차 간소화
+    </div>
+  </div>
+</div>
+
 ### 📌 신뢰도에 따른 발급 제한
 
 신청자의 신뢰도, 규모 등에 따라 발급 제한이 달라질 수 있습니다:
 
-- ✅ **높은 신뢰도**: 대표 스트리머가 신청하고 대표 스트리머의 팔로워 수가 충분한 경우, 신뢰성이 높다고 판단하여 대용량 키 발급이 가능합니다.
-- ⚠️ **일반 신뢰도**: 인증되지 않은 개발자분이 신청하시는 경우 등은 신뢰도가 낮다고 판단되어 리밋이 낮을 수 있습니다. (일반적으로 최대 20명 이내)
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', margin: '30px 0'}}>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)', borderRadius: '12px', color: 'white'}}>
+    <div style={{fontSize: '42px', marginBottom: '16px'}}>✅</div>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '12px'}}>높은 신뢰도</div>
+    <div style={{fontSize: '14px', lineHeight: '1.6'}}>
+      {'• 대표 스트리머 직접 신청'}<br/>
+      {'• 충분한 팔로워 수 확보'}<br/>
+      {'• 대용량 키 발급 가능'}
+    </div>
+  </div>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%)', borderRadius: '12px'}}>
+    <div style={{fontSize: '42px', marginBottom: '16px'}}>⚠️</div>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '12px', color: '#2d3436'}}>일반 신뢰도</div>
+    <div style={{fontSize: '14px', lineHeight: '1.6', color: '#2d3436'}}>
+      {'• 인증되지 않은 개발자 신청'}<br/>
+      {'• 제한적인 키 발급'}<br/>
+      {'• 일반적으로 최대 20명 이내'}
+    </div>
+  </div>
+</div>
 
-## 📝 2. API 키 신청 방식의 유연화
+## 📊 2. API Dashboard 오픈
 
 기존 API 키 신청은 디스코드로만 가능했으나, **이제는 새롭게 제작된 [SSAPI Dashboard](https://dashboard.ssapi.kr/)를 통해 가능**합니다.
+
+<div style={{textAlign: 'center', margin: '30px 0', padding: '40px 40px 40px 40px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', borderRadius: '16px', color: 'white'}}>
+  <div style={{fontSize: '48px', marginBottom: '16px'}}>🎉</div>
+  <div style={{fontSize: '28px', fontWeight: 'bold', marginBottom: '12px'}}>SSAPI Dashboard</div>
+  <div style={{fontSize: '16px', marginBottom: '24px'}}>API 키 관리를 한 곳에서</div>
+  <div>
+    <a href="https://dashboard.ssapi.kr/" className="button button--primary button--lg">
+      Dashboard 바로가기 →
+    </a>
+  </div>
+</div>
 
 ### 🎯 주요 개선 사항
 
 - 🌐 **간편한 신청**: 디스코드로 문의 주실 필요 없이 사이트 회원 가입 후 신청서를 작성해주시면 편리하게 신청이 가능합니다.
 - ⚡ **즉시 테스트 가능**: 기존 방식의 경우 신청 후 심사가 완료되어야 테스트키가 발급되었지만, 현재는 **심사 중이더라도 테스트용 API 키가 자동으로 발급**되어 해당 키를 통해 바로 테스트가 가능합니다.
 
-## 🎓 3. 치지직 API Beta 졸업
-
-**치지직 API가 이제 베타를 졸업하여 정식 배포되었으며, 기존 방식에 비해 안정성이 다수 개선되었습니다.**
-
-그동안 베타 기간 동안 다양한 피드백을 주신 사용자분들께 감사드립니다. 정식 버전에서는 더욱 안정적이고 신뢰할 수 있는 서비스를 제공합니다.
-
-## 🖥️ 4. 서버 증설
-
-기존에도 **200개 이상의 키가 상시 발급**되어 서버 사용량이 항상 포화 상태였지만, 이제 변화된 대시보드와 변화된 정책으로 인하여 더 많은 키가 발급될 것으로 예상되어 **기존 서버의 5배 사양으로 서버가 증설**되었습니다.
-
-### 🚀 주요 개선 사항
-
-- 📈 **대용량 키 발급 요건 완화**: 신뢰성이 충분히 확보되었다면 대용량 키에 대한 발급 요건이 대폭 완화될 예정입니다.
-- 🛡️ **안정적인 서비스 제공**: 서버 증설로 인해 더욱 안정적인 서비스 제공이 가능해졌습니다.
-- 🌟 **확장 가능한 인프라**: 앞으로 더 많은 사용자분들을 수용할 수 있는 환경이 마련되었습니다.
-
-## 📊 5. API Dashboard 오픈
+### 🔄 자동 관리 시스템
 
 API 키 발급과 신청 관리, 자동 종료 등 기존 불필요하게 수동으로 관리되던 API 키는 이제 **Dashboard를 통해 자동으로 관리**됩니다.
-
-### 🔄 자동 관리 시스템
 
 - 🔑 **API 키 연장 및 신청서 변경**: 이제 Dashboard를 통해 간편하게 제출하시면 자동으로 관리되며, 별도 정기 감사가 진행되지 않을 예정입니다.
   - ⏰ **자동 연장 신청**: 특히 API 키 만료 14일 전의 경우, 대시보드를 통해 자동 연장 신청을 접수주시면 **별도 심사 없이 최대 한 달 범위로 자동 연장 신청이 가능**합니다.
@@ -63,29 +93,132 @@ API 키 발급과 신청 관리, 자동 종료 등 기존 불필요하게 수동
 
 ### ✨ 새로운 Dashboard 주요 기능
 
-많은 컨텐츠 제작자분들께서 불편해하시던 기능들을 개선했습니다:
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', margin: '30px 0'}}>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '36px', marginBottom: '12px'}}>📡</div>
+    <div style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>실시간 데이터 모니터링</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      API 키로 제공되는 데이터를 Dashboard에서 실시간으로 확인
+    </div>
+  </div>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '36px', marginBottom: '12px'}}>🧪</div>
+    <div style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>후원 테스트 & 복구</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      관리자 없이 사용자가 직접 후원 테스트 및 API 복구 수행
+    </div>
+  </div>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '36px', marginBottom: '12px'}}>📈</div>
+    <div style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>후원 통계 모니터링</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      최근 한 달간의 후원 현황을 누구나 간편하게 확인
+    </div>
+  </div>
+</div>
 
-#### 📡 1) 실시간 데이터 모니터링
+## 🎓 3. 치지직 API Beta 졸업
 
-- API 키로 제공되는 데이터를 Dashboard에서 쉽게 확인할 수 있는 **실시간 데이터 모니터링 페이지**가 추가되었습니다.
-- 이 페이지를 통해 API에서 제공되는 데이터를 실시간으로 확인 가능합니다.
+**치지직 API가 이제 베타를 졸업하여 정식 배포되었으며, 기존 방식에 비해 안정성이 다수 개선되었습니다.**
 
-#### 🧪 2) 후원 테스트 및 API 복구 기능
+### 🔧 Beta 기간 중 확인된 문제
 
-- 기존에는 후원이 잘 들어오는지 확인하려면 관리자 전용 API 복구 기능을 관리자 심사를 통해 오픈해드리고 있었습니다.
-- 이제 **실시간 데이터 모니터링 페이지를 통해 사용자분들께서 간편하게 후원 테스트 기능과 API 복구를 수행 가능**합니다.
-- ⚠️ 이로 인해 기존 제공되던 **관리자용 후원 복구 명령어 기능은 삭제**되었습니다.
+기존 치지직 API는 Beta로 운영되면서 일부 버그와 안정성 문제로 **데이터 수집이 누락되는 현상**이 있었습니다.
 
-#### 📈 3) 후원 통계 모니터링
+- 📉 **트래픽 집중 시간대**: 확인한 바에 의하면 트래픽이 몰리는 시간대에서는 **최대 2~8%의 데이터 누락**이 확인되었습니다.
+- ✅ **개선 완료**: 정식 버전에서는 이러한 누락 현상이 대폭 개선되어 더욱 안정적인 데이터 수집이 가능해졌습니다.
 
-- 많은 컨텐츠 개발자분들이 궁금해하시는 "어떤 API가 후원이 많이 들어오는지" 현황을 확인할 수 있는 **후원 실시간 모니터링 페이지**를 추가했습니다.
-- 기존에는 대형 프로젝트에 한하여 별도 커스터마이징하여 제공했으나, 이제 **Dashboard에서 누구나 최근 한 달 현황에 대해 간편하게 확인 가능**합니다.
+그동안 베타 기간 동안 다양한 피드백을 주신 사용자분들께 감사드립니다. 정식 버전에서는 더욱 안정적이고 신뢰할 수 있는 서비스를 제공합니다.
 
-## 💾 6. 데이터 보존 기간 변화
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', margin: '30px 0'}}>
+  <div style={{padding: '32px', background: 'linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%)', borderRadius: '12px', textAlign: 'center'}}>
+    <div style={{fontSize: '48px', marginBottom: '12px'}}>⚠️</div>
+    <div style={{fontSize: '20px', fontWeight: 'bold', marginBottom: '8px', color: '#2d3436'}}>Beta 시절</div>
+    <div style={{fontSize: '36px', fontWeight: 'bold', color: '#d63031', marginBottom: '8px'}}>2~8%</div>
+    <div style={{fontSize: '14px', color: '#2d3436'}}>트래픽 집중 시간대 데이터 누락</div>
+  </div>
+  <div style={{padding: '32px', background: 'linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%)', borderRadius: '12px', textAlign: 'center', color: 'white'}}>
+    <div style={{fontSize: '48px', marginBottom: '12px'}}>✅</div>
+    <div style={{fontSize: '20px', fontWeight: 'bold', marginBottom: '8px'}}>정식 배포</div>
+    <div style={{fontSize: '36px', fontWeight: 'bold', marginBottom: '8px'}}>안정화</div>
+    <div style={{fontSize: '14px'}}>데이터 누락 현상 대폭 개선</div>
+  </div>
+</div>
+
+## 🖥️ 4. 서버 증설
+
+기존에도 **200개 이상의 키가 상시 발급**되어 서버 사용량이 항상 포화 상태였지만, 이제 변화된 대시보드와 변화된 정책으로 인하여 더 많은 키가 발급될 것으로 예상되어 **서버가 대폭 증설**되었습니다.
+
+더 빠른 데이터 처리를 위해 **가상 서버에서 물리 서버로 이전**되었으며, 컴퓨팅 성능은 최대 2배, 메모리 성능은 최대 2배, 디스크 성능 또한 최대 25배 증가하여 더욱 안정적이고 빠른 서비스 제공이 가능해졌습니다. 특히 디스크 성능이 개선되어 쓰로틀에 의한 데이터 누락을 최소화했습니다.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', margin: '30px 0'}}>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)', borderRadius: '12px', textAlign: 'center', color: 'white'}}>
+    <div style={{fontSize: '42px', marginBottom: '12px'}}>🖥️</div>
+    <div style={{fontSize: '16px', marginBottom: '8px', opacity: 0.9}}>컴퓨팅 성능</div>
+    <div style={{fontSize: '32px', fontWeight: 'bold'}}>2배 ⬆️</div>
+  </div>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #81ecec 0%, #00b894 100%)', borderRadius: '12px', textAlign: 'center', color: 'white'}}>
+    <div style={{fontSize: '42px', marginBottom: '12px'}}>💾</div>
+    <div style={{fontSize: '16px', marginBottom: '8px', opacity: 0.9}}>메모리 성능</div>
+    <div style={{fontSize: '32px', fontWeight: 'bold'}}>2배 ⬆️</div>
+  </div>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)', borderRadius: '12px', textAlign: 'center', color: 'white'}}>
+    <div style={{fontSize: '42px', marginBottom: '12px'}}>💿</div>
+    <div style={{fontSize: '16px', marginBottom: '8px', opacity: 0.9}}>디스크 IOPS</div>
+    <div style={{fontSize: '32px', fontWeight: 'bold'}}>25배 ⬆️</div>
+  </div>
+</div>
+
+<div style={{padding: '20px', background: '#f8f9fa', borderRadius: '12px', margin: '20px 0', borderLeft: '4px solid #0984e3'}}>
+  <div style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '8px', color: '#2d3436'}}>🔄 가상 서버 → 물리 서버 이전</div>
+  <div style={{fontSize: '14px', color: '#636e72'}}>더 빠른 데이터 처리와 안정적인 서비스 제공을 위해 물리 서버로 전환했습니다.</div>
+</div>
+
+### 🚀 주요 개선 사항
+
+- 📈 **대용량 키 발급 요건 완화**: 신뢰성이 충분히 확보되었다면 대용량 키에 대한 발급 요건이 대폭 완화될 예정입니다.
+- 🛡️ **안정적인 서비스 제공**: 서버 증설로 인해 더욱 안정적인 서비스 제공이 가능해졌습니다.
+- 🌟 **확장 가능한 인프라**: 앞으로 더 많은 사용자분들을 수용할 수 있는 환경이 마련되었습니다.
+
+## 💾 5. 데이터 보존 기간 변화
 
 기존에는 SSAPI는 **후원 데이터를 최대 3일간 보관**했으나, 이제 **최대 1년간 보관**될 수 있습니다.
 
 이는 컨텐츠 제작자분들께 **컨텐츠 제작 결과에 대한 성과 리포트를 요청주시는 경우 제공**해드릴 수 있도록 변화된 것입니다.
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', margin: '40px 0'}}>
+  <div style={{padding: '32px', background: 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)', borderRadius: '12px', color: 'white', textAlign: 'center'}}>
+    <div style={{fontSize: '40px', marginBottom: '16px'}}>🗄️</div>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '16px'}}>SSAPI 서버 보관</div>
+    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px'}}>
+      <div>
+        <div style={{fontSize: '14px', opacity: 0.8, marginBottom: '4px'}}>기존</div>
+        <div style={{fontSize: '32px', fontWeight: 'bold'}}>3일</div>
+      </div>
+      <div style={{fontSize: '28px'}}>→</div>
+      <div>
+        <div style={{fontSize: '14px', opacity: 0.8, marginBottom: '4px'}}>변경</div>
+        <div style={{fontSize: '32px', fontWeight: 'bold'}}>1년</div>
+      </div>
+    </div>
+  </div>
+  <div style={{padding: '32px', background: 'linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%)', borderRadius: '12px', color: 'white', textAlign: 'center'}}>
+    <div style={{fontSize: '40px', marginBottom: '16px'}}>📊</div>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '16px'}}>{'API 데이터 이용 기간'}</div>
+    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px'}}>
+      <div>
+        <div style={{fontSize: '14px', opacity: 0.8, marginBottom: '4px'}}>기존</div>
+        <div style={{fontSize: '32px', fontWeight: 'bold'}}>3일</div>
+      </div>
+      <div style={{fontSize: '28px'}}>→</div>
+      <div>
+        <div style={{fontSize: '14px', opacity: 0.8, marginBottom: '4px'}}>변경</div>
+        <div style={{fontSize: '32px', fontWeight: 'bold'}}>30일</div>
+      </div>
+    </div>
+    <div style={{fontSize: '12px', marginTop: '12px', opacity: 0.85}}>{'Dashboard에서 최근 30일 데이터 확인'}</div>
+  </div>
+</div>
 
 ### 📋 데이터 보관 정책
 
@@ -95,11 +228,38 @@ API 키 발급과 신청 관리, 자동 종료 등 기존 불필요하게 수동
 
 다만, 과도한 악용을 방지하기 위해 위와 같은 제한이 적용됩니다.
 
-## ⭐ 7. 새로운 등급 '파트너' 추가
+## ⭐ 6. 새로운 등급 '파트너' 추가
 
 기존에는 **제휴사 등급**만 존재했지만, 제휴사 등급은 조건이 까다로웠습니다.
 
 이제 **API 키를 자주 사용하시는 제작자분들에 한하여 신뢰성이 확보된 경우, 파트너 등급으로 편의성을 제공**해드리고 있습니다.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', margin: '30px 0'}}>
+  <div style={{padding: '28px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', borderRadius: '12px', color: 'white', textAlign: 'center'}}>
+    <div style={{fontSize: '40px', marginBottom: '16px'}}>⭐</div>
+    <div style={{fontSize: '20px', fontWeight: 'bold', marginBottom: '12px'}}>제휴사</div>
+    <div style={{fontSize: '13px', lineHeight: '1.6', opacity: 0.9}}>
+      특별한 혜택과 조건 제공<br/>
+      까다로운 조건
+    </div>
+  </div>
+  <div style={{padding: '28px', background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', borderRadius: '12px', color: 'white', textAlign: 'center', border: '3px solid #fff', boxShadow: '0 8px 24px rgba(0,0,0,0.15)'}}>
+    <div style={{fontSize: '40px', marginBottom: '16px'}}>🎉</div>
+    <div style={{fontSize: '20px', fontWeight: 'bold', marginBottom: '12px'}}>파트너 (신규)</div>
+    <div style={{fontSize: '13px', lineHeight: '1.6', opacity: 0.9}}>
+      무심사 발급<br/>
+      간소화된 절차
+    </div>
+  </div>
+  <div style={{padding: '28px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef', textAlign: 'center'}}>
+    <div style={{fontSize: '40px', marginBottom: '16px'}}>👤</div>
+    <div style={{fontSize: '20px', fontWeight: 'bold', marginBottom: '12px', color: '#495057'}}>일반 사용자</div>
+    <div style={{fontSize: '13px', lineHeight: '1.6', color: '#6c757d'}}>
+      표준 발급 절차<br/>
+      신뢰도에 따른 제한
+    </div>
+  </div>
+</div>
 
 ### 🎁 파트너 등급의 혜택
 
@@ -108,44 +268,85 @@ API 키 발급과 신청 관리, 자동 종료 등 기존 불필요하게 수동
 
 자세한 등급 안내는 [함께하는 프로젝트 페이지](https://ssapi.kr/docs/projects#파트너-등급-안내)에서 확인하실 수 있습니다.
 
-## 📖 8. 문서 및 프로젝트 페이지 개선
+## 📖 7. 문서 및 프로젝트 페이지 개선
 
 API 문서 페이지를 조금 더 보기 편하도록 재구성하고 가독성을 개선했습니다. 또한 연말을 맞이하여 [함께하는 프로젝트 페이지](/docs/projects)를 최신화하고 새롭게 추가된 파트너에 대한 정보를 추가했습니다.
 
-### 📋 주요 개선 사항
-
-- 📐 **사이드바 최적화**: 좌측 사이드바 너비를 조정하여 콘텐츠 영역을 확보하고 메뉴 가독성을 향상시켰습니다.
-- 🆕 **신규 파트너 추가**: 새롭게 함께하게 된 파트너사들의 정보를 추가했습니다.
-- 🔄 **프로젝트 목록 최신화**: 현재 진행 중인 프로젝트들의 최신 정보를 반영했습니다.
-- 📊 **파트너 등급 안내 UI**: 제휴사, 파트너, 일반 사용자 등급에 대한 안내를 카드 형태로 시각화했습니다.
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px', margin: '30px 0'}}>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '36px', marginBottom: '12px'}}>📐</div>
+    <div style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>사이드바 최적화</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      {'좌측 사이드바 너비 조정으로 콘텐츠 영역 확보 및 메뉴 가독성 향상'}
+    </div>
+  </div>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '36px', marginBottom: '12px'}}>🆕</div>
+    <div style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>신규 파트너 추가</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      {'새롭게 함께하게 된 파트너사들의 정보 추가'}
+    </div>
+  </div>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '36px', marginBottom: '12px'}}>🔄</div>
+    <div style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>프로젝트 목록 최신화</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      {'현재 진행 중인 프로젝트들의 최신 정보 반영'}
+    </div>
+  </div>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '36px', marginBottom: '12px'}}>📊</div>
+    <div style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>파트너 등급 안내 UI</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      {'제휴사, 파트너, 일반 사용자 등급을 카드 형태로 시각화'}
+    </div>
+  </div>
+</div>
 
 더욱 풍성해진 SSAPI 생태계를 [프로젝트 페이지](/docs/projects)에서 확인해보세요!
 
 ---
 
-## 🚀 9. 앞으로의 계획
+## 🚀 8. 앞으로의 계획
 
 SSAPI는 계속해서 발전하고 있습니다. 다음은 현재 진행 중이거나 곧 출시될 주요 업데이트 내용입니다:
 
-### 📺 치지직 미션 및 숲 도전미션/대결 지원
-
-치지직의 **미션**과 숲의 **도전미션/대결**에 대한 지원을 준비 중이며, 이 작업은 **2주 이내로 진행 예정**입니다. 더욱 다양한 스트리밍 기능을 API를 통해 활용하실 수 있게 됩니다.
-
-### 🎮 마인크래프트 플러그인 1.1 개발
-
-많은 개선 요청이 있었던 마인크래프트 플러그인의 새 버전 개발에 착수했습니다:
-
-- 🔧 **기능 추가 제약 개선**: 더욱 유연한 플러그인 확장이 가능해집니다.
-- 🎁 **아이템 지급 커맨드 다중 설정**: 기존에는 하나만 설정 가능했던 아이템 지급 커맨드를 여러 개 설정할 수 있도록 개선됩니다.
-- 📢 **추후 공지 예정**: 플러그인 1.1 버전에 대한 자세한 내용은 추후 별도로 공지드리겠습니다.
-
-### 🎥 유튜브 플랫폼 지원
-
-유튜브 플랫폼에 대한 지원을 위해 개발을 진행 중입니다. 해당 내용은 **추후 공지 예정**입니다.
-
-### 📊 구독 및 팔로워 수 증가 API 지원 검토
-
-구독과 팔로워 수 증가 등에 대한 API 지원을 검토 중입니다. 스트리머분들의 성장 지표를 더욱 쉽게 추적하고 활용하실 수 있도록 준비하고 있습니다.
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', margin: '30px 0'}}>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)', borderRadius: '12px', border: '3px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.1)'}}>
+    <div style={{fontSize: '40px', marginBottom: '12px'}}>📺</div>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '8px', color: '#2d3436'}}>{'치지직 미션 & 숲 도전미션/대결'}</div>
+    <div style={{fontSize: '13px', color: '#636e72', lineHeight: '1.5', marginBottom: '12px'}}>
+      {'다양한 스트리밍 기능을 API로 활용'}
+    </div>
+    <div style={{display: 'inline-block', padding: '6px 12px', background: '#d63031', color: 'white', borderRadius: '6px', fontSize: '12px', fontWeight: 'bold'}}>
+      {'⏰ 2주 이내 진행'}
+    </div>
+  </div>
+  <div style={{padding: '24px', background: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)', borderRadius: '12px', border: '3px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.1)'}}>
+    <div style={{fontSize: '40px', marginBottom: '12px'}}>🎮</div>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '8px', color: '#2d3436'}}>{'마인크래프트 플러그인 1.1'}</div>
+    <div style={{fontSize: '13px', color: '#636e72', lineHeight: '1.5'}}>
+      {'• 기능 추가 제약 개선'}<br/>
+      {'• 아이템 지급 커맨드 다중 설정'}
+    </div>
+  </div>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '40px', marginBottom: '12px'}}>🎥</div>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>{'유튜브 플랫폼 지원'}</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      {'다양한 플랫폼 활용을 위한 지원 검토 중'}
+    </div>
+    <div style={{marginTop: '8px', fontSize: '11px', color: '#adb5bd'}}>{'검토 중'}</div>
+  </div>
+  <div style={{padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '2px solid #e9ecef'}}>
+    <div style={{fontSize: '40px', marginBottom: '12px'}}>📊</div>
+    <div style={{fontSize: '18px', fontWeight: 'bold', marginBottom: '8px', color: '#495057'}}>{'구독/팔로워 증가 API'}</div>
+    <div style={{fontSize: '13px', color: '#6c757d', lineHeight: '1.5'}}>
+      {'스트리머 성장 지표 추적 및 활용'}
+    </div>
+    <div style={{marginTop: '8px', fontSize: '11px', color: '#adb5bd'}}>{'검토 중'}</div>
+  </div>
+</div>
 
 ---
 
