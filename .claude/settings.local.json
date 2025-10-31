@@ -16,7 +16,9 @@
       "Bash(curl:*)",
       "Bash(npm run rest-api-generate:*)",
       "Bash(npm run optimize-images:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(git show:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
