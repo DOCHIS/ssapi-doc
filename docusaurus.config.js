@@ -187,6 +187,47 @@ const config = {
         },
       },
     ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          // 문서 구조 재정비 (2025-10-28) - 9fb6702 커밋
+          {
+            from: "/docs/intro/api",
+            to: "/docs/additional-info/api",
+          },
+          {
+            from: "/docs/additional/policy/data-retention",
+            to: "/docs/additional-info/data-retention",
+          },
+          {
+            from: "/docs/intro/policy",
+            to: "/docs/additional-info/policy",
+          },
+          {
+            from: "/docs/intro/why-use",
+            to: "/docs/additional-info/why-use",
+          },
+          {
+            from: "/docs/contact/index",
+            to: "/docs/contact",
+          },
+          {
+            from: "/docs/intro/projects",
+            to: "/docs/projects",
+          },
+          // 삭제된 페이지 리다렉션
+          {
+            from: "/docs/additional/policy/socket-limit",
+            to: "/docs/additional-info/policy",
+          },
+          {
+            from: "/docs/contact/application",
+            to: "/docs/contact",
+          },
+        ],
+      },
+    ],
   ],
 
   themes: ["docusaurus-theme-openapi-docs"],

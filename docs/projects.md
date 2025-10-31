@@ -5,6 +5,12 @@ sidebar_label: 🎮 함께하는 프로젝트
 
 # 🎮 SSAPI와 함께하는 프로젝트
 
+## 파트너 등급 안내
+
+import PartnerTiers from '@site/src/components/Docs/PartnerTiers';
+
+<PartnerTiers />
+
 ## 제휴사
 
 import PartnerCards from '@site/src/components/Docs/PartnerCards';
