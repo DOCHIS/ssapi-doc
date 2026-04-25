@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2024-10-16
 endDate: 2025-02-01
 participants: 100
-broadcastLink: 'https://ch.sooplive.co.kr/wbs5596'
-noticeLink: https://www.sooplive.co.kr/station/wbs5596/post/139365859
+broadcastLink: 'https://ch.sooplive.com/wbs5596'
+noticeLink: https://www.sooplive.com/station/wbs5596/post/139365859
 ---
 

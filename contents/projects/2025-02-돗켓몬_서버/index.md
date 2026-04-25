@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2025-02-21
 endDate: 2025-02-28
 participants: 30
-broadcastLink: 'https://ch.sooplive.co.kr/gkfn11'
+broadcastLink: 'https://ch.sooplive.com/gkfn11'
 noticeLink:
 ---
 

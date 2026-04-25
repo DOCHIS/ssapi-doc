@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2024-12-05
 endDate: 2024-12-22
 participants: 50
-broadcastLink: https://www.sooplive.co.kr/station/layule
+broadcastLink: https://www.sooplive.com/station/layule
 noticeLink: 'https://www.fmkorea.com/7783269211'
 ---
 

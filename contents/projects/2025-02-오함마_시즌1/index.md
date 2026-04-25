@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2025-02-07
 endDate: 2025-02-11
 participants: 20
-broadcastLink: 'https://ch.sooplive.co.kr/legendhyuk'
-noticeLink: https://www.sooplive.co.kr/station/legendhyuk/post/150192229
+broadcastLink: 'https://ch.sooplive.com/legendhyuk'
+noticeLink: https://www.sooplive.com/station/legendhyuk/post/150192229
 ---
 

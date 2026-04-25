@@ -156,7 +156,7 @@ const config = {
             items: [
               {
                 label: "개발자 방송국",
-                href: "https://ch.sooplive.co.kr/sack2022",
+                href: "https://ch.sooplive.com/sack2022",
               },
               {
                 label: "개발자 깃허브",

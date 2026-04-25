@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2024-08-16
 endDate: 2024-10-07
 participants: 50
-broadcastLink: 'https://ch.sooplive.co.kr/kjkj4424'
+broadcastLink: 'https://ch.sooplive.com/kjkj4424'
 noticeLink:
 ---
 

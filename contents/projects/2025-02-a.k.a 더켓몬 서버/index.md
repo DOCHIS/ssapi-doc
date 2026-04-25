@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2025-02-04
 endDate: 2025-02-12
 participants: 100
-broadcastLink: 'https://ch.sooplive.co.kr/tinkerblond'
-noticeLink: https://www.sooplive.co.kr/station/tinkerblond/post/149786567
+broadcastLink: 'https://ch.sooplive.com/tinkerblond'
+noticeLink: https://www.sooplive.com/station/tinkerblond/post/149786567
 ---
 

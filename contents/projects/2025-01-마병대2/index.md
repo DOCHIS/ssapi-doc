@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2025-01-24
 endDate: 2025-01-31
 participants: 100
-broadcastLink: 'https://ch.sooplive.co.kr/devil0108'
-noticeLink: https://www.sooplive.co.kr/station/devil0108/post/146635145
+broadcastLink: 'https://ch.sooplive.com/devil0108'
+noticeLink: https://www.sooplive.com/station/devil0108/post/146635145
 ---
 

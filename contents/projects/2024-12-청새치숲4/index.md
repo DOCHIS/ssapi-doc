@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2024-12-01
 endDate: 2025-01-23
 participants: 530
-broadcastLink: 'https://ch.sooplive.co.kr/nopek98'
+broadcastLink: 'https://ch.sooplive.com/nopek98'
 noticeLink: https://game.naver.com/lounge/chzzk/board/detail/5222252
 ---
 

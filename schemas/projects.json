@@ -29,7 +29,7 @@
       "subtitle": "버튜버 예능 그룹",
       "description": "각종 컨텐츠 제작을 협업하고있습니다",
       "link": [
-        "https://ch.sooplive.co.kr/versetime"
+        "https://ch.sooplive.com/versetime"
       ],
       "startDate": "2024-03-10"
     }
@@ -83,7 +83,7 @@
       "contentName": "밍친서버: 더 다이노",
       "category": "minecraft",
       "startDate": "2025-11-02",
-      "broadcastLink": "https://www.sooplive.co.kr/station/qweasd3456",
+      "broadcastLink": "https://www.sooplive.com/station/qweasd3456",
       "noticeLink": "https://namu.wiki/w/%EB%B0%8D%EC%B9%9C%EC%84%9C%EB%B2%84:%20%EB%8D%94%20%EB%8B%A4%EC%9D%B4%EB%85%B8"
     },
     {
@@ -92,7 +92,7 @@
       "contentName": "해초마을2",
       "category": "minecraft",
       "startDate": "2025-10-11",
-      "broadcastLink": "https://ch.sooplive.co.kr/kjkj4424",
+      "broadcastLink": "https://ch.sooplive.com/kjkj4424",
       "endDate": "2025-10-25",
       "participants": 50
     },
@@ -102,10 +102,10 @@
       "contentName": "마병대3",
       "category": "minecraft",
       "startDate": "2025-10-03",
-      "broadcastLink": "https://ch.sooplive.co.kr/devil0108",
+      "broadcastLink": "https://ch.sooplive.com/devil0108",
       "endDate": "2025-10-10",
       "participants": 100,
-      "noticeLink": "https://www.sooplive.co.kr/station/devil0108/post/171602641"
+      "noticeLink": "https://www.sooplive.com/station/devil0108/post/171602641"
     },
     {
       "logo": "/img/projects/77435d0662a0.png",
@@ -113,10 +113,10 @@
       "contentName": "오함마 시즌3",
       "category": "minecraft",
       "startDate": "2025-09-01",
-      "broadcastLink": "https://ch.sooplive.co.kr/legendhyuk",
+      "broadcastLink": "https://ch.sooplive.com/legendhyuk",
       "endDate": "2025-09-03",
       "participants": 20,
-      "noticeLink": "https://www.sooplive.co.kr/station/legendhyuk/post/168617021"
+      "noticeLink": "https://www.sooplive.com/station/legendhyuk/post/168617021"
     },
     {
       "logo": "/img/projects/c01833f8d833.png",
@@ -135,7 +135,7 @@
       "contentName": "RPG 연습 서버",
       "category": "minecraft",
       "startDate": "2025-08-25",
-      "broadcastLink": "https://ch.sooplive.co.kr/devil0108",
+      "broadcastLink": "https://ch.sooplive.com/devil0108",
       "endDate": "2025-08-28",
       "participants": 100,
       "noticeLink": "https://namu.wiki/w/%EA%B0%90%EC%8A%A4%ED%8A%B8/RPG%20%EC%97%B0%EC%8A%B5%20%EC%84%9C%EB%B2%84"
@@ -168,7 +168,7 @@
       "contentName": "아봉서버2",
       "category": "minecraft",
       "startDate": "2025-05-22",
-      "broadcastLink": "https://ch.sooplive.co.kr/rmlrl771",
+      "broadcastLink": "https://ch.sooplive.com/rmlrl771",
       "endDate": "2025-05-30",
       "participants": 30,
       "noticeLink": "https://namu.wiki/w/%EC%95%84%EB%B4%89%EC%84%9C%EB%B2%84%202"
@@ -188,10 +188,10 @@
       "contentName": "꾸다방",
       "category": "minecraft",
       "startDate": "2025-05-03",
-      "broadcastLink": "https://ch.sooplive.co.kr/ziyom2",
+      "broadcastLink": "https://ch.sooplive.com/ziyom2",
       "endDate": "2025-05-31",
       "participants": 250,
-      "noticeLink": "https://www.sooplive.co.kr/station/ziyom2/post/157378281"
+      "noticeLink": "https://www.sooplive.com/station/ziyom2/post/157378281"
     },
     {
       "logo": "/img/projects/5f236cd08a50.png",
@@ -199,7 +199,7 @@
       "contentName": "퍼켓몬",
       "category": "minecraft",
       "startDate": "2025-03-08",
-      "broadcastLink": "https://ch.sooplive.co.kr/reaperd123",
+      "broadcastLink": "https://ch.sooplive.com/reaperd123",
       "endDate": "2025-03-25",
       "participants": 390,
       "noticeLink": "https://namu.wiki/w/%ED%8D%BC%EC%BC%93%EB%AA%AC:%20PERKeMON"
@@ -210,10 +210,10 @@
       "contentName": "오함마 시즌2",
       "category": "minecraft",
       "startDate": "2025-03-01",
-      "broadcastLink": "https://ch.sooplive.co.kr/legendhyuk",
+      "broadcastLink": "https://ch.sooplive.com/legendhyuk",
       "endDate": "2025-03-04",
       "participants": 20,
-      "noticeLink": "https://www.sooplive.co.kr/station/legendhyuk/post/152779195"
+      "noticeLink": "https://www.sooplive.com/station/legendhyuk/post/152779195"
     },
     {
       "logo": "/img/projects/1258e200c9cc.png",
@@ -221,7 +221,7 @@
       "contentName": "돗켓몬 서버",
       "category": "minecraft",
       "startDate": "2025-02-21",
-      "broadcastLink": "https://ch.sooplive.co.kr/gkfn11",
+      "broadcastLink": "https://ch.sooplive.com/gkfn11",
       "endDate": "2025-02-28",
       "participants": 30
     },
@@ -231,7 +231,7 @@
       "contentName": "쵸록시티",
       "category": "minecraft",
       "startDate": "2025-02-21",
-      "broadcastLink": "https://ch.sooplive.co.kr/tachocho",
+      "broadcastLink": "https://ch.sooplive.com/tachocho",
       "endDate": "2025-03-05",
       "participants": 70
     },
@@ -241,10 +241,10 @@
       "contentName": "AGARI 월드",
       "category": "minecraft",
       "startDate": "2025-02-16",
-      "broadcastLink": "https://ch.sooplive.co.kr/dalchesom",
+      "broadcastLink": "https://ch.sooplive.com/dalchesom",
       "endDate": "2025-03-07",
       "participants": 90,
-      "noticeLink": "https://www.sooplive.co.kr/station/dalchesom/post/150528835"
+      "noticeLink": "https://www.sooplive.com/station/dalchesom/post/150528835"
     },
     {
       "logo": "/img/projects/55a19869dd9c.png",
@@ -252,10 +252,10 @@
       "contentName": "메이's 좀비월드 CBT",
       "category": "minecraft",
       "startDate": "2025-02-10",
-      "broadcastLink": "https://ch.sooplive.co.kr/meijjang00",
+      "broadcastLink": "https://ch.sooplive.com/meijjang00",
       "endDate": "2025-02-14",
       "participants": 30,
-      "noticeLink": "https://www.sooplive.co.kr/station/meijjang00/post/149074331"
+      "noticeLink": "https://www.sooplive.com/station/meijjang00/post/149074331"
     },
     {
       "logo": "/img/projects/62be6baa14ac.png",
@@ -263,10 +263,10 @@
       "contentName": "오함마 시즌1",
       "category": "minecraft",
       "startDate": "2025-02-07",
-      "broadcastLink": "https://ch.sooplive.co.kr/legendhyuk",
+      "broadcastLink": "https://ch.sooplive.com/legendhyuk",
       "endDate": "2025-02-11",
       "participants": 20,
-      "noticeLink": "https://www.sooplive.co.kr/station/legendhyuk/post/150192229"
+      "noticeLink": "https://www.sooplive.com/station/legendhyuk/post/150192229"
     },
     {
       "logo": "/img/projects/22f3ecbda7c8.png",
@@ -274,10 +274,10 @@
       "contentName": "a.k.a 더켓몬 서버",
       "category": "minecraft",
       "startDate": "2025-02-04",
-      "broadcastLink": "https://ch.sooplive.co.kr/tinkerblond",
+      "broadcastLink": "https://ch.sooplive.com/tinkerblond",
       "endDate": "2025-02-12",
       "participants": 100,
-      "noticeLink": "https://www.sooplive.co.kr/station/tinkerblond/post/149786567"
+      "noticeLink": "https://www.sooplive.com/station/tinkerblond/post/149786567"
     },
     {
       "logo": "/img/projects/78087bb26419.png",
@@ -285,10 +285,10 @@
       "contentName": "알엘시 서버",
       "category": "minecraft",
       "startDate": "2025-01-25",
-      "broadcastLink": "https://ch.sooplive.co.kr/elisehs",
+      "broadcastLink": "https://ch.sooplive.com/elisehs",
       "endDate": "2025-01-30",
       "participants": 15,
-      "noticeLink": "https://www.sooplive.co.kr/station/elisehs/post/147781097"
+      "noticeLink": "https://www.sooplive.com/station/elisehs/post/147781097"
     },
     {
       "logo": "/img/projects/0540b4cefcb4.png",
@@ -296,10 +296,10 @@
       "contentName": "마병대2",
       "category": "minecraft",
       "startDate": "2025-01-24",
-      "broadcastLink": "https://ch.sooplive.co.kr/devil0108",
+      "broadcastLink": "https://ch.sooplive.com/devil0108",
       "endDate": "2025-01-31",
       "participants": 100,
-      "noticeLink": "https://www.sooplive.co.kr/station/devil0108/post/146635145"
+      "noticeLink": "https://www.sooplive.com/station/devil0108/post/146635145"
     },
     {
       "logo": "/img/projects/9adf795f12e7.png",
@@ -307,7 +307,7 @@
       "contentName": "다이아게임",
       "category": "minecraft",
       "startDate": "2025-01-04",
-      "broadcastLink": "https://www.sooplive.co.kr/station/tnal8675",
+      "broadcastLink": "https://www.sooplive.com/station/tnal8675",
       "endDate": "2025-02-10",
       "participants": 150
     },
@@ -317,7 +317,7 @@
       "contentName": "아봉서버",
       "category": "minecraft",
       "startDate": "2025-01-01",
-      "broadcastLink": "https://ch.sooplive.co.kr/rmlrl771",
+      "broadcastLink": "https://ch.sooplive.com/rmlrl771",
       "endDate": "2025-01-11",
       "participants": 30,
       "noticeLink": "https://namu.wiki/w/%EC%95%84%EB%B4%89%EC%84%9C%EB%B2%84"
@@ -328,7 +328,7 @@
       "contentName": "픽셀몬 스터디 서버",
       "category": "minecraft",
       "startDate": "2024-12-05",
-      "broadcastLink": "https://www.sooplive.co.kr/station/layule",
+      "broadcastLink": "https://www.sooplive.com/station/layule",
       "endDate": "2024-12-22",
       "participants": 50,
       "noticeLink": "https://www.fmkorea.com/7783269211"
@@ -339,7 +339,7 @@
       "contentName": "수미랜드",
       "category": "minecraft",
       "startDate": "2024-12-01",
-      "broadcastLink": "https://ch.sooplive.co.kr/tnal8675",
+      "broadcastLink": "https://ch.sooplive.com/tnal8675",
       "endDate": "2024-12-31",
       "participants": 200
     },
@@ -349,7 +349,7 @@
       "contentName": "청새치숲4",
       "category": "minecraft",
       "startDate": "2024-12-01",
-      "broadcastLink": "https://ch.sooplive.co.kr/nopek98",
+      "broadcastLink": "https://ch.sooplive.com/nopek98",
       "endDate": "2025-01-23",
       "participants": 530,
       "noticeLink": "https://game.naver.com/lounge/chzzk/board/detail/5222252"
@@ -371,7 +371,7 @@
       "contentName": "요뚜기월드 시즌2",
       "category": "minecraft",
       "startDate": "2024-10-16",
-      "broadcastLink": "https://ch.sooplive.co.kr/z4230x",
+      "broadcastLink": "https://ch.sooplive.com/z4230x",
       "endDate": "2025-02-17",
       "participants": 140
     },
@@ -381,10 +381,10 @@
       "contentName": "빵식랜드 시즌2",
       "category": "minecraft",
       "startDate": "2024-10-16",
-      "broadcastLink": "https://ch.sooplive.co.kr/wbs5596",
+      "broadcastLink": "https://ch.sooplive.com/wbs5596",
       "endDate": "2025-02-01",
       "participants": 100,
-      "noticeLink": "https://www.sooplive.co.kr/station/wbs5596/post/139365859"
+      "noticeLink": "https://www.sooplive.com/station/wbs5596/post/139365859"
     },
     {
       "logo": "/img/projects/e99d88b5b44a.png",
@@ -392,10 +392,10 @@
       "contentName": "츄타듀밸리",
       "category": "minecraft",
       "startDate": "2024-10-14",
-      "broadcastLink": "https://www.sooplive.co.kr/station/eogus744",
+      "broadcastLink": "https://www.sooplive.com/station/eogus744",
       "endDate": "2024-12-04",
       "participants": 200,
-      "noticeLink": "https://www.sooplive.co.kr/station/eogus744/"
+      "noticeLink": "https://www.sooplive.com/station/eogus744/"
     },
     {
       "logo": "/img/projects/bfa597621fce.png",
@@ -403,7 +403,7 @@
       "contentName": "아이랜드",
       "category": "minecraft",
       "startDate": "2024-10-05",
-      "broadcastLink": "https://ch.sooplive.co.kr/qlxkals1528",
+      "broadcastLink": "https://ch.sooplive.com/qlxkals1528",
       "endDate": "2024-10-20",
       "participants": 5
     },
@@ -413,10 +413,10 @@
       "contentName": "마병대",
       "category": "minecraft",
       "startDate": "2024-08-21",
-      "broadcastLink": "https://ch.sooplive.co.kr/devil0108",
+      "broadcastLink": "https://ch.sooplive.com/devil0108",
       "endDate": "2024-08-24",
       "participants": 60,
-      "noticeLink": "https://www.sooplive.co.kr/station/devil0108"
+      "noticeLink": "https://www.sooplive.com/station/devil0108"
     },
     {
       "logo": "/img/projects/d26d1db631c4.png",
@@ -424,7 +424,7 @@
       "contentName": "해초마을",
       "category": "minecraft",
       "startDate": "2024-08-16",
-      "broadcastLink": "https://ch.sooplive.co.kr/kjkj4424",
+      "broadcastLink": "https://ch.sooplive.com/kjkj4424",
       "endDate": "2024-10-07",
       "participants": 50
     },
@@ -434,10 +434,10 @@
       "contentName": "빵식랜드",
       "category": "minecraft",
       "startDate": "2024-08-10",
-      "broadcastLink": "https://ch.sooplive.co.kr/wbs5596",
+      "broadcastLink": "https://ch.sooplive.com/wbs5596",
       "endDate": "2024-07-13",
       "participants": 50,
-      "noticeLink": "https://www.sooplive.co.kr/station/wbs5596/post/125550799"
+      "noticeLink": "https://www.sooplive.com/station/wbs5596/post/125550799"
     },
     {
       "logo": "/img/projects/3a94f108f0a1.png",
@@ -445,10 +445,10 @@
       "contentName": "클로배",
       "category": "minecraft",
       "startDate": "2024-08-01",
-      "broadcastLink": "https://ch.sooplive.co.kr/vf3366",
+      "broadcastLink": "https://ch.sooplive.com/vf3366",
       "endDate": "2024-08-26",
       "participants": 250,
-      "noticeLink": "https://www.sooplive.co.kr/station/vf3366/post/130744869"
+      "noticeLink": "https://www.sooplive.com/station/vf3366/post/130744869"
     },
     {
       "logo": "/img/projects/178313639b99.png",
@@ -456,9 +456,9 @@
       "contentName": "힐링월드(시즌2/3/4~)",
       "category": "minecraft",
       "startDate": "2024-07-05",
-      "broadcastLink": "https://www.sooplive.co.kr/station/wjdgmlfks123",
+      "broadcastLink": "https://www.sooplive.com/station/wjdgmlfks123",
       "participants": 130,
-      "noticeLink": "https://www.sooplive.co.kr/station/wjdgmlfks123/post/134046789"
+      "noticeLink": "https://www.sooplive.com/station/wjdgmlfks123/post/134046789"
     },
     {
       "logo": "/img/projects/61c733da6c89.png",
@@ -466,7 +466,7 @@
       "contentName": "자명랜드(시즌1/2/3/4/5/6~)",
       "category": "minecraft",
       "startDate": "2024-07-03",
-      "broadcastLink": "https://ch.sooplive.co.kr/gjm0211",
+      "broadcastLink": "https://ch.sooplive.com/gjm0211",
       "participants": 70
     },
     {
@@ -475,10 +475,10 @@
       "contentName": "랜드마꾸",
       "category": "minecraft",
       "startDate": "2024-04-20",
-      "broadcastLink": "https://ch.sooplive.co.kr/ziyom2",
+      "broadcastLink": "https://ch.sooplive.com/ziyom2",
       "endDate": "2024-08-16",
       "participants": 400,
-      "noticeLink": "https://www.sooplive.co.kr/station/ziyom2/post/122080947"
+      "noticeLink": "https://www.sooplive.com/station/ziyom2/post/122080947"
     },
     {
       "logo": "/img/projects/bfdc98a2e901.png",
@@ -486,10 +486,10 @@
       "contentName": "포켓꾸",
       "category": "minecraft",
       "startDate": "2024-03-08",
-      "broadcastLink": "https://ch.sooplive.co.kr/ziyom2",
+      "broadcastLink": "https://ch.sooplive.com/ziyom2",
       "endDate": "2024-04-05",
       "participants": 260,
-      "noticeLink": "https://www.sooplive.co.kr/station/ziyom2/post/117297311"
+      "noticeLink": "https://www.sooplive.com/station/ziyom2/post/117297311"
     }
   ],
   "zomboid": [
@@ -509,7 +509,7 @@
       "contentName": "나포칼립스",
       "category": "zomboid",
       "startDate": "2024-10-27",
-      "broadcastLink": "https://ch.sooplive.co.kr/sh0w422",
+      "broadcastLink": "https://ch.sooplive.com/sh0w422",
       "endDate": "2024-11-07",
       "participants": 60
     }

@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2025-02-21
 endDate: 2025-03-05
 participants: 70
-broadcastLink: 'https://ch.sooplive.co.kr/tachocho'
+broadcastLink: 'https://ch.sooplive.com/tachocho'
 noticeLink:
 ---
 

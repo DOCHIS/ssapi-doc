@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2024-08-21
 endDate: 2024-08-24
 participants: 60
-broadcastLink: 'https://ch.sooplive.co.kr/devil0108'
-noticeLink: https://www.sooplive.co.kr/station/devil0108
+broadcastLink: 'https://ch.sooplive.com/devil0108'
+noticeLink: https://www.sooplive.com/station/devil0108
 ---
 

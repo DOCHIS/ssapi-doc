@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2024-10-05
 endDate: 2024-10-20
 participants: 5
-broadcastLink: 'https://ch.sooplive.co.kr/qlxkals1528'
+broadcastLink: 'https://ch.sooplive.com/qlxkals1528'
 noticeLink:
 ---
 

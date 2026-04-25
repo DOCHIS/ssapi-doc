@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2025-02-10
 endDate: 2025-02-14
 participants: 30
-broadcastLink: 'https://ch.sooplive.co.kr/meijjang00'
-noticeLink: https://www.sooplive.co.kr/station/meijjang00/post/149074331
+broadcastLink: 'https://ch.sooplive.com/meijjang00'
+noticeLink: https://www.sooplive.com/station/meijjang00/post/149074331
 ---
 

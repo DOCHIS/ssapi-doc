@@ -5,7 +5,7 @@ category: minecraft
 startDate: 2025-02-16
 endDate: 2025-03-07
 participants: 90
-broadcastLink: 'https://ch.sooplive.co.kr/dalchesom'
-noticeLink: https://www.sooplive.co.kr/station/dalchesom/post/150528835
+broadcastLink: 'https://ch.sooplive.com/dalchesom'
+noticeLink: https://www.sooplive.com/station/dalchesom/post/150528835
 ---
 

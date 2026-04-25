@@ -206,7 +206,7 @@ REST API 문서는 `schemas/rest-api.yaml`로부터 **자동 생성**됩니다:
    endDate: 2024-04-05T00:00:00.000Z  # 선택사항
    participants: 260  # 선택사항, 정수형이어야 함
    image: image.png
-   broadcastLink: https://ch.sooplive.co.kr/example
+   broadcastLink: https://ch.sooplive.com/example
    noticeLink: https://example.com/notice  # 선택사항
    ---
    ```
