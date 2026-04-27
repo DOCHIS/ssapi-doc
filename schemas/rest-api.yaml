@@ -167,11 +167,40 @@ components:
           description: 소켓소켓룸 정보 업데이트
     Error:
       type: object
+      description: |
+        모든 에러 응답은 HTTP 200 으로 반환되며 body 의 `error` (숫자) 와 `error_code` (enum) 으로 구분.
+        클라이언트는 사람이 읽는 `message` 가 아닌 `error_code` 로 분기하는 것을 권장합니다.
+        전체 카탈로그는 [에러 코드 카탈로그](/docs/additional/error-codes) 참조.
       properties:
         error:
           type: integer
+          description: 0 = 성공, 그 외 = 에러 (HTTP status 와 동일 의미)
+          example: 400
+        error_code:
+          type: string
+          description: 안정적 enum (v2.0+). 매핑 안 되는 코드를 받으면 message 를 fallback 으로 사용.
+          example: STREAMER_LIMIT_EXCEEDED
+          enum:
+            - INVALID_INPUT
+            - STREAMER_LIMIT_EXCEEDED
+            - STREAMER_ALREADY_REGISTERED
+            - STREAMER_UPPERCASE_FORBIDDEN
+            - STREAMER_SPECIAL_CHARS
+            - STREAMER_NOT_FOUND
+            - STREAMER_NOT_REGISTERED
+            - PLATFORM_INVALID
+            - CURSOR_INVALID
+            - DURATION_OUT_OF_RANGE
+            - REFERENCE_TIME_INVALID
+            - RANGE_EXCEEDS_LIMIT
+            - UNAUTHORIZED
+            - FORBIDDEN
+            - NOT_FOUND
+            - INTERNAL
+            - DB_UNAVAILABLE
         message:
           type: string
+          description: 사람이 읽을 수 있는 에러 메시지 (한국어). 문구는 변경될 수 있음.
         data:
           type: object
 
