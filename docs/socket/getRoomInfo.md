@@ -37,7 +37,18 @@ getRoomInfo 요청에 대한 응답은 `roomInfo` 이벤트로 전달됩니다.
   ],
   "users_limit": 500,
   "category": "minecraft",
+  "mission": {
+    "hook_timings": ["receive", "settle", "result"],
+    "updatedAt": "2026-04-27T07:41:33.000Z"
+  },
   "createdAt": "2024-09-20T08:41:53.561Z",
   "updatedAt": "2024-09-20T08:41:53.561Z"
 }
 ```
+
+:::tip mission 서브도큐먼트 (v2.0+)
+대시보드 → 신청서 → **🎯 미션 설정** 에서 변경한 값이 동봉됩니다.
+- `hook_timings`: 받을 phase 배열 (`receive` / `settle` / `result`)
+
+미션 자체는 항상 활성이며, 사용자는 받을 phase 만 선택합니다. 서버는 이 값으로 [`mission`](./mission) 이벤트의 phase 게이트를 수행합니다. 클라이언트도 받은 페이로드의 `mission_settings` 필드로 한 번 더 검사하면 race-free.
+:::

@@ -140,6 +140,158 @@ components:
           type: integer
           description: 데이터 버전
 
+    MissionDonor:
+      type: object
+      description: |
+        정산(settle) 페이로드에 포함되는 개별 후원자 항목.
+        같은 mission key 의 receive 단계 후원 row 들을 시간순으로 모은 것입니다.
+      properties:
+        user_id:
+          type: string
+          description: 후원자 아이디
+        nickname:
+          type: string
+          description: 후원자 닉네임
+        platform:
+          type: string
+          enum: [soop, chzzk]
+          description: 방송 플랫폼
+        streamer_id:
+          type: string
+          description: 후원이 발생한 방송인 아이디 (대결미션은 양 스트리머가 섞여있을 수 있음)
+        cnt:
+          type: integer
+          description: 후원 수량 (별풍선 개수 등)
+        amount:
+          type: integer
+          description: 후원 KRW 가치 (별풍선 1개=100원, 치즈 1개=1원)
+        extras:
+          type: object
+          description: 플랫폼별 원본 페이로드
+        createdAt:
+          type: string
+          format: date-time
+          description: 후원 발생 시각
+
+    MissionSettleSummary:
+      type: object
+      description: |
+        정산 시점에 같은 mission key 의 후원 내역을 집계한 결과.
+        Socket `mission` 이벤트의 settle phase 페이로드와 동일 shape.
+      properties:
+        total_cnt:
+          type: integer
+          description: 후원 수량 합계
+        total_amount:
+          type: integer
+          description: 후원 KRW 가치 합계
+        donor_count:
+          type: integer
+          description: 정산에 포함된 후원 row 수 (= donors 배열 길이가 캡되지 않은 경우)
+        streamers:
+          type: array
+          description: 미션에 연결된 스트리머 ID 목록 (대결미션이면 양쪽 모두 포함)
+          items:
+            type: string
+        donors:
+          type: array
+          description: 후원자 명단 (시간순). MISSION_SETTLE_DONOR_CAP (기본 5000) 초과 시 잘립니다.
+          items:
+            $ref: '#/components/schemas/MissionDonor'
+        donors_truncated:
+          type: boolean
+          description: donor_count 가 cap 을 초과해 donors 배열이 잘렸는지 여부
+
+    Mission:
+      type: object
+      description: |
+        미션 이벤트 한 건. SOOP 의 도전미션·대결미션과 치지직의 MISSION/MISSION_PARTICIPATION 후원이 통합 스키마로 들어옵니다.
+        클라이언트는 platform 구분 없이 `mission_phase` (receive / settle / result) 만 보고 분기하면 됩니다.
+      properties:
+        id:
+          type: string
+          description: 데이터 ID (커서로 사용)
+        type:
+          type: string
+          enum: [mission]
+          description: mission 으로 고정
+        platform:
+          type: string
+          enum: [soop, chzzk]
+          description: 방송 플랫폼
+        streamer_id:
+          type: string
+          description: 방송인 아이디
+        user_id:
+          type: string
+          description: 후원자(또는 미션 생성자) 아이디. SETTLE/RESULT phase 에서는 비어있을 수 있음.
+        nickname:
+          type: string
+          description: 후원자 닉네임
+        mission_type:
+          type: string
+          description: |
+            플랫폼 원본 mission_type.
+            - SOOP: `CHALLENGE_GIFT`, `GIFT`, `CHALLENGE_SETTLE`, `SETTLE`, `CHALLENGE_NOTICE`, `NOTICE`
+            - Chzzk: `PENDING` (MISSION 생성자), `APPROVED` (MISSION_PARTICIPATION 참가자)
+            - 합성: `SETTLE`, `RESULT` (utility-chzzk-settle-synthesizer)
+        mission_phase:
+          type: string
+          enum: [receive, settle, result]
+          nullable: true
+          description: |
+            mission_type 으로부터 도출되는 통합 단계 라벨.
+            - `receive`: 미션 후원 한 건이 들어옴
+            - `settle`: 미션 정산 (후원자 명단·총합 동봉, settles 폴링에서 제공)
+            - `result`: 미션 결과 메타 (성공/실패/무승부)
+        key:
+          type: string
+          description: |
+            mission_key. 같은 미션의 receive / settle / result 이벤트는 동일 key 를 공유합니다.
+            Chzzk MISSION_PARTICIPATION 은 본 미션의 missionDonationId 로 묶입니다.
+        title:
+          type: string
+          description: 미션 타이틀 (있는 경우)
+        cnt:
+          type: integer
+          description: 후원 수량
+        amount:
+          type: integer
+          description: 후원 KRW 가치
+        extras:
+          type: object
+          description: 플랫폼별 원본 페이로드 (`extras.soop` 또는 `extras.chzzk`)
+        createdAt:
+          type: string
+          format: date-time
+          description: 데이터 생성일시
+        ttl:
+          type: string
+          format: date-time
+          description: 데이터 삭제예정일시
+        settle:
+          $ref: '#/components/schemas/MissionSettleSummary'
+          description: settles 폴링 응답에서만 동봉. 일반 polling 에서는 없음.
+
+    MissionSettings:
+      type: object
+      description: |
+        소켓룸별 미션 이벤트 시점 설정 (v2.0+).
+        대시보드 → 신청서 → **🎯 미션 설정** 에서 변경하며, MongoDB `socket-rooms` 컬렉션의 `mission` 서브도큐먼트로 영속화됩니다.
+        서버는 이 값으로 Socket `mission` 이벤트의 phase 게이트를 수행하고, 같은 값을 emit 페이로드의 `mission_settings` 에 동봉해 클라이언트 이중 게이트를 가능하게 합니다.
+        미션 자체는 항상 활성이며, 사용자는 받을 phase 만 선택합니다.
+      properties:
+        hook_timings:
+          type: array
+          description: 수신할 phase 배열. 기본 `["receive", "settle", "result"]` (전체). 최소 1개 필수.
+          items:
+            type: string
+            enum: [receive, settle, result]
+        updatedAt:
+          type: string
+          format: date-time
+          description: 마지막 변경 시각
+
     Room:
       type: object
       properties:
@@ -157,6 +309,9 @@ components:
         users_limit:
           type: integer
           description: 소켓소켓룸 가입 수 제한
+        mission:
+          $ref: '#/components/schemas/MissionSettings'
+          description: 미션 게이트 설정 (v2.0+)
         createdAt:
           type: string
           format: date-time
@@ -603,6 +758,299 @@ paths:
                       donation_count:
                         type: integer
                       donation_amount:
+                        type: integer
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '403':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /missions/polling:
+    get:
+      summary: 미션 내역 파싱
+      description: |
+        미션 이벤트의 **개별 RAW row** 를 커서 기반으로 페이지네이션해 반환합니다.
+        SOOP 의 도전미션·대결미션과 치지직의 MISSION/MISSION_PARTICIPATION 후원이 동일 스키마로 들어옵니다.
+
+        ## phase / mission_type 필터
+
+        받고 싶은 시점만 필터하려면 `phase` 쿼리를 사용하세요:
+        - `receive` — 미션 후원 한 건 (`CHALLENGE_GIFT`, `GIFT`, `PENDING`, `APPROVED`)
+        - `settle` — 정산 메타 (`CHALLENGE_SETTLE`, `SETTLE`)
+        - `result` — 결과 메타 (`CHALLENGE_NOTICE`, `NOTICE`, `RESULT`)
+
+        보다 세밀한 분기는 `mission_type` 으로 원본 값을 직접 지정합니다 (`phase` 보다 우선 적용).
+
+        ## settle 페이로드는 어디에?
+
+        이 엔드포인트는 정산 row 도 RAW 한 건씩 반환합니다 (donors 명단 미포함).
+        후원자 명단·총합 집계가 필요하면 `/missions/settles/polling` 을 사용하세요.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: cursor
+          schema:
+            type: string
+          description: 마지막 데이터의 커서 (미입력 시 최근 데이터 반환)
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 50
+            maximum: 100
+          description: 한번에 가져올 값
+        - in: query
+          name: phase
+          schema:
+            type: string
+            enum: [receive, settle, result]
+          description: 미션 단계 필터. mission_type 후보를 자동으로 매핑합니다.
+        - in: query
+          name: mission_type
+          schema:
+            type: string
+          description: 원본 mission_type 직접 필터 (phase 보다 우선)
+        - in: query
+          name: platform
+          schema:
+            type: string
+            enum: [soop, chzzk]
+          description: 플랫폼 필터
+        - in: query
+          name: streamer_id
+          schema:
+            type: string
+          description: 특정 스트리머 ID 필터
+        - in: query
+          name: key
+          schema:
+            type: string
+          description: 특정 미션 key (mission_key) 필터 — 한 미션의 receive/settle/result 만 모아보고 싶을 때 유용
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: integer
+                    example: 0
+                  currentCursor:
+                    type: string
+                  nextCursor:
+                    type: string
+                    nullable: true
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Mission'
+                  length:
+                    type: integer
+                  applied_filters:
+                    type: object
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '401':
+          $ref: '#/components/responses/ClientError'
+
+  /missions/settles/polling:
+    get:
+      summary: 미션 정산 내역 파싱
+      description: |
+        미션 정산(settle) 이벤트만 커서 기반으로 페이지네이션하면서, 각 정산 row 마다 같은 `mission key`
+        의 후원 내역을 집계해 `settle.{total_cnt, total_amount, donor_count, streamers, donors[], donors_truncated}` 형태로
+        동봉합니다. **Socket `mission` 이벤트의 settle phase 페이로드와 동일 shape** 이므로 실시간/오프라인 양쪽에서 같은 코드로 처리할 수 있습니다.
+
+        ## donor 캡
+
+        후원자 수가 매우 많은 미션은 `donors` 배열이 잘릴 수 있습니다 (서버 환경변수
+        `MISSION_SETTLE_DONOR_CAP` — 기본 5000). 잘린 경우 `settle.donors_truncated: true` 로 표시되며,
+        `total_cnt` / `total_amount` / `donor_count` 는 잘리기 **전** 의 합계가 아니라 응답에 담긴
+        donors 합계입니다.
+
+        ## 대결미션
+
+        양 스트리머가 동일 key 로 정산되므로 `settle.streamers` 에 두 ID 가 모두 포함됩니다.
+        후원자 row 의 `streamer_id` 로 어느 쪽으로 들어갔는지 확인할 수 있습니다.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: cursor
+          schema:
+            type: string
+          description: 마지막 데이터의 커서 (미입력 시 최근 데이터 반환)
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 20
+            maximum: 50
+          description: 한번에 가져올 정산 건수 (donors 배열을 동반하므로 보수적으로 설정)
+        - in: query
+          name: platform
+          schema:
+            type: string
+            enum: [soop, chzzk]
+          description: 플랫폼 필터
+        - in: query
+          name: streamer_id
+          schema:
+            type: string
+          description: 특정 스트리머 ID 필터
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: integer
+                    example: 0
+                  currentCursor:
+                    type: string
+                  nextCursor:
+                    type: string
+                    nullable: true
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Mission'
+                  length:
+                    type: integer
+                  applied_filters:
+                    type: object
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '401':
+          $ref: '#/components/responses/ClientError'
+
+  /missions/summaries/streamers:
+    get:
+      tags:
+        - Alliance API
+      summary: 미션 통계 데이터 (제휴)
+      description: |
+        ⚠️ 제휴 전용 API
+        이 API는 별도 제휴를 통해서만 제공되는 제휴 전용 API입니다.
+        일반 API에 비해 심사 요건이 매우 까다롭습니다.
+        제휴를 하지 않은 경우 API 키가 있더라도 사용할 수 없습니다.
+
+        지정된 `reference_time` 으로부터 `duration` 초 이전까지의 미션 이벤트를 스트리머·플랫폼 별로
+        집계해 count / amount / cnt 를 반환합니다. `phase` 쿼리로 receive / settle / result 중 하나만 골라
+        집계할 수 있습니다.
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: reference_time
+          required: true
+          schema:
+            type: string
+            format: date-time
+          description: ISO 8601 형식의 기준 시간
+        - in: query
+          name: duration
+          required: true
+          schema:
+            type: integer
+            minimum: 30
+            maximum: 86400
+          description: 조회 기간(초), 30초에서 86400초(1일) 사이
+        - in: query
+          name: platform
+          schema:
+            type: string
+            enum: [soop, chzzk]
+          description: 플랫폼 필터
+        - in: query
+          name: streamer_id
+          schema:
+            type: string
+          description: 특정 스트리머 ID 필터
+        - in: query
+          name: phase
+          schema:
+            type: string
+            enum: [receive, settle, result]
+          description: 단일 phase 만 집계
+      responses:
+        '200':
+          description: 성공
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: integer
+                    example: 0
+                  summaries:
+                    type: object
+                    properties:
+                      soop:
+                        type: object
+                        additionalProperties:
+                          type: object
+                          properties:
+                            count:
+                              type: integer
+                            amount:
+                              type: integer
+                            cnt:
+                              type: integer
+                      chzzk:
+                        type: object
+                        additionalProperties:
+                          type: object
+                          properties:
+                            count:
+                              type: integer
+                            amount:
+                              type: integer
+                            cnt:
+                              type: integer
+                  reference:
+                    type: object
+                    properties:
+                      IOS8601:
+                        type: object
+                        properties:
+                          start:
+                            type: string
+                            format: date-time
+                          end:
+                            type: string
+                            format: date-time
+                      KST:
+                        type: object
+                        properties:
+                          start:
+                            type: string
+                          end:
+                            type: string
+                      match_condition:
+                        type: object
+                      applied_filters:
+                        type: object
+                  duration:
+                    type: integer
+                  total:
+                    type: object
+                    properties:
+                      streamer:
+                        type: integer
+                      mission_count:
+                        type: integer
+                      mission_amount:
+                        type: integer
+                      mission_cnt:
                         type: integer
         '400':
           $ref: '#/components/responses/ClientError'

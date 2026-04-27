@@ -8,17 +8,18 @@ sidebar_position: 110
 
 플랫폼 차이는 서버에서 흡수되므로 클라이언트는 `platform` 분기 없이 동일한 페이로드 처리가 가능합니다.
 
-## 활성화
+## 사용
 
-미션 이벤트를 받으려면:
+미션 이벤트는 항상 활성입니다. 사용자는 받을 phase 만 선택하면 됩니다:
 
-1. [SSAPI 대시보드](https://ssapi.kr/app)의 신청서 → **🎯 미션 설정** 페이지에서 활성화
-2. 받을 시점(phase) 선택: `receive` / `settle` / `result`
-3. `setReceiver` 에 `mission` 포함하여 emit
+1. [SSAPI 대시보드](https://ssapi.kr/app)의 신청서 → **🎯 미션 설정** 페이지에서 phase 선택 (기본 `receive` / `settle` / `result` 전체)
+2. `setReceiver` 에 `mission` 포함하여 emit
 
 ```javascript
-socket.emit("setReceiver", "login,donation,status,mission");
+socket.emit("setReceiver", "chat,donation,mission");
 ```
+
+> 시점 설정은 Socket `mission` 리스너에만 적용됩니다. REST 폴링(`GET /missions/polling`, `/missions/settles/polling`)은 시점 설정과 무관하게 항상 모든 phase 의 RAW 데이터를 반환하며, 클라이언트가 `?phase=settle` 같은 쿼리로 직접 필터합니다.
 
 ## 시점 (mission_phase)
 
@@ -28,7 +29,7 @@ socket.emit("setReceiver", "login,donation,status,mission");
 | `settle` | 미션 정산 (총합 + 후원자 명단) | `CHALLENGE_SETTLE`, `SETTLE` | 서버측 합성 (utility-chzzk-settle-synthesizer) |
 | `result` | 미션 결과 메타 (성공/실패/무승부) | `CHALLENGE_NOTICE`, `NOTICE` | 서버측 합성 |
 
-기본값은 `["settle"]` 입니다 — 정산 시점만 받기.
+기본값은 `["receive", "settle", "result"]` (전체) 입니다 — 모든 phase 를 수신.
 
 ## Response
 

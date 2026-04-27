@@ -22,12 +22,21 @@ login 후 사용해야 하는 이벤트입니다.
 
 `TEXT` donation
 
-`TEXT` login,setReceiver,donation,etc
+`TEXT` chat,donation,mission,status
 
 :::info
 수신을 원하시는 Event 리스너의 이름을 콤마로 구분하여 입력하세요.
 셋팅을 하지 않으실 경우 기본값은 전체를 모두 보내는 설정이 기본값 입니다.
 :::
+
+## 사용 가능한 리시버
+
+| 이름 | 설명 |
+| ---- | ---- |
+| `chat` | 채팅 메시지 ([↓ chat](./chat)) |
+| `donation` | 후원 / 별풍선 ([↓ donation](./donation)) |
+| `mission` | 미션 (v2.0+, [↓ mission](./mission)) |
+| `status` | 방송 상태 변경 |
 
 ## Response
 

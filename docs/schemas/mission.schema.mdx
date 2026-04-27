@@ -1,0 +1,27 @@
+---
+id: mission
+title: "Mission"
+description: ""
+sidebar_label: "Mission"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":"string","type":"mission","platform":"soop","streamer_id":"string","user_id":"string","nickname":"string","mission_type":"CHALLENGE_GIFT","mission_phase":"receive","key":"string","title":"string","cnt":0,"amount":0,"extras":{},"createdAt":"2024-07-29T15:51:28.071Z","ttl":"2024-07-29T15:51:28.071Z"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mission"}
+>
+</Heading>
+
+<Schema
+  schema={{"type":"object","description":"미션 이벤트 한 건. SOOP 의 도전미션·대결미션과 치지직의 MISSION/MISSION_PARTICIPATION 후원이 통합 스키마로 들어옵니다. 클라이언트는 platform 분기 없이 mission_phase (receive / settle / result) 만 보고 처리합니다.","properties":{"id":{"type":"string","description":"데이터 ID (커서로 사용)"},"type":{"type":"string","enum":["mission"],"description":"mission 으로 고정"},"platform":{"type":"string","enum":["soop","chzzk"],"description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"방송인 아이디"},"user_id":{"type":"string","description":"후원자(또는 미션 생성자) 아이디. settle/result phase 에서는 비어있을 수 있음."},"nickname":{"type":"string","description":"후원자 닉네임"},"mission_type":{"type":"string","description":"플랫폼 원본 mission_type (SOOP: CHALLENGE_GIFT/GIFT/CHALLENGE_SETTLE/SETTLE/CHALLENGE_NOTICE/NOTICE, Chzzk: PENDING/APPROVED, 합성: SETTLE/RESULT)"},"mission_phase":{"type":"string","enum":["receive","settle","result"],"nullable":true,"description":"mission_type 으로부터 도출된 통합 단계 라벨"},"key":{"type":"string","description":"mission_key. 같은 미션의 receive/settle/result 이벤트는 동일 key 공유"},"title":{"type":"string","description":"미션 타이틀"},"cnt":{"type":"integer","description":"후원 수량"},"amount":{"type":"integer","description":"후원 KRW 가치"},"extras":{"type":"object","description":"플랫폼별 원본 페이로드 (extras.soop 또는 extras.chzzk)"},"createdAt":{"type":"string","format":"date-time","description":"데이터 생성일시"},"ttl":{"type":"string","format":"date-time","description":"데이터 삭제예정일시"},"settle":{"type":"object","description":"settle phase / settles 폴링 응답에서만 동봉. donors[] 와 총합 집계.","properties":{"total_cnt":{"type":"integer"},"total_amount":{"type":"integer"},"donor_count":{"type":"integer"},"streamers":{"type":"array","items":{"type":"string"}},"donors":{"type":"array","description":"후원자 명단 (시간순). MISSION_SETTLE_DONOR_CAP 기본 5000.","items":{"type":"object","properties":{"user_id":{"type":"string"},"nickname":{"type":"string"},"platform":{"type":"string"},"streamer_id":{"type":"string"},"cnt":{"type":"integer"},"amount":{"type":"integer"},"extras":{"type":"object"},"createdAt":{"type":"string","format":"date-time"}}}},"donors_truncated":{"type":"boolean"}}}},"title":"Mission"}}
+  schemaType={"response"}
+>
+</Schema>

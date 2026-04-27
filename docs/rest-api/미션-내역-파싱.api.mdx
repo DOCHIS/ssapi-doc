@@ -1,0 +1,87 @@
+---
+id: 미션-내역-파싱
+title: "미션 내역 파싱"
+description: "미션 이벤트의 **개별 RAW row** 를 커서 기반으로 페이지네이션해 반환합니다."
+sidebar_label: "미션 내역 파싱"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/ssapi
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"미션 내역 파싱"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/missions/polling"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+미션 이벤트의 **개별 RAW row** 를 커서 기반으로 페이지네이션해 반환합니다.
+SOOP 의 도전미션·대결미션과 치지직의 MISSION/MISSION_PARTICIPATION 후원이 동일 스키마로 들어옵니다.
+
+## phase / mission_type 필터
+
+받고 싶은 시점만 필터하려면 `phase` 쿼리를 사용하세요:
+- `receive` — 미션 후원 한 건 (`CHALLENGE_GIFT`, `GIFT`, `PENDING`, `APPROVED`)
+- `settle` — 정산 메타 (`CHALLENGE_SETTLE`, `SETTLE`)
+- `result` — 결과 메타 (`CHALLENGE_NOTICE`, `NOTICE`, `RESULT`)
+
+보다 세밀한 분기는 `mission_type` 으로 원본 값을 직접 지정합니다 (`phase` 보다 우선 적용).
+
+## settle 페이로드는 어디에?
+
+이 엔드포인트는 정산 row 도 RAW 한 건씩 반환합니다 (donors 명단 미포함).
+후원자 명단·총합 집계가 필요하면 `/missions/settles/polling` 을 사용하세요.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"cursor","schema":{"type":"string"},"description":"마지막 데이터의 커서 (미입력 시 최근 데이터 반환)"},{"in":"query","name":"limit","schema":{"type":"integer","default":50,"maximum":100},"description":"한번에 가져올 값"},{"in":"query","name":"phase","schema":{"type":"string","enum":["receive","settle","result"]},"description":"미션 단계 필터. mission_type 후보를 자동으로 매핑합니다."},{"in":"query","name":"mission_type","schema":{"type":"string"},"description":"원본 mission_type 직접 필터 (phase 보다 우선)"},{"in":"query","name":"platform","schema":{"type":"string","enum":["soop","chzzk"]},"description":"플랫폼 필터"},{"in":"query","name":"streamer_id","schema":{"type":"string"},"description":"특정 스트리머 ID 필터"},{"in":"query","name":"key","schema":{"type":"string"},"description":"특정 미션 key (mission_key) 필터 — 한 미션의 receive/settle/result 만 모아보고 싶을 때 유용"}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"성공","content":{"application/json":{"schema":{"type":"object","properties":{"error":{"type":"integer","example":0},"currentCursor":{"type":"string"},"nextCursor":{"type":"string","nullable":true},"result":{"type":"array","items":{"type":"object","description":"미션 이벤트 한 건. SOOP 의 도전미션·대결미션과 치지직의 MISSION/MISSION_PARTICIPATION 후원이 통합 스키마로 들어옵니다.\n클라이언트는 platform 구분 없이 `mission_phase` (receive / settle / result) 만 보고 분기하면 됩니다.\n","properties":{"id":{"type":"string","description":"데이터 ID (커서로 사용)"},"type":{"type":"string","enum":["mission"],"description":"mission 으로 고정"},"platform":{"type":"string","enum":["soop","chzzk"],"description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"방송인 아이디"},"user_id":{"type":"string","description":"후원자(또는 미션 생성자) 아이디. SETTLE/RESULT phase 에서는 비어있을 수 있음."},"nickname":{"type":"string","description":"후원자 닉네임"},"mission_type":{"type":"string","description":"플랫폼 원본 mission_type.\n- SOOP: `CHALLENGE_GIFT`, `GIFT`, `CHALLENGE_SETTLE`, `SETTLE`, `CHALLENGE_NOTICE`, `NOTICE`\n- Chzzk: `PENDING` (MISSION 생성자), `APPROVED` (MISSION_PARTICIPATION 참가자)\n- 합성: `SETTLE`, `RESULT` (utility-chzzk-settle-synthesizer)\n"},"mission_phase":{"type":"string","enum":["receive","settle","result"],"nullable":true,"description":"mission_type 으로부터 도출되는 통합 단계 라벨.\n- `receive`: 미션 후원 한 건이 들어옴\n- `settle`: 미션 정산 (후원자 명단·총합 동봉, settles 폴링에서 제공)\n- `result`: 미션 결과 메타 (성공/실패/무승부)\n"},"key":{"type":"string","description":"mission_key. 같은 미션의 receive / settle / result 이벤트는 동일 key 를 공유합니다.\nChzzk MISSION_PARTICIPATION 은 본 미션의 missionDonationId 로 묶입니다.\n"},"title":{"type":"string","description":"미션 타이틀 (있는 경우)"},"cnt":{"type":"integer","description":"후원 수량"},"amount":{"type":"integer","description":"후원 KRW 가치"},"extras":{"type":"object","description":"플랫폼별 원본 페이로드 (`extras.soop` 또는 `extras.chzzk`)"},"createdAt":{"type":"string","format":"date-time","description":"데이터 생성일시"},"ttl":{"type":"string","format":"date-time","description":"데이터 삭제예정일시"},"settle":{"description":"settles 폴링 응답에서만 동봉. 일반 polling 에서는 없음.","type":"object","properties":{"total_cnt":{"type":"integer","description":"후원 수량 합계"},"total_amount":{"type":"integer","description":"후원 KRW 가치 합계"},"donor_count":{"type":"integer","description":"정산에 포함된 후원 row 수 (= donors 배열 길이가 캡되지 않은 경우)"},"streamers":{"type":"array","description":"미션에 연결된 스트리머 ID 목록 (대결미션이면 양쪽 모두 포함)","items":{"type":"string"}},"donors":{"type":"array","description":"후원자 명단 (시간순). MISSION_SETTLE_DONOR_CAP (기본 5000) 초과 시 잘립니다.","items":{"type":"object","description":"정산(settle) 페이로드에 포함되는 개별 후원자 항목.\n같은 mission key 의 receive 단계 후원 row 들을 시간순으로 모은 것입니다.\n","properties":{"user_id":{"type":"string","description":"후원자 아이디"},"nickname":{"type":"string","description":"후원자 닉네임"},"platform":{"type":"string","enum":["soop","chzzk"],"description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"후원이 발생한 방송인 아이디 (대결미션은 양 스트리머가 섞여있을 수 있음)"},"cnt":{"type":"integer","description":"후원 수량 (별풍선 개수 등)"},"amount":{"type":"integer","description":"후원 KRW 가치 (별풍선 1개=100원, 치즈 1개=1원)"},"extras":{"type":"object","description":"플랫폼별 원본 페이로드"},"createdAt":{"type":"string","format":"date-time","description":"후원 발생 시각"}},"title":"MissionDonor"}},"donors_truncated":{"type":"boolean","description":"donor_count 가 cap 을 초과해 donors 배열이 잘렸는지 여부"}},"title":"MissionSettleSummary"}},"title":"Mission"}},"length":{"type":"integer"},"applied_filters":{"type":"object"}}}}}},"400":{"description":"### 클라이언트 오류\n- `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청\n- `401 Unauthorized`: 인증되지 않은 요청\n- `403 Forbidden`: 권한이 없는 요청\n- `404 Not Found`: 요청한 리소스를 찾을 수 없음\n- `429 Too Many Requests`: 요청 횟수 제한 초과\n"},"401":{"description":"### 클라이언트 오류\n- `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청\n- `401 Unauthorized`: 인증되지 않은 요청\n- `403 Forbidden`: 권한이 없는 요청\n- `404 Not Found`: 요청한 리소스를 찾을 수 없음\n- `429 Too Many Requests`: 요청 횟수 제한 초과\n"}}}
+>
+  
+</StatusCodes>
+
+
+      

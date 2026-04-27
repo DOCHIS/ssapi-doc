@@ -1,0 +1,86 @@
+---
+id: 미션-정산-내역-파싱
+title: "미션 정산 내역 파싱"
+description: "미션 정산(settle) 이벤트만 커서 기반으로 페이지네이션하면서, 각 정산 row 마다 같은 `mission key`"
+sidebar_label: "미션 정산 내역 파싱"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/ssapi
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"미션 정산 내역 파싱"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/missions/settles/polling"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+미션 정산(settle) 이벤트만 커서 기반으로 페이지네이션하면서, 각 정산 row 마다 같은 `mission key`
+의 후원 내역을 집계해 `settle.{total_cnt, total_amount, donor_count, streamers, donors[], donors_truncated}` 형태로
+동봉합니다. **Socket `mission` 이벤트의 settle phase 페이로드와 동일 shape** 이므로 실시간/오프라인 양쪽에서 같은 코드로 처리할 수 있습니다.
+
+## donor 캡
+
+후원자 수가 매우 많은 미션은 `donors` 배열이 잘릴 수 있습니다 (서버 환경변수
+`MISSION_SETTLE_DONOR_CAP` — 기본 5000). 잘린 경우 `settle.donors_truncated: true` 로 표시되며,
+`total_cnt` / `total_amount` / `donor_count` 는 잘리기 **전** 의 합계가 아니라 응답에 담긴
+donors 합계입니다.
+
+## 대결미션
+
+양 스트리머가 동일 key 로 정산되므로 `settle.streamers` 에 두 ID 가 모두 포함됩니다.
+후원자 row 의 `streamer_id` 로 어느 쪽으로 들어갔는지 확인할 수 있습니다.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"cursor","schema":{"type":"string"},"description":"마지막 데이터의 커서 (미입력 시 최근 데이터 반환)"},{"in":"query","name":"limit","schema":{"type":"integer","default":20,"maximum":50},"description":"한번에 가져올 정산 건수 (donors 배열을 동반하므로 보수적으로 설정)"},{"in":"query","name":"platform","schema":{"type":"string","enum":["soop","chzzk"]},"description":"플랫폼 필터"},{"in":"query","name":"streamer_id","schema":{"type":"string"},"description":"특정 스트리머 ID 필터"}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"성공","content":{"application/json":{"schema":{"type":"object","properties":{"error":{"type":"integer","example":0},"currentCursor":{"type":"string"},"nextCursor":{"type":"string","nullable":true},"result":{"type":"array","items":{"type":"object","description":"미션 이벤트 한 건. SOOP 의 도전미션·대결미션과 치지직의 MISSION/MISSION_PARTICIPATION 후원이 통합 스키마로 들어옵니다.\n클라이언트는 platform 구분 없이 `mission_phase` (receive / settle / result) 만 보고 분기하면 됩니다.\n","properties":{"id":{"type":"string","description":"데이터 ID (커서로 사용)"},"type":{"type":"string","enum":["mission"],"description":"mission 으로 고정"},"platform":{"type":"string","enum":["soop","chzzk"],"description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"방송인 아이디"},"user_id":{"type":"string","description":"후원자(또는 미션 생성자) 아이디. SETTLE/RESULT phase 에서는 비어있을 수 있음."},"nickname":{"type":"string","description":"후원자 닉네임"},"mission_type":{"type":"string","description":"플랫폼 원본 mission_type.\n- SOOP: `CHALLENGE_GIFT`, `GIFT`, `CHALLENGE_SETTLE`, `SETTLE`, `CHALLENGE_NOTICE`, `NOTICE`\n- Chzzk: `PENDING` (MISSION 생성자), `APPROVED` (MISSION_PARTICIPATION 참가자)\n- 합성: `SETTLE`, `RESULT` (utility-chzzk-settle-synthesizer)\n"},"mission_phase":{"type":"string","enum":["receive","settle","result"],"nullable":true,"description":"mission_type 으로부터 도출되는 통합 단계 라벨.\n- `receive`: 미션 후원 한 건이 들어옴\n- `settle`: 미션 정산 (후원자 명단·총합 동봉, settles 폴링에서 제공)\n- `result`: 미션 결과 메타 (성공/실패/무승부)\n"},"key":{"type":"string","description":"mission_key. 같은 미션의 receive / settle / result 이벤트는 동일 key 를 공유합니다.\nChzzk MISSION_PARTICIPATION 은 본 미션의 missionDonationId 로 묶입니다.\n"},"title":{"type":"string","description":"미션 타이틀 (있는 경우)"},"cnt":{"type":"integer","description":"후원 수량"},"amount":{"type":"integer","description":"후원 KRW 가치"},"extras":{"type":"object","description":"플랫폼별 원본 페이로드 (`extras.soop` 또는 `extras.chzzk`)"},"createdAt":{"type":"string","format":"date-time","description":"데이터 생성일시"},"ttl":{"type":"string","format":"date-time","description":"데이터 삭제예정일시"},"settle":{"description":"settles 폴링 응답에서만 동봉. 일반 polling 에서는 없음.","type":"object","properties":{"total_cnt":{"type":"integer","description":"후원 수량 합계"},"total_amount":{"type":"integer","description":"후원 KRW 가치 합계"},"donor_count":{"type":"integer","description":"정산에 포함된 후원 row 수 (= donors 배열 길이가 캡되지 않은 경우)"},"streamers":{"type":"array","description":"미션에 연결된 스트리머 ID 목록 (대결미션이면 양쪽 모두 포함)","items":{"type":"string"}},"donors":{"type":"array","description":"후원자 명단 (시간순). MISSION_SETTLE_DONOR_CAP (기본 5000) 초과 시 잘립니다.","items":{"type":"object","description":"정산(settle) 페이로드에 포함되는 개별 후원자 항목.\n같은 mission key 의 receive 단계 후원 row 들을 시간순으로 모은 것입니다.\n","properties":{"user_id":{"type":"string","description":"후원자 아이디"},"nickname":{"type":"string","description":"후원자 닉네임"},"platform":{"type":"string","enum":["soop","chzzk"],"description":"방송 플랫폼"},"streamer_id":{"type":"string","description":"후원이 발생한 방송인 아이디 (대결미션은 양 스트리머가 섞여있을 수 있음)"},"cnt":{"type":"integer","description":"후원 수량 (별풍선 개수 등)"},"amount":{"type":"integer","description":"후원 KRW 가치 (별풍선 1개=100원, 치즈 1개=1원)"},"extras":{"type":"object","description":"플랫폼별 원본 페이로드"},"createdAt":{"type":"string","format":"date-time","description":"후원 발생 시각"}},"title":"MissionDonor"}},"donors_truncated":{"type":"boolean","description":"donor_count 가 cap 을 초과해 donors 배열이 잘렸는지 여부"}},"title":"MissionSettleSummary"}},"title":"Mission"}},"length":{"type":"integer"},"applied_filters":{"type":"object"}}}}}},"400":{"description":"### 클라이언트 오류\n- `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청\n- `401 Unauthorized`: 인증되지 않은 요청\n- `403 Forbidden`: 권한이 없는 요청\n- `404 Not Found`: 요청한 리소스를 찾을 수 없음\n- `429 Too Many Requests`: 요청 횟수 제한 초과\n"},"401":{"description":"### 클라이언트 오류\n- `400 Bad Request`: 잘못된 요청 구문, 유효하지 않은 요청\n- `401 Unauthorized`: 인증되지 않은 요청\n- `403 Forbidden`: 권한이 없는 요청\n- `404 Not Found`: 요청한 리소스를 찾을 수 없음\n- `429 Too Many Requests`: 요청 횟수 제한 초과\n"}}}
+>
+  
+</StatusCodes>
+
+
+      
